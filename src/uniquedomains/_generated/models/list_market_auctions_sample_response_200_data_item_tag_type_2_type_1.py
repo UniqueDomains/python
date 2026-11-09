@@ -1,0 +1,22 @@
+from typing import Literal
+
+ListMarketAuctionsSampleResponse200DataItemTagType2Type1 = Literal["jumped"]
+
+LIST_MARKET_AUCTIONS_SAMPLE_RESPONSE_200_DATA_ITEM_TAG_TYPE_2_TYPE_1_VALUES: set[
+    ListMarketAuctionsSampleResponse200DataItemTagType2Type1
+] = {
+    "jumped",
+}
+
+
+def check_list_market_auctions_sample_response_200_data_item_tag_type_2_type_1(
+    value: str,
+) -> ListMarketAuctionsSampleResponse200DataItemTagType2Type1:
+    if (
+        value
+        in LIST_MARKET_AUCTIONS_SAMPLE_RESPONSE_200_DATA_ITEM_TAG_TYPE_2_TYPE_1_VALUES
+    ):
+        return value
+    raise TypeError(
+        f"Unexpected value {value!r}. Expected one of {LIST_MARKET_AUCTIONS_SAMPLE_RESPONSE_200_DATA_ITEM_TAG_TYPE_2_TYPE_1_VALUES!r}"
+    )

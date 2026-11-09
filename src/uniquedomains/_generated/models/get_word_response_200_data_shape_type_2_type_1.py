@@ -1,0 +1,25 @@
+from typing import Literal
+
+GetWordResponse200DataShapeType2Type1 = Literal[
+    "acronym", "phrase", "properNoun", "single", "twoWords"
+]
+
+GET_WORD_RESPONSE_200_DATA_SHAPE_TYPE_2_TYPE_1_VALUES: set[
+    GetWordResponse200DataShapeType2Type1
+] = {
+    "acronym",
+    "phrase",
+    "properNoun",
+    "single",
+    "twoWords",
+}
+
+
+def check_get_word_response_200_data_shape_type_2_type_1(
+    value: str,
+) -> GetWordResponse200DataShapeType2Type1:
+    if value in GET_WORD_RESPONSE_200_DATA_SHAPE_TYPE_2_TYPE_1_VALUES:
+        return value
+    raise TypeError(
+        f"Unexpected value {value!r}. Expected one of {GET_WORD_RESPONSE_200_DATA_SHAPE_TYPE_2_TYPE_1_VALUES!r}"
+    )

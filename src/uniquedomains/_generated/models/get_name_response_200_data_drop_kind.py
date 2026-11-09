@@ -1,0 +1,18 @@
+from typing import Literal
+
+GetNameResponse200DataDropKind = Literal["date", "none"]
+
+GET_NAME_RESPONSE_200_DATA_DROP_KIND_VALUES: set[GetNameResponse200DataDropKind] = {
+    "date",
+    "none",
+}
+
+
+def check_get_name_response_200_data_drop_kind(
+    value: str,
+) -> GetNameResponse200DataDropKind:
+    if value in GET_NAME_RESPONSE_200_DATA_DROP_KIND_VALUES:
+        return value
+    raise TypeError(
+        f"Unexpected value {value!r}. Expected one of {GET_NAME_RESPONSE_200_DATA_DROP_KIND_VALUES!r}"
+    )

@@ -1,0 +1,26 @@
+from typing import Literal
+
+GetWordResponse200DataLinguisticsSoundTextureLabelType1 = Literal[
+    "balanced", "sharp", "soft"
+]
+
+GET_WORD_RESPONSE_200_DATA_LINGUISTICS_SOUND_TEXTURE_LABEL_TYPE_1_VALUES: set[
+    GetWordResponse200DataLinguisticsSoundTextureLabelType1
+] = {
+    "balanced",
+    "sharp",
+    "soft",
+}
+
+
+def check_get_word_response_200_data_linguistics_sound_texture_label_type_1(
+    value: str,
+) -> GetWordResponse200DataLinguisticsSoundTextureLabelType1:
+    if (
+        value
+        in GET_WORD_RESPONSE_200_DATA_LINGUISTICS_SOUND_TEXTURE_LABEL_TYPE_1_VALUES
+    ):
+        return value
+    raise TypeError(
+        f"Unexpected value {value!r}. Expected one of {GET_WORD_RESPONSE_200_DATA_LINGUISTICS_SOUND_TEXTURE_LABEL_TYPE_1_VALUES!r}"
+    )

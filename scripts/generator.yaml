@@ -1,0 +1,6 @@
+# openapi-python-client configuration (the version is pinned in pyproject.toml, group `generate`).
+# Literal enums: a parameter takes the plain string ("whois"), and an enum is a type, not a class to import.
+literal_enums: true
+post_hooks:
+  - "ruff check . --fix-only --quiet"
+  - "ruff format . --quiet"
