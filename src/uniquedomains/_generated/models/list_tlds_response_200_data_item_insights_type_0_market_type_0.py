@@ -19,7 +19,7 @@ T = TypeVar("T", bound="ListTldsResponse200DataItemInsightsType0MarketType0")
 class ListTldsResponse200DataItemInsightsType0MarketType0:
     """
     Attributes:
-        computed_at (datetime.datetime): Timestamp of the rollup.
+        computed_at (datetime.datetime): When these figures were computed.
         available_one_word (int): One-word names available on the ending.
         registrations90d (int): Names registered in 90 days among those tracked.
         median_buy (float | None):

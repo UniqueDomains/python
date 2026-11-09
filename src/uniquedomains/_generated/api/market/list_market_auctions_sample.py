@@ -106,7 +106,7 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListMarketAuctionsSampleResponse200 | Problem]:
-    """The day's frozen sample of up to 20 single-word names at auction, by deadline.
+    """The day's fixed sample of up to 20 single-word names at auction, by deadline.
 
      Drawn once per UTC day from single base-form words on the public TLD set closing that day, at most
     ten of them with a bid. Never sorted, filtered or paged. No rows while the day has no sample.
@@ -138,7 +138,7 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | ListMarketAuctionsSampleResponse200 | Problem | None:
-    """The day's frozen sample of up to 20 single-word names at auction, by deadline.
+    """The day's fixed sample of up to 20 single-word names at auction, by deadline.
 
      Drawn once per UTC day from single base-form words on the public TLD set closing that day, at most
     ten of them with a bid. Never sorted, filtered or paged. No rows while the day has no sample.
@@ -165,7 +165,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListMarketAuctionsSampleResponse200 | Problem]:
-    """The day's frozen sample of up to 20 single-word names at auction, by deadline.
+    """The day's fixed sample of up to 20 single-word names at auction, by deadline.
 
      Drawn once per UTC day from single base-form words on the public TLD set closing that day, at most
     ten of them with a bid. Never sorted, filtered or paged. No rows while the day has no sample.
@@ -195,7 +195,7 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | ListMarketAuctionsSampleResponse200 | Problem | None:
-    """The day's frozen sample of up to 20 single-word names at auction, by deadline.
+    """The day's fixed sample of up to 20 single-word names at auction, by deadline.
 
      Drawn once per UTC day from single base-form words on the public TLD set closing that day, at most
     ten of them with a bid. Never sorted, filtered or paged. No rows while the day has no sample.

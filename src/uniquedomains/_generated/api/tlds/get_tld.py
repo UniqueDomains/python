@@ -111,9 +111,9 @@ def sync_detailed(
 ) -> Response[Any | GetTldResponse200 | Problem]:
     """One TLD in full: registry facts, phases, market, quality band and registrar prices.
 
-     A public-set TLD with a rollup carries the website insight bundle without its name sample, news,
-    description words and topics. Any other TLD answers its registry facts and phases, and its market on
-    a paid subscription. A removed or terminated TLD is 404.
+     A public-set TLD with its figures computed carries the website insight bundle without its name
+    sample, news, description words and topics. Any other TLD answers its registry facts and phases, and
+    its market on a paid subscription. A removed or terminated TLD is 404.
 
     Args:
         tld (str):
@@ -147,9 +147,9 @@ def sync(
 ) -> Any | GetTldResponse200 | Problem | None:
     """One TLD in full: registry facts, phases, market, quality band and registrar prices.
 
-     A public-set TLD with a rollup carries the website insight bundle without its name sample, news,
-    description words and topics. Any other TLD answers its registry facts and phases, and its market on
-    a paid subscription. A removed or terminated TLD is 404.
+     A public-set TLD with its figures computed carries the website insight bundle without its name
+    sample, news, description words and topics. Any other TLD answers its registry facts and phases, and
+    its market on a paid subscription. A removed or terminated TLD is 404.
 
     Args:
         tld (str):
@@ -178,9 +178,9 @@ async def asyncio_detailed(
 ) -> Response[Any | GetTldResponse200 | Problem]:
     """One TLD in full: registry facts, phases, market, quality band and registrar prices.
 
-     A public-set TLD with a rollup carries the website insight bundle without its name sample, news,
-    description words and topics. Any other TLD answers its registry facts and phases, and its market on
-    a paid subscription. A removed or terminated TLD is 404.
+     A public-set TLD with its figures computed carries the website insight bundle without its name
+    sample, news, description words and topics. Any other TLD answers its registry facts and phases, and
+    its market on a paid subscription. A removed or terminated TLD is 404.
 
     Args:
         tld (str):
@@ -212,9 +212,9 @@ async def asyncio(
 ) -> Any | GetTldResponse200 | Problem | None:
     """One TLD in full: registry facts, phases, market, quality band and registrar prices.
 
-     A public-set TLD with a rollup carries the website insight bundle without its name sample, news,
-    description words and topics. Any other TLD answers its registry facts and phases, and its market on
-    a paid subscription. A removed or terminated TLD is 404.
+     A public-set TLD with its figures computed carries the website insight bundle without its name
+    sample, news, description words and topics. Any other TLD answers its registry facts and phases, and
+    its market on a paid subscription. A removed or terminated TLD is 404.
 
     Args:
         tld (str):

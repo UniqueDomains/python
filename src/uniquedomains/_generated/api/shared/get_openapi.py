@@ -121,7 +121,8 @@ def sync_detailed(
     """The OpenAPI document of the API, whole or for one listing, in its 3.1 or 3.0 form.
 
      Built from the typed endpoint catalog, served bare (no envelope). Each RapidAPI listing imports its
-    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts.
+    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts. Not
+    counted against the free tier's per-address limits.
 
     Args:
         listing (GetOpenapiListing | Unset):
@@ -156,7 +157,8 @@ def sync(
     """The OpenAPI document of the API, whole or for one listing, in its 3.1 or 3.0 form.
 
      Built from the typed endpoint catalog, served bare (no envelope). Each RapidAPI listing imports its
-    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts.
+    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts. Not
+    counted against the free tier's per-address limits.
 
     Args:
         listing (GetOpenapiListing | Unset):
@@ -186,7 +188,8 @@ async def asyncio_detailed(
     """The OpenAPI document of the API, whole or for one listing, in its 3.1 or 3.0 form.
 
      Built from the typed endpoint catalog, served bare (no envelope). Each RapidAPI listing imports its
-    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts.
+    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts. Not
+    counted against the free tier's per-address limits.
 
     Args:
         listing (GetOpenapiListing | Unset):
@@ -219,7 +222,8 @@ async def asyncio(
     """The OpenAPI document of the API, whole or for one listing, in its 3.1 or 3.0 form.
 
      Built from the typed endpoint catalog, served bare (no envelope). Each RapidAPI listing imports its
-    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts.
+    own document with `listing`, in the 3.0 form (`oas=3.0`), the one RapidAPI's import accepts. Not
+    counted against the free tier's per-address limits.
 
     Args:
         listing (GetOpenapiListing | Unset):

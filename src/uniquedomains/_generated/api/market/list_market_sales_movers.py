@@ -108,8 +108,8 @@ def sync_detailed(
 ) -> Response[Any | ListMarketSalesMoversResponse200 | Problem]:
     """Up to ten words whose sales moved over the last 30 days.
 
-     Words with three sales or more in 30 days against the 30 before, in the rollup's stored order, words
-    with a deny class left out. Never the sold names.
+     Words with three sales or more in 30 days against the 30 before, in the stored order, words with a
+    deny class left out. Never the sold names.
 
     Args:
         fields (str | Unset):
@@ -140,8 +140,8 @@ def sync(
 ) -> Any | ListMarketSalesMoversResponse200 | Problem | None:
     """Up to ten words whose sales moved over the last 30 days.
 
-     Words with three sales or more in 30 days against the 30 before, in the rollup's stored order, words
-    with a deny class left out. Never the sold names.
+     Words with three sales or more in 30 days against the 30 before, in the stored order, words with a
+    deny class left out. Never the sold names.
 
     Args:
         fields (str | Unset):
@@ -167,8 +167,8 @@ async def asyncio_detailed(
 ) -> Response[Any | ListMarketSalesMoversResponse200 | Problem]:
     """Up to ten words whose sales moved over the last 30 days.
 
-     Words with three sales or more in 30 days against the 30 before, in the rollup's stored order, words
-    with a deny class left out. Never the sold names.
+     Words with three sales or more in 30 days against the 30 before, in the stored order, words with a
+    deny class left out. Never the sold names.
 
     Args:
         fields (str | Unset):
@@ -197,8 +197,8 @@ async def asyncio(
 ) -> Any | ListMarketSalesMoversResponse200 | Problem | None:
     """Up to ten words whose sales moved over the last 30 days.
 
-     Words with three sales or more in 30 days against the 30 before, in the rollup's stored order, words
-    with a deny class left out. Never the sold names.
+     Words with three sales or more in 30 days against the 30 before, in the stored order, words with a
+    deny class left out. Never the sold names.
 
     Args:
         fields (str | Unset):

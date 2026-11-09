@@ -29,7 +29,7 @@ class GetTldStatsResponse200DataHistoryItem:
     """
     Attributes:
         tld (str): Bare ending.
-        day (datetime.date): The rollup's day.
+        day (datetime.date): The day of these figures.
         computed_at (datetime.datetime | None):
         tracked (int):
         available (int):

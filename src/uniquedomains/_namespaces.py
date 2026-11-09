@@ -256,7 +256,7 @@ NAMESPACES: dict[str, str] = {
 
 
 class NamesApi:
-    """Domain Check: the `names` operations."""
+    """Domain Check API: the `names` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -413,7 +413,7 @@ class NamesApi:
 
 
 class WordsApi:
-    """Word Intelligence: the `words` operations."""
+    """Word Intelligence API: the `words` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -623,7 +623,7 @@ class WordsApi:
 
 
 class CatalogApi:
-    """Domain Catalog: the `catalog` operations."""
+    """One-Word Domains API: the `catalog` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -807,7 +807,7 @@ class CatalogApi:
 
 
 class TldsApi:
-    """TLD Intelligence: the `tlds` operations."""
+    """TLD Intelligence API: the `tlds` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -855,7 +855,7 @@ class TldsApi:
     def get_tld_stats(
         self, tld: str, *, history: int | Unset = UNSET
     ) -> Answer[GetTldStatsResponse200, GetTldStatsResponse200Data]:
-        """The ending's latest market rollup, and with history its last daily rows.
+        """The ending's latest market figures, and with history its last daily rows.
 
         `GET /tlds/{tld}/stats`, free. Reference: https://unique.domains/api/get-tld-stats
         """
@@ -1085,7 +1085,7 @@ class SharedApi:
 
 
 class RegistrarsApi:
-    """Registrar Prices: the `registrars` operations."""
+    """Registrar Prices API: the `registrars` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -1261,7 +1261,7 @@ class RegistrarsApi:
 
 
 class MarketApi:
-    """Domain Market: the `market` operations."""
+    """Domain Market API: the `market` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -1349,7 +1349,7 @@ class MarketApi:
     def list_market_auctions_sample(
         self,
     ) -> Answer[ListMarketAuctionsSampleResponse200, list[ListMarketAuctionsSampleResponse200DataItem]]:
-        """The day's frozen sample of up to 20 single-word names at auction, by deadline.
+        """The day's fixed sample of up to 20 single-word names at auction, by deadline.
 
         `GET /market/auctions/sample`, free. Reference: https://unique.domains/api/list-market-auctions-sample
         """
@@ -1388,7 +1388,7 @@ class MarketApi:
 
 
 class TrendsApi:
-    """Trends: the `trends` operations."""
+    """Domain Trends API: the `trends` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client
@@ -1450,7 +1450,7 @@ class TrendsApi:
 
 
 class AgendaApi:
-    """Agenda: the `agenda` operations."""
+    """TLD Launch Calendar API: the `agenda` operations."""
 
     def __init__(self, client: Client) -> None:
         self._client = client

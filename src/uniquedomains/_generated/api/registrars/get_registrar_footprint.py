@@ -116,7 +116,7 @@ def sync_detailed(
 ) -> Response[Any | GetRegistrarFootprintResponse200 | Problem]:
     """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
 
-     From the scanner's footprint rollup, keyed by IANA id; 404 for a registrar with no IANA id or no
+     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
     row.
 
     Args:
@@ -151,7 +151,7 @@ def sync(
 ) -> Any | GetRegistrarFootprintResponse200 | Problem | None:
     """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
 
-     From the scanner's footprint rollup, keyed by IANA id; 404 for a registrar with no IANA id or no
+     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
     row.
 
     Args:
@@ -181,7 +181,7 @@ async def asyncio_detailed(
 ) -> Response[Any | GetRegistrarFootprintResponse200 | Problem]:
     """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
 
-     From the scanner's footprint rollup, keyed by IANA id; 404 for a registrar with no IANA id or no
+     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
     row.
 
     Args:
@@ -214,7 +214,7 @@ async def asyncio(
 ) -> Any | GetRegistrarFootprintResponse200 | Problem | None:
     """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
 
-     From the scanner's footprint rollup, keyed by IANA id; 404 for a registrar with no IANA id or no
+     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
     row.
 
     Args:

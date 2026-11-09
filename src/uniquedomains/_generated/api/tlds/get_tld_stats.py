@@ -113,7 +113,7 @@ def sync_detailed(
     history: int | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetTldStatsResponse200 | Problem]:
-    """The ending's latest market rollup, and with history its last daily rows.
+    """The ending's latest market figures, and with history its last daily rows.
 
      Free for a public-set TLD (the website page carries these aggregates), keyed outside it. Scored rows
     only.
@@ -151,7 +151,7 @@ def sync(
     history: int | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | GetTldStatsResponse200 | Problem | None:
-    """The ending's latest market rollup, and with history its last daily rows.
+    """The ending's latest market figures, and with history its last daily rows.
 
      Free for a public-set TLD (the website page carries these aggregates), keyed outside it. Scored rows
     only.
@@ -184,7 +184,7 @@ async def asyncio_detailed(
     history: int | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetTldStatsResponse200 | Problem]:
-    """The ending's latest market rollup, and with history its last daily rows.
+    """The ending's latest market figures, and with history its last daily rows.
 
      Free for a public-set TLD (the website page carries these aggregates), keyed outside it. Scored rows
     only.
@@ -220,7 +220,7 @@ async def asyncio(
     history: int | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | GetTldStatsResponse200 | Problem | None:
-    """The ending's latest market rollup, and with history its last daily rows.
+    """The ending's latest market figures, and with history its last daily rows.
 
      Free for a public-set TLD (the website page carries these aggregates), keyed outside it. Scored rows
     only.

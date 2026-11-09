@@ -701,7 +701,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "tlds",
         "tier": "free",
         "plan": None,
-        "summary": "The ending's latest market rollup, and with history its last daily rows.",
+        "summary": "The ending's latest market figures, and with history its last daily rows.",
         "parameters": [
             {"name": "tld", "in": "path", "required": True, "arg": "tld"},
             {"name": "history", "in": "query", "required": False},
@@ -1170,7 +1170,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "market",
         "tier": "free",
         "plan": None,
-        "summary": "The day's frozen sample of up to 20 single-word names at auction, by deadline.",
+        "summary": "The day's fixed sample of up to 20 single-word names at auction, by deadline.",
         "parameters": [{"name": "fields", "in": "query", "required": False}],
         "body": None,
         "csv": True,

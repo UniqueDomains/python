@@ -84,7 +84,7 @@ class BatchWordsResponse200DataItemType0:
             BatchWordsResponse200DataItemType0StyleType3Type1 | None | Unset):
         deny_class (BatchWordsResponse200DataItemType0DenyClassType1 |
             BatchWordsResponse200DataItemType0DenyClassType2Type1 | BatchWordsResponse200DataItemType0DenyClassType3Type1 |
-            None | Unset): Why the word stays off public lists (ADR-0111); null when none.
+            None | Unset): Why the word stays off public lists; null when none.
         added_at (datetime.datetime | None | Unset): When the intake added it; null means the dictionary load.
     """
 

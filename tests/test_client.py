@@ -281,7 +281,7 @@ def test_an_operation_outside_the_listing_raises_before_any_call(fixtures: Fixtu
     assert error.operation_id == "get_name"
     assert error.listing == "whois"
     assert "names" in error.served_by
-    assert "WHOIS Lookup" in str(error) and "It is in: " in str(error)
+    assert "not part of the WHOIS Lookup API listing (whois)" in str(error) and "It is in: " in str(error)
     assert fixtures.requests == []
 
 

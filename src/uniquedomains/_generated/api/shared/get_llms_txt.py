@@ -95,7 +95,8 @@ def sync_detailed(
 ) -> Response[Any | GetLlmsTxtResponse200 | Problem]:
     """The free endpoints as plain text for language models.
 
-     `text/plain`, generated from the catalog, served bare (no envelope).
+     `text/plain`, generated from the catalog, served bare (no envelope). Not counted against the free
+    tier's per-address limits.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,7 +121,8 @@ def sync(
 ) -> Any | GetLlmsTxtResponse200 | Problem | None:
     """The free endpoints as plain text for language models.
 
-     `text/plain`, generated from the catalog, served bare (no envelope).
+     `text/plain`, generated from the catalog, served bare (no envelope). Not counted against the free
+    tier's per-address limits.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
 ) -> Response[Any | GetLlmsTxtResponse200 | Problem]:
     """The free endpoints as plain text for language models.
 
-     `text/plain`, generated from the catalog, served bare (no envelope).
+     `text/plain`, generated from the catalog, served bare (no envelope). Not counted against the free
+    tier's per-address limits.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -164,7 +167,8 @@ async def asyncio(
 ) -> Any | GetLlmsTxtResponse200 | Problem | None:
     """The free endpoints as plain text for language models.
 
-     `text/plain`, generated from the catalog, served bare (no envelope).
+     `text/plain`, generated from the catalog, served bare (no envelope). Not counted against the free
+    tier's per-address limits.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

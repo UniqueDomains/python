@@ -106,7 +106,7 @@ def sync_detailed(
 ) -> Response[Any | GetHealthResponse200 | Problem]:
     """Liveness, with no database read.
 
-     Answers `ok` with the server time.
+     Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
     Args:
         fields (str | Unset):
@@ -137,7 +137,7 @@ def sync(
 ) -> Any | GetHealthResponse200 | Problem | None:
     """Liveness, with no database read.
 
-     Answers `ok` with the server time.
+     Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
     Args:
         fields (str | Unset):
@@ -163,7 +163,7 @@ async def asyncio_detailed(
 ) -> Response[Any | GetHealthResponse200 | Problem]:
     """Liveness, with no database read.
 
-     Answers `ok` with the server time.
+     Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
     Args:
         fields (str | Unset):
@@ -192,7 +192,7 @@ async def asyncio(
 ) -> Any | GetHealthResponse200 | Problem | None:
     """Liveness, with no database read.
 
-     Answers `ok` with the server time.
+     Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
     Args:
         fields (str | Unset):

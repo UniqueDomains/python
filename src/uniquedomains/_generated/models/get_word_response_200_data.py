@@ -83,8 +83,7 @@ class GetWordResponse200Data:
         style (GetWordResponse200DataStyleType1 | GetWordResponse200DataStyleType2Type1 |
             GetWordResponse200DataStyleType3Type1 | None | Unset):
         deny_class (GetWordResponse200DataDenyClassType1 | GetWordResponse200DataDenyClassType2Type1 |
-            GetWordResponse200DataDenyClassType3Type1 | None | Unset): Why the word stays off public lists (ADR-0111); null
-            when none.
+            GetWordResponse200DataDenyClassType3Type1 | None | Unset): Why the word stays off public lists; null when none.
         added_at (datetime.datetime | None | Unset): When the intake added it; null means the dictionary load.
     """
 
