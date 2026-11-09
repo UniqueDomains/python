@@ -157,9 +157,20 @@ def resolve_ref(document: Any, value: Any, seen: frozenset[str] = frozenset()) -
     return resolve_ref(document, target, seen | {ref})
 
 
+TEXT_JSON_PATHS = frozenset({"/meta/openapi.json"})
+
+
 def answer_of(path: str) -> str:
-    """`text` for the document, the plain text and the calendars: they answer a file, not the envelope (Node R1 decision 4)."""
-    return "text" if re.search(r"\.(json|txt|ics)$", path) else "json"
+    """`text` for the document, the plain text and the calendars: they answer a file, not the envelope (Node R1 decision 4).
+
+    A `.txt` or `.ics` path is a file; a `.json` path only when it is the document itself, so a future envelope path
+    ending in `.json` is not read as text by accident (review R3-18). A test holds the table to the Node SDK's four.
+    """
+    if re.search(r"\.(txt|ics)$", path) or path in TEXT_JSON_PATHS:
+        return "text"
+    if path.endswith(".json"):
+        raise SystemExit(f"{path}: a .json path that is not the document; decide whether it answers a file")
+    return "json"
 
 
 def build_operations(document: Any) -> list[dict[str, Any]]:
@@ -187,7 +198,12 @@ def build_operations(document: Any) -> list[dict[str, Any]]:
                 if param["in"] not in ("path", "query"):
                     raise SystemExit(f"{op_id}.{param['name']}: parameters in {param['in']} are not supported")
             path_order = re.findall(r"\{(\w+)\}", path)
-            ordered = [next(p for p in params if p["in"] == "path" and p["name"] == name) for name in path_order]
+            ordered = []
+            for name in path_order:
+                declared_path = [p for p in params if p["in"] == "path" and p["name"] == name]
+                if not declared_path:
+                    raise SystemExit(f"{op_id}: {path} names {{{name}}} but declares no such path parameter")
+                ordered.append(declared_path[0])
             ordered += [p for p in params if p["in"] == "query"]
             body = None
             if operation.get("requestBody"):
@@ -235,6 +251,8 @@ def run_generator(document: Any, work: Path) -> Path:
     env = dict(os.environ)
     # The generator's post hooks call `ruff` from PATH: the interpreter's own, the pinned one.
     env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + env.get("PATH", "")
+    # A DeprecationWarning printed by one of the generator's own dependencies is not a missing part of the client.
+    env["PYTHONWARNINGS"] = "ignore::DeprecationWarning"
     command = [
         sys.executable,
         "-m",
@@ -251,8 +269,10 @@ def run_generator(document: Any, work: Path) -> Path:
     ]
     result = subprocess.run(command, env=env, capture_output=True, text=True)
     output = result.stdout + result.stderr
-    # A warning means a part of the document was left out of the client: fail rather than ship a partial client.
-    if result.returncode != 0 or "Warning" in output or "Skipping" in output:
+    # The generator's own warning, or a post hook it skipped, means a part of the client is missing or unformatted:
+    # fail rather than ship a partial client. Matched on the generator's lines, not on any "Warning" (review R3-18).
+    partial = any(line.startswith(("Warning(s) encountered", "Skipping ")) for line in output.splitlines())
+    if result.returncode != 0 or partial:
         sys.stderr.write(output)
         raise SystemExit("openapi-python-client did not generate the whole document.")
     shutil.rmtree(out / ".ruff_cache", ignore_errors=True)
@@ -471,9 +491,9 @@ def build_namespaces_source(
                 elif arg.arg == "include":
                     annotation = annotation.replace("str", "str | Sequence[str]", 1)
                     conversions.append(f"        {arg.arg} = _join({arg.arg})")
-                keyword.append(
-                    f"{arg.arg}: {annotation}" + (f" = {ast.unparse(default)}" if default is not None else "")
-                )
+                # An optional parameter defaults to UNSET, never to the document's default: the method sends only
+                # what the caller passed, and the server keeps its own defaults (review R3-10).
+                keyword.append(f"{arg.arg}: {annotation}" + (" = UNSET" if default is not None else ""))
                 passed.append(arg.arg)
             signature = ", ".join(["self", *params, *(["*", *keyword] if keyword else [])])
 
@@ -545,7 +565,9 @@ def build_namespaces_source(
         "    from ._client import Client",
         *type_imports,
         "",
-        "__all__ = [" + ", ".join(literal(class_name_of(tag)) for tag in by_tag) + "]",
+        "__all__ = ["
+        + ", ".join(literal(name) for name in [*(class_name_of(tag) for tag in by_tag), "NamespacedClient"])
+        + "]",
         "",
         "NAMESPACES: dict[str, str] = {"
         + ", ".join(f"{literal(tag)}: {literal(class_name_of(tag))}" for tag in by_tag)
@@ -553,6 +575,15 @@ def build_namespaces_source(
         "",
         "",
         "\n\n\n".join(classes),
+        "",
+        "",
+        "class NamespacedClient:",
+        '    """The namespaces of a `Client`, one per tag of the document, bound by `_bind_namespaces`."""',
+        "",
+        *[f"    {tag}: {class_name_of(tag)}" for tag in by_tag],
+        "",
+        "    def _bind_namespaces(self, client: Client) -> None:",
+        *[f"        self.{tag} = {class_name_of(tag)}(client)" for tag in by_tag],
     ]
     return "\n".join(lines) + "\n"
 
@@ -568,7 +599,7 @@ def ruff_format(files: dict[Path, str], work: Path) -> dict[Path, str]:
         names[target] = file
     ruff = [sys.executable, "-m", "ruff"]
     config = ["--config", str(ROOT / "pyproject.toml")]
-    subprocess.run([*ruff, "check", "--fix-only", "--quiet", *config, str(scratch)], check=False)
+    subprocess.run([*ruff, "check", "--fix-only", "--quiet", *config, str(scratch)], check=True)
     subprocess.run([*ruff, "format", "--quiet", *config, str(scratch)], check=True)
     return {target: file.read_text(encoding="utf-8") for target, file in names.items()}
 

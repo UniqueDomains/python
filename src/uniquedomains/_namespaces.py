@@ -240,6 +240,7 @@ __all__ = [
     "MarketApi",
     "TrendsApi",
     "AgendaApi",
+    "NamespacedClient",
 ]
 
 NAMESPACES: dict[str, str] = {
@@ -344,7 +345,7 @@ class NamesApi:
         )
 
     def list_name_changes(
-        self, name: str, *, types: str | Unset = UNSET, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, name: str, *, types: str | Unset = UNSET, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListNameChangesResponse200, list[ListNameChangesResponse200DataItem]]:
         """The change events of one name, newest first.
 
@@ -469,7 +470,7 @@ class WordsApi:
         syllables: int | Unset = UNSET,
         origin: ListWordsOrigin | Unset = UNSET,
         category: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListWordsResponse200, list[ListWordsResponse200DataItem]]:
         """Searches the catalog's words by text and facets, alphabetically.
@@ -524,7 +525,7 @@ class WordsApi:
         )
 
     def list_word_names(
-        self, word: str, *, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, word: str, *, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListWordNamesResponse200, list[ListWordNamesResponse200DataItem]]:
         """A word's catalog names on the endings that sell, by name.
 
@@ -572,7 +573,7 @@ class WordsApi:
         )
 
     def list_related_words(
-        self, word: str, *, limit: int | Unset = 50
+        self, word: str, *, limit: int | Unset = UNSET
     ) -> Answer[ListRelatedWordsResponse200, list[ListRelatedWordsResponse200DataItem]]:
         """A word's synonyms then related words, closest first, with their open names.
 
@@ -584,7 +585,7 @@ class WordsApi:
         )
 
     def list_word_fits(
-        self, word: str, *, tld: str | Unset = UNSET, limit: int | Unset = 50
+        self, word: str, *, tld: str | Unset = UNSET, limit: int | Unset = UNSET
     ) -> Answer[ListWordFitsResponse200, list[ListWordFitsResponse200DataItem]]:
         """How well the word fits each ending whose keywords list it.
 
@@ -645,7 +646,7 @@ class CatalogApi:
         pos: str | Unset = UNSET,
         expires_before: datetime.date | Unset = UNSET,
         sort: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListDomainsResponse200, list[ListDomainsResponse200DataItem]]:
         """One-word catalog names under filters.
@@ -693,7 +694,7 @@ class CatalogApi:
         ending: str | Unset = UNSET,
         after: datetime.date | Unset = UNSET,
         before: datetime.date | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListExpiringDomainsResponse200, list[ListExpiringDomainsResponse200DataItem]]:
         """Catalog names expiring or expired, by expiry day.
@@ -713,7 +714,7 @@ class CatalogApi:
         *,
         day: datetime.date | Unset = UNSET,
         ending: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[
         GetDomainDropsResponse200, GetDomainDropsResponse200DataType0 | list[GetDomainDropsResponse200DataType1Item]
@@ -743,7 +744,7 @@ class CatalogApi:
         pos: str | Unset = UNSET,
         expires_before: datetime.date | Unset = UNSET,
         sort: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListDomainHacksResponse200, list[ListDomainHacksResponse200DataItem]]:
         """Domain hacks: names whose ending completes the word.
@@ -780,7 +781,7 @@ class CatalogApi:
         types: str | Unset = UNSET,
         ending: str | Unset = UNSET,
         since: datetime.datetime | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListDomainChangesResponse200, list[ListDomainChangesResponse200DataItem]]:
         """The catalog's change feed, newest first.
@@ -821,7 +822,7 @@ class TldsApi:
         is_brand: bool | Unset = UNSET,
         is_idn: bool | Unset = UNSET,
         public_set: bool | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTldsResponse200, list[ListTldsResponse200DataItem]]:
         """Every root TLD with its registry facts and launch phases, alphabetical.
@@ -875,7 +876,7 @@ class TldsApi:
         )
 
     def list_tld_changes(
-        self, tld: str, *, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, tld: str, *, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListTldChangesResponse200, list[ListTldChangesResponse200DataItem]]:
         """The ending's public registry changes, newest first.
 
@@ -908,7 +909,7 @@ class TldsApi:
         word: bool | Unset = UNSET,
         pop: ListTldApplicationsPop | Unset = UNSET,
         sales: ListTldApplicationsSales | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTldApplicationsResponse200, list[ListTldApplicationsResponse200DataItem]]:
         """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
@@ -938,7 +939,7 @@ class TldsApi:
         *,
         kind: ListTldApplicationChangesKind | Unset = UNSET,
         since: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTldApplicationChangesResponse200, list[ListTldApplicationChangesResponse200DataItem]]:
         """Every recorded status or contention change of the round, newest first.
@@ -1061,7 +1062,7 @@ class SharedApi:
         return cast("Answer[GetKeyResponse200, GetKeyResponse200Data]", self._client._call("get_key", {}))
 
     def get_openapi(
-        self, *, listing: GetOpenapiListing | Unset = UNSET, oas: GetOpenapiOas | Unset = "3.1"
+        self, *, listing: GetOpenapiListing | Unset = UNSET, oas: GetOpenapiOas | Unset = UNSET
     ) -> TextAnswer:
         """The OpenAPI document of the API, whole or for one listing, in its 3.1 or 3.0 form.
 
@@ -1105,7 +1106,7 @@ class RegistrarsApi:
         registrar: ListRegistrarPricesRegistrar,
         *,
         delisted: bool | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListRegistrarPricesResponse200, list[ListRegistrarPricesResponse200DataItem]]:
         """A registrar's list prices, alphabetical by ending.
@@ -1121,7 +1122,7 @@ class RegistrarsApi:
         )
 
     def list_registrar_changes(
-        self, registrar: ListRegistrarChangesRegistrar, *, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, registrar: ListRegistrarChangesRegistrar, *, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListRegistrarChangesResponse200, list[ListRegistrarChangesResponse200DataItem]]:
         """A registrar's confirmed list-price changes, newest first.
 
@@ -1155,7 +1156,7 @@ class RegistrarsApi:
         )
 
     def list_tld_price_history(
-        self, tld: str, *, registrar: str | Unset = UNSET, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, tld: str, *, registrar: str | Unset = UNSET, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListTldPriceHistoryResponse200, list[ListTldPriceHistoryResponse200DataItem]]:
         """Change-only price rows of one ending, newest first.
 
@@ -1175,7 +1176,7 @@ class RegistrarsApi:
         registrar: ListPriceChangesRegistrar | Unset = UNSET,
         field: ListPriceChangesField | Unset = UNSET,
         since: str | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListPriceChangesResponse200, list[ListPriceChangesResponse200DataItem]]:
         """Confirmed registrar price changes across the nine, newest first.
@@ -1198,7 +1199,7 @@ class RegistrarsApi:
         )
 
     def list_price_traps(
-        self, *, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, *, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListPriceTrapsResponse200, list[ListPriceTrapsResponse200DataItem]]:
         """Endings whose cheapest first year renews at a trap price, alphabetical.
 
@@ -1238,7 +1239,11 @@ class RegistrarsApi:
         return cast("Answer[GetVenueResponse200, GetVenueResponse200Data]", self._client._call("get_venue", {"id": id}))
 
     def list_iana_registrars(
-        self, *, status: ListIanaRegistrarsStatus | Unset = UNSET, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self,
+        *,
+        status: ListIanaRegistrarsStatus | Unset = UNSET,
+        limit: int | Unset = UNSET,
+        cursor: str | Unset = UNSET,
     ) -> Answer[ListIanaRegistrarsResponse200, list[ListIanaRegistrarsResponse200DataItem]]:
         """The IANA registrar list as the registry sync stores it, by id.
 
@@ -1374,7 +1379,7 @@ class MarketApi:
         self,
         *,
         venue: ListMarketAuctionOutcomesVenue | Unset = UNSET,
-        limit: int | Unset = 20,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListMarketAuctionOutcomesResponse200, list[ListMarketAuctionOutcomesResponse200DataItem]]:
         """Confirmed auction outcomes by venue, day and currency, as counts and medians.
@@ -1399,8 +1404,8 @@ class TrendsApi:
         category: str | Unset = UNSET,
         lane: ListTrendsLane | Unset = UNSET,
         since: datetime.date | Unset = UNSET,
-        sort: ListTrendsSort | Unset = "slug",
-        limit: int | Unset = 20,
+        sort: ListTrendsSort | Unset = UNSET,
+        limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTrendsResponse200, list[ListTrendsResponse200DataItem]]:
         """Every published trend with its latest edition figures and its first and last edition day.
@@ -1437,7 +1442,7 @@ class TrendsApi:
         )
 
     def list_trend_pool(
-        self, *, limit: int | Unset = 20, cursor: str | Unset = UNSET
+        self, *, limit: int | Unset = UNSET, cursor: str | Unset = UNSET
     ) -> Answer[ListTrendPoolResponse200, list[ListTrendPoolResponse200DataItem]]:
         """The admitted trend candidates the editions draw from, with their observations.
 
@@ -1512,3 +1517,28 @@ class AgendaApi:
         return cast(
             "TextAnswer", self._client._call("get_agenda_ics", {"category": category, "country": country, "tld": tld})
         )
+
+
+class NamespacedClient:
+    """The namespaces of a `Client`, one per tag of the document, bound by `_bind_namespaces`."""
+
+    names: NamesApi
+    words: WordsApi
+    catalog: CatalogApi
+    tlds: TldsApi
+    shared: SharedApi
+    registrars: RegistrarsApi
+    market: MarketApi
+    trends: TrendsApi
+    agenda: AgendaApi
+
+    def _bind_namespaces(self, client: Client) -> None:
+        self.names = NamesApi(client)
+        self.words = WordsApi(client)
+        self.catalog = CatalogApi(client)
+        self.tlds = TldsApi(client)
+        self.shared = SharedApi(client)
+        self.registrars = RegistrarsApi(client)
+        self.market = MarketApi(client)
+        self.trends = TrendsApi(client)
+        self.agenda = AgendaApi(client)
