@@ -53,7 +53,7 @@ A body takes a dictionary or its model (`uniquedomains.models`):
 ud.names.batch_names(body={"names": ["get.plumbing", "harbor.io"]})
 ```
 
-Use the client as a context manager, or call `ud.close()`, to release its connections.
+Use the client as a context manager, or call `ud.close()`, to release its connections. Redirects are followed. To share one connection pool, pass your `httpx.Client` as `http_client`: each client sends its own URL, key and headers with every request and never changes the pool, so a member client and a RapidAPI client can share it.
 
 ## Keys
 
@@ -110,7 +110,7 @@ except ApiProblemError as error:
 
 An answer with no problem body (a proxy's page, a gateway's own refusal) is an `ApiProblemError` with the code `unexpected_response`, its body in `error.problem["raw"]`. A network failure stays httpx's own `httpx.TransportError`.
 
-The client retries once on its own: after a `rate_limited` answer with `Retry-After: 1`. `Client(retry=True)` retries what is worth retrying (a short `rate_limited` wait, a 503 `not_ready`, a 5xx without a problem body, a network failure on a GET), up to three tries; `Retry(attempts=..., max_delay=...)` sets both.
+The client retries once on its own: after a `rate_limited` answer with `Retry-After: 1`. `Client(retry=True)` retries what is worth retrying (a short `rate_limited` wait, a 503 `not_ready`, a 5xx without a problem body, a network failure or a timeout on a GET), up to three tries; `Retry(attempts=..., max_delay=...)` sets both.
 
 ## Quota and rate limit
 
@@ -157,6 +157,7 @@ for row in ud.iter_rows("list_tlds", query={"publicSet": True}, max_rows=50):
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
+python -m pip install --upgrade pip           # --group needs pip 25.1 or later
 pip install --group dev -e .
 pytest                                         # offline, against a local fixture server
 pytest -m live                                 # 7 keyless calls to the public API, free endpoints only
