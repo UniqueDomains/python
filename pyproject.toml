@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "uniquedomains"
+version = "0.1.0"
+description = "Python client for the Unique Domains API: domain names, words, TLDs, registrar prices, the domain market, trends and the agenda"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Unique Domains" }]
+keywords = ["domain names", "domains", "whois", "rdap", "tld", "registrar", "dns", "openapi", "sdk", "api client"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: Name Service (DNS)",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "httpx>=0.23.1,<0.29.0",
+    "attrs>=22.2.0",
+]
+
+[project.urls]
+Homepage = "https://unique.domains/api"
+Documentation = "https://unique.domains/api"
+Source = "https://github.com/UniqueDomains/python"
+Issues = "https://github.com/UniqueDomains/python/issues"
+Changelog = "https://github.com/UniqueDomains/python/releases"
+
+[dependency-groups]
+test = ["pytest>=8"]
+# Pinned: the generated files are committed and `scripts/generate.py --check` compares bytes.
+generate = ["openapi-python-client==0.29.1", "ruff==0.17.4"]
+dev = [{ include-group = "test" }, { include-group = "generate" }, "build>=1.2", "twine>=6.1", "mypy>=1.13"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/uniquedomains", "tests", "openapi", "scripts", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/uniquedomains"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: calls the public API (free endpoints only); run with `pytest -m live`"]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+# The generator formats its own output (its post hooks, with the pinned ruff and its own settings).
+extend-exclude = ["src/uniquedomains/_generated"]
+
+[tool.ruff.lint]
+select = ["F", "I", "UP", "E", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src/uniquedomains", "tests/typing_check.py"]
+
+# The generator's own client module; its code is not ours to edit (it is regenerated).
+[[tool.mypy.overrides]]
+module = ["uniquedomains._generated.*"]
+ignore_errors = true
