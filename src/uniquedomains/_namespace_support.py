@@ -9,18 +9,20 @@ from typing import Any
 from ._generated.types import UNSET, Unset
 
 
+def join_list(value: str | Sequence[str] | None) -> str | None:
+    """``fields`` and ``include`` as a list or a comma string; an empty one is None, never an empty ``fields=``."""
+    if value is None:
+        return None
+    joined = value if isinstance(value, str) else ",".join(str(entry) for entry in value)
+    return joined if joined.strip() else None
+
+
 def _join(value: Any) -> Any:
-    """``fields`` and ``include`` as a list or a comma string; an empty one sends nothing, never an empty ``fields=``."""
+    """``join_list`` for a typed method, where a missing value is ``UNSET``."""
     if isinstance(value, Unset) or value is None:
-        return value
-    joined = (
-        value
-        if isinstance(value, str)
-        else ",".join(str(entry) for entry in value)
-        if isinstance(value, Sequence)
-        else str(value)
-    )
-    return joined if joined.strip() else UNSET
+        return UNSET
+    joined = join_list(value)
+    return UNSET if joined is None else joined
 
 
 def _body(value: Any, module_name: str, class_name: str) -> Any:

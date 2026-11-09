@@ -10,6 +10,9 @@ Two surfaces over one sending path:
   modules ``openapi-python-client`` generated: their request builders and their models;
 - ``request(operation_id, ...)``, the generic path for tools and loops, which also carries the ``.csv`` forms and
   conditional requests (``if_none_match``), and answers the decoded JSON.
+
+The base URL, the key and the other headers belong to this client and travel with each request: an ``httpx.Client``
+passed in is never changed, so several clients can share one connection pool without mixing their keys.
 """
 
 from __future__ import annotations
@@ -18,7 +21,7 @@ import importlib
 import json
 import os
 import time
-from collections.abc import Iterator, Mapping, Sequence
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from datetime import date, datetime
 from types import ModuleType
 from typing import Any, Literal, NamedTuple
@@ -27,21 +30,12 @@ from urllib.parse import quote
 import httpx
 
 from ._answer import Answer, TextAnswer
-from ._errors import ApiProblemError, ListingMismatchError
+from ._errors import ApiProblemError, CursorLoopError, ListingMismatchError
 from ._generated.client import Client as _GeneratedClient
 from ._headers import parse_retry_after
 from ._listings import LISTINGS
-from ._namespaces import (
-    AgendaApi,
-    CatalogApi,
-    MarketApi,
-    NamesApi,
-    RegistrarsApi,
-    SharedApi,
-    TldsApi,
-    TrendsApi,
-    WordsApi,
-)
+from ._namespace_support import join_list
+from ._namespaces import NamespacedClient
 from ._operations import API_PUBLIC_BASE, OPERATIONS
 from ._retry import Retry, resolve_retry, retry_wait
 from ._version import __version__
@@ -81,11 +75,11 @@ def _without_conditional(headers: Mapping[str, str] | None) -> dict[str, str]:
     return {name: value for name, value in (headers or {}).items() if name.lower() != "if-none-match"}
 
 
-def _join(value: str | Sequence[str] | None) -> str | None:
-    if value is None:
-        return None
-    joined = value if isinstance(value, str) else ",".join(value)
-    return joined if joined.strip() else None
+def _merge(headers: httpx.Headers, extra: Mapping[str, str] | httpx.Headers | None) -> httpx.Headers:
+    """Sets each header over ``headers``, whatever the case of its name: last wins, one header never goes twice."""
+    for name, value in (extra or {}).items():
+        headers[name] = value
+    return headers
 
 
 def _query_value(value: Any) -> Any:
@@ -96,20 +90,16 @@ def _query_value(value: Any) -> Any:
     return value
 
 
-def _is_rate_limited(response: httpx.Response) -> bool:
+def _json_of(response: httpx.Response) -> Any:
+    """The answer's body as JSON, or None when it is not JSON."""
     try:
-        body = json.loads(response.text)
-    except ValueError:
-        return False
-    return isinstance(body, dict) and body.get("code") == "rate_limited"
-
-
-def _envelope(response: httpx.Response) -> dict[str, Any] | None:
-    """The ``{data, meta, links}`` envelope of a 200 or 202, or None when the answer is not that."""
-    try:
-        body = json.loads(response.text)
+        return json.loads(response.text)
     except ValueError:
         return None
+
+
+def _envelope(body: Any) -> dict[str, Any] | None:
+    """The ``{data, meta, links}`` envelope of a 200 or 202, or None when the body is not that."""
     if (
         not isinstance(body, dict)
         or "data" not in body
@@ -120,7 +110,12 @@ def _envelope(response: httpx.Response) -> dict[str, Any] | None:
     return body
 
 
-class Client:
+def _check_path_value(operation_id: str, name: str, value: Any) -> None:
+    if str(value) in _DOT_SEGMENTS:
+        raise ValueError(f'{operation_id}: {name} cannot be "{value}".')
+
+
+class Client(NamespacedClient):
     """A client for the Unique Domains API (``https://api.unique.domains/v1``).
 
     Args:
@@ -129,27 +124,19 @@ class Client:
         rapidapi: a RapidAPI key and the listing it subscribes to, as ``(key, listing)`` or ``RapidApi(key, listing)``:
             calls go to that listing's host, for its operations only.
         base_url: another base URL (a local run). Defaults to the public base, or the listing's host with ``rapidapi``.
-        headers: headers sent on every call (``If-None-Match`` excepted: pass ``if_none_match`` to ``request``).
-        timeout: seconds, or an ``httpx.Timeout``. Defaults to 30 seconds (10 to connect).
+        headers: headers sent on every call (``If-None-Match`` excepted: pass ``if_none_match`` to ``request``). A
+            header given here replaces the client's own of the same name, whatever its case.
+        timeout: seconds, or an ``httpx.Timeout``. Defaults to 30 seconds (10 to connect), or the ``http_client``'s.
         retry: ``True`` retries what is worth retrying (see ``Retry``) up to 3 tries; a ``Retry`` sets the tries and the
             longest wait. Off by default, where the client retries once, after a ``rate_limited`` answer with
             ``Retry-After: 1``.
         user_agent: the ``User-Agent`` header. Defaults to ``uniquedomains-python/<version>``.
-        http_client: an ``httpx.Client`` of your own (a proxy, a transport for tests). Its base URL and headers are
-            replaced by the client's.
+        http_client: an ``httpx.Client`` of your own (a proxy, a transport, a pool shared by several clients). It is
+            never changed: this client sends its URL and headers with each request, over the pool's own headers.
 
-    Use it as a context manager, or call ``close()``, to release the connection pool.
+    Redirects are followed, as a browser's ``fetch`` does. Use the client as a context manager, or call ``close()``,
+    to release the connection pool (an ``http_client`` you passed stays open).
     """
-
-    names: NamesApi
-    words: WordsApi
-    catalog: CatalogApi
-    tlds: TldsApi
-    registrars: RegistrarsApi
-    market: MarketApi
-    trends: TrendsApi
-    agenda: AgendaApi
-    shared: SharedApi
 
     def __init__(
         self,
@@ -165,9 +152,9 @@ class Client:
     ) -> None:
         self.listing: dict[str, Any] | None = None
         self.auth: Literal["none", "member", "rapidapi"]
-        sent: dict[str, str] = {"User-Agent": user_agent or f"uniquedomains-python/{__version__}"}
+        sent = httpx.Headers({"User-Agent": user_agent or f"uniquedomains-python/{__version__}"})
         if rapidapi is not None:
-            if api_key:
+            if api_key is not None:
                 raise ValueError("Pass either api_key or rapidapi, not both.")
             key, listing_id = RapidApi(*rapidapi)
             listing = find_listing(listing_id)
@@ -185,30 +172,20 @@ class Client:
             self.auth = "member" if key else "none"
             if key:
                 sent["Authorization"] = f"Bearer {key}"
-        sent.update(_without_conditional(headers))
+        self._headers = _merge(sent, _without_conditional(headers))
 
         default_base = f"https://{self.listing['host']}" if self.listing else API_PUBLIC_BASE
         self.base_url: str = (base_url or default_base).rstrip("/")
         self._retry = resolve_retry(retry)
+        self._timeout: httpx.Timeout | None = (
+            None if timeout is None else timeout if isinstance(timeout, httpx.Timeout) else httpx.Timeout(timeout)
+        )
         self._owns_http = http_client is None
-        self._http = http_client or httpx.Client(timeout=_DEFAULT_TIMEOUT)
-        self._http.base_url = httpx.URL(self.base_url + "/")
-        self._http.headers.update(sent)
-        if timeout is not None:
-            self._http.timeout = timeout if isinstance(timeout, httpx.Timeout) else httpx.Timeout(timeout)
-        # The generated client holds the same httpx client: the generated parsers read it, nothing else.
+        self._http = http_client if http_client is not None else httpx.Client(timeout=_DEFAULT_TIMEOUT)
+        # The generated parsers read the generated client (nothing else does); it holds the same pool, untouched.
         self._generated = _GeneratedClient(base_url=self.base_url)
         self._generated.set_httpx_client(self._http)
-
-        self.names = NamesApi(self)
-        self.words = WordsApi(self)
-        self.catalog = CatalogApi(self)
-        self.tlds = TldsApi(self)
-        self.registrars = RegistrarsApi(self)
-        self.market = MarketApi(self)
-        self.trends = TrendsApi(self)
-        self.agenda = AgendaApi(self)
-        self.shared = SharedApi(self)
+        self._bind_namespaces(self)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Lifecycle
@@ -242,7 +219,19 @@ class Client:
         return operation
 
     def _send_once(self, request: dict[str, Any]) -> httpx.Response:
-        return self._http.request(**request)
+        """One request: this client's base URL and headers, the request's own headers over them, redirects followed."""
+        headers = _merge(httpx.Headers(self._headers), request.get("headers"))
+        options: dict[str, Any] = {"follow_redirects": True}
+        if self._timeout is not None:
+            options["timeout"] = self._timeout
+        return self._http.request(
+            request["method"],
+            self.base_url + request["url"],
+            params=request.get("params"),
+            json=request.get("json"),
+            headers=headers,
+            **options,
+        )
 
     def _send(self, method: str, request: dict[str, Any]) -> httpx.Response:
         if self._retry is None:
@@ -250,7 +239,8 @@ class Client:
             if (
                 response.status_code == 429
                 and response.headers.get("retry-after", "").strip() == _RETRY_AFTER_HEADER
-                and _is_rate_limited(response)
+                and isinstance(body := _json_of(response), dict)
+                and body.get("code") == "rate_limited"
             ):
                 time.sleep(_RETRY_DELAY)
                 response = self._send_once(request)
@@ -259,49 +249,61 @@ class Client:
         while True:
             try:
                 response = self._send_once(request)
+            except httpx.UnsupportedProtocol:
+                raise  # a wrong scheme in the base URL: trying again changes nothing
             except httpx.TransportError:
+                # A network failure or a timeout: tried again on a GET only.
                 wait = retry_wait(self._retry, attempt, method, None, None, None)
                 if wait is None:
                     raise
             else:
                 if response.is_success or response.status_code == 304:
                     return response
-                try:
-                    body = json.loads(response.text)
-                except ValueError:
-                    body = None
                 wait = retry_wait(
-                    self._retry, attempt, method, response.status_code, parse_retry_after(response.headers), body
+                    self._retry,
+                    attempt,
+                    method,
+                    response.status_code,
+                    parse_retry_after(response.headers),
+                    _json_of(response),
                 )
                 if wait is None:
                     return response
             time.sleep(wait)
             attempt += 1
 
-    def _check(self, response: httpx.Response) -> None:
+    def _answer(
+        self, method: str, request: dict[str, Any], text: bool, parse: Callable[[httpx.Response], Any] | None = None
+    ) -> Any:
+        """Sends, raises on a problem, and reads the answer: a file, a 304, or the envelope."""
+        response = self._send(method, request)
         if response.status_code != 304 and not response.is_success:
             raise ApiProblemError.from_response(response)
+        if text:
+            return TextAnswer(response)
+        if response.status_code == 304:
+            return Answer(response, None)
+        envelope = _envelope(_json_of(response))
+        if envelope is None:
+            raise ApiProblemError.unreadable(response)
+        return Answer(response, envelope, None if parse is None else lambda: parse(response))
 
     def _call(self, operation_id: str, arguments: dict[str, Any]) -> Any:
         """A typed method's call: the generated request builder, the shared sending path, the generated parser."""
         operation = self._operation(operation_id)
         for param in operation["parameters"]:
-            if param["in"] == "path" and str(arguments.get(param["arg"], "")) in _DOT_SEGMENTS:
-                raise ValueError(f'{operation_id}: {param["arg"]} cannot be "{arguments.get(param["arg"], "")}".')
+            if param["in"] == "path":
+                _check_path_value(operation_id, param["arg"], arguments.get(param["arg"], ""))
         module: ModuleType = importlib.import_module(f"uniquedomains._generated.api.{operation['module']}")
         request = module._get_kwargs(**arguments)
         text = operation["answer"] == "text"
         request["headers"] = {"Accept": "*/*" if text else "application/json", **request.get("headers", {})}
-        response = self._send(operation["method"], request)
-        self._check(response)
-        if text:
-            return TextAnswer(response)
-        if response.status_code == 304:
-            return Answer(response, None)
-        envelope = _envelope(response)
-        if envelope is None:
-            raise ApiProblemError.unreadable(response)
-        return Answer(response, envelope, lambda: module._parse_response(client=self._generated, response=response))
+        return self._answer(
+            operation["method"],
+            request,
+            text,
+            lambda response: module._parse_response(client=self._generated, response=response),
+        )
 
     # ------------------------------------------------------------------------------------------------------------------
     # The generic path
@@ -324,7 +326,7 @@ class Client:
 
         Answers an ``Answer`` whose ``body`` is the decoded JSON envelope, or a ``TextAnswer`` for a file answer and
         for ``format="csv"``. With ``if_none_match`` (an ``etag`` you read before), an unchanged answer comes back with
-        ``not_modified`` set and no body.
+        ``not_modified`` set and no body. ``headers`` replace the client's own of the same name, whatever the case.
         """
         operation = self._operation(operation_id)
         declared = {(param["in"], param["name"]) for param in operation["parameters"]}
@@ -337,7 +339,7 @@ class Client:
             if ("query", name) not in declared:
                 raise TypeError(f"{operation_id} has no query parameter {name!r}.")
         for option, value in (("fields", fields), ("include", include)):
-            joined = _join(value)
+            joined = join_list(value)
             if joined is None:
                 continue
             if ("query", option) not in declared:
@@ -357,34 +359,24 @@ class Client:
             if param["name"] not in path:
                 raise TypeError(f"{operation_id} needs the path parameter {param['name']!r}.")
             value = str(path[param["name"]])
-            if value in _DOT_SEGMENTS:
-                raise ValueError(f'{operation_id}: {param["name"]} cannot be "{value}".')
+            _check_path_value(operation_id, param["name"], value)
             url = url.replace("{" + param["name"] + "}", quote(value, safe=""))
         if format == "csv":
             url += ".csv"
         text = format == "csv" or operation["answer"] == "text"
 
-        sent_headers = {
-            "Accept": "text/csv" if format == "csv" else "*/*" if text else "application/json",
-            **_without_conditional(headers),
-        }
+        sent_headers = httpx.Headers(
+            {"Accept": "text/csv" if format == "csv" else "*/*" if text else "application/json"}
+        )
+        _merge(sent_headers, _without_conditional(headers))
         if if_none_match:
             sent_headers["If-None-Match"] = if_none_match
         params = {name: _query_value(value) for name, value in query.items() if value is not None}
         request: dict[str, Any] = {"method": operation["method"], "url": url, "params": params, "headers": sent_headers}
         if body is not None or (operation["body"] is not None and operation["body"]["required"]):
             request["json"] = dict(body or {})
-
-        response = self._send(operation["method"], request)
-        self._check(response)
-        if text:
-            return TextAnswer(response)
-        if response.status_code == 304:
-            return Answer(response, None)
-        envelope = _envelope(response)
-        if envelope is None:
-            raise ApiProblemError.unreadable(response)
-        return Answer(response, envelope)
+        answer: Answer[dict[str, Any], Any] | TextAnswer = self._answer(operation["method"], request, text)
+        return answer
 
     def iter_pages(
         self, operation_id: str, *, max_rows: int | None = None, **params: Any
@@ -392,7 +384,7 @@ class Client:
         """Every page of a list an operation pages through with ``cursor``, each fetched when the previous one is read.
 
         ``params`` are ``request``'s (``path``, ``query``, ``fields``...). With ``max_rows``, the page that reaches it
-        comes whole and is the last.
+        comes whole and is the last. An API that answers the cursor it was sent raises ``CursorLoopError``.
         """
         operation = self._operation(operation_id)
         if not any(param["in"] == "query" and param["name"] == "cursor" for param in operation["parameters"]):
@@ -419,14 +411,7 @@ class Client:
                 return
             # The same page again would loop until the caller's quota runs out.
             if cursor == sent_cursor:
-                raise ApiProblemError(
-                    {
-                        "status": answer.status,
-                        "code": "unexpected_response",
-                        "detail": f"The API answered the cursor it was sent ({cursor}): the list stops here.",
-                    },
-                    headers=answer.headers,
-                )
+                raise CursorLoopError(f"The API answered the cursor it was sent ({cursor}): the list stops here.")
             sent_cursor = cursor
             query["cursor"] = cursor
 

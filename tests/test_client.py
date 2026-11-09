@@ -15,6 +15,7 @@ from uniquedomains import (
     ApiProblemError,
     AuthError,
     Client,
+    CursorLoopError,
     ListingMismatchError,
     NotFoundError,
     NotReadyError,
@@ -150,7 +151,7 @@ def test_the_three_problem_shapes(ud: Client, fixture: str, error_class: type[Ap
 def test_the_request_path_raises_the_same_problem(ud: Client) -> None:
     with pytest.raises(PlanRequiredError) as caught:
         ud.request("get_name_prices", path={"name": "harbor.io"})
-    assert caught.value.product == "https://unique.domains/pricing" or caught.value.product.startswith("https://")
+    assert caught.value.product == recorded("problem-keyed-only")["response"]["body"]["product"]
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -268,7 +269,8 @@ def test_a_rapidapi_key_goes_to_its_listing_host(fixtures: FixtureServer, monkey
     assert sent.headers["x-rapidapi-key"] == "rapid-key"
     assert sent.headers["x-rapidapi-host"] == WHOIS_HOST
     assert "authorization" not in sent.headers
-    assert answer.rate_limit is not None and answer.rate_limit.limit == 1000
+    # RapidAPI's own limit headers (`X-RateLimit-Requests-*`) are not our window (review R3-15).
+    assert answer.rate_limit is None
 
 
 def test_an_operation_outside_the_listing_raises_before_any_call(fixtures: FixtureServer) -> None:
@@ -300,6 +302,8 @@ def test_the_client_refuses_bad_options() -> None:
         Client(rapidapi=("key", "nope"))
     with pytest.raises(ValueError, match="either api_key or rapidapi"):
         Client(api_key="ud_live_x", rapidapi=("key", "whois"))
+    with pytest.raises(ValueError, match="either api_key or rapidapi"):
+        Client(api_key="", rapidapi=("key", "whois"))  # review R3-12
     with pytest.raises(ValueError, match="empty"):
         Client(rapidapi=("", "whois"))
 
@@ -421,7 +425,7 @@ def test_iter_rows_follows_the_cursor(base: str, fixtures: FixtureServer) -> Non
 
 
 def test_iter_rows_stops_on_a_repeated_cursor(ud: Client) -> None:
-    with pytest.raises(ApiProblemError, match="cursor it was sent"):
+    with pytest.raises(CursorLoopError, match="cursor it was sent"):
         list(ud.iter_rows("list_expiring_domains", query={"ending": "ai"}))
 
 

@@ -8,6 +8,7 @@ refused, not run, while a timed-out metered POST may have spent a unit.
 
 from __future__ import annotations
 
+import math
 import random
 from dataclasses import dataclass
 from typing import Any
@@ -33,8 +34,13 @@ class Retry:
     def __post_init__(self) -> None:
         if not isinstance(self.attempts, int) or isinstance(self.attempts, bool) or self.attempts < 1:
             raise ValueError(f"Retry.attempts must be a whole number, 1 or more: {self.attempts!r}.")
-        if not isinstance(self.max_delay, (int, float)) or self.max_delay < 0:
-            raise ValueError(f"Retry.max_delay must be 0 or more: {self.max_delay!r}.")
+        if (
+            not isinstance(self.max_delay, (int, float))
+            or isinstance(self.max_delay, bool)
+            or not math.isfinite(self.max_delay)
+            or self.max_delay < 0
+        ):
+            raise ValueError(f"Retry.max_delay must be a finite number of seconds, 0 or more: {self.max_delay!r}.")
 
 
 def resolve_retry(option: bool | Retry | None) -> Retry | None:

@@ -57,6 +57,16 @@ def _integer(headers: Mapping[str, str], name: str) -> int | None:
     return int(value)
 
 
+def _instant(seconds: int | None) -> datetime | None:
+    """Unix seconds as a UTC time; a value no date can hold (milliseconds sent by mistake) reads as None."""
+    if seconds is None:
+        return None
+    try:
+        return datetime.fromtimestamp(seconds, tz=UTC)
+    except (ValueError, OverflowError, OSError):
+        return None
+
+
 def parse_quota(headers: Mapping[str, str]) -> Quota | None:
     """``X-Quota-*``, sent on a member key's answers that reached the month counter."""
     limit = _integer(headers, "x-quota-limit")
@@ -75,13 +85,13 @@ def parse_quota(headers: Mapping[str, str]) -> Quota | None:
     return Quota(
         limit=limit,
         remaining=remaining,
-        resets_at=datetime.fromtimestamp(reset, tz=UTC) if reset is not None else None,
+        resets_at=_instant(reset),
         unit=unit,
     )
 
 
 def parse_rate_limit(headers: Mapping[str, str]) -> RateLimit | None:
-    """``X-RateLimit-*``, the keyless window (and a RapidAPI plan's own limit through RapidAPI)."""
+    """``X-RateLimit-*``, the keyless window. (RapidAPI's own limit headers are ``X-RateLimit-Requests-*``, not read.)"""
     limit = _integer(headers, "x-ratelimit-limit")
     remaining = _integer(headers, "x-ratelimit-remaining")
     if limit is None or remaining is None:

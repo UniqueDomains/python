@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import threading
+import time
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
@@ -247,8 +248,8 @@ def synthetic() -> list[dict[str, Any]]:
             "response": answer(
                 200,
                 recorded("names-get-name-registry")["response"]["body"],
-                x_ratelimit_limit="1000",
-                x_ratelimit_remaining="999",
+                x_ratelimit_requests_limit="1000",
+                x_ratelimit_requests_remaining="999",
             ),
         },
         {
@@ -317,7 +318,29 @@ def synthetic() -> list[dict[str, Any]]:
                 200, envelope([expiring_row("loop.ai")], "/domains/expiring?ending=ai&cursor=same", "same")
             ),
         },
+        # Product's safety nets answer 308 (`/meta/tlds` to `/tlds`, `/v1/*` to `/api/v1/*`): the client follows them.
+        {
+            "name": "moved-meta-tlds",
+            "request": {"method": "GET", "path": "/meta/tlds"},
+            "response": redirect("/v1/tlds?limit=3"),
+        },
+        {
+            "name": "moved-check",
+            "request": {"method": "POST", "path": "/names/moved.io/check"},
+            "response": redirect("/v1/names/lantern.io/check"),
+        },
+        {
+            "name": "slow",
+            "request": {"method": "GET", "path": "/names/slow-answer.io"},
+            "delay": 1.0,
+            "response": answer(200, get_name_body("slow-answer.io")),
+        },
     ]
+
+
+def redirect(location: str) -> dict[str, Any]:
+    """A 308 to a path of this server (the handler writes the absolute `Location`)."""
+    return {"status": 308, "headers": {"location-path": location}, "body": None}
 
 
 def _query_of(raw: str) -> list[tuple[str, str]]:
@@ -331,6 +354,8 @@ class Logged:
     query: list[tuple[str, str]]
     headers: dict[str, str]
     body: Any
+    raw_headers: list[tuple[str, str]] = field(default_factory=list)
+    """Every header line as sent, lower-cased names, repeats kept."""
 
 
 @dataclass
@@ -375,7 +400,8 @@ def _handler(server: FixtureServer, fixtures: list[dict[str, Any]]) -> type[Base
             raw = self.rfile.read(length) if length else b""
             body = json.loads(raw) if raw else None
             query = _query_of(parts.query)
-            server.requests.append(Logged(self.command, parts.path, query, headers, body))
+            raw_headers = [(name.lower(), value) for name, value in self.headers.items()]
+            server.requests.append(Logged(self.command, parts.path, query, headers, body, raw_headers))
             fixture = next((f for f in fixtures if _matches(f, self.command, parts.path, query, headers)), None)
             if fixture is None:
                 reply = answer(404, problem("not_found", 404, f"No fixture for {self.command} {self.path}"))
@@ -386,6 +412,8 @@ def _handler(server: FixtureServer, fixtures: list[dict[str, Any]]) -> type[Base
             else:
                 server.calls[fixture["name"]] = server.calls.get(fixture["name"], 0) + 1
                 reply = fixture["response"]
+            if "delay" in (fixture or {}):
+                time.sleep(fixture["delay"])
             content = reply["body"]
             payload = (
                 b""
@@ -394,7 +422,10 @@ def _handler(server: FixtureServer, fixtures: list[dict[str, Any]]) -> type[Base
             )
             self.send_response(reply["status"])
             for name, value in reply["headers"].items():
-                self.send_header(name, value)
+                if name == "location-path":
+                    self.send_header("location", f"http://{self.headers['host']}{value}")
+                else:
+                    self.send_header(name, value)
             self.send_header("content-length", str(len(payload)))
             self.end_headers()
             self.wfile.write(payload)

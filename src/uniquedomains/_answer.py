@@ -59,11 +59,18 @@ class Answer(_Facts, Generic[E, D]):
         if self._parse is None:
             return self.json  # type: ignore[return-value]
         try:
-            return self._parse()
+            parsed = self._parse()
         except (KeyError, TypeError, ValueError, AttributeError) as error:
             raise AnswerShapeError(
                 f"The answer's envelope does not fit this version's models ({error!r}). Read answer.json, or update the package."
             ) from error
+        # A status the operation does not declare parses to None, and a problem model has no `data`: neither is the
+        # envelope this method promises (review R3-9).
+        if parsed is None or not hasattr(parsed, "data"):
+            raise AnswerShapeError(
+                f"The answer ({self.status}) is not an envelope this version's models declare. Read answer.json."
+            )
+        return parsed
 
     @property
     def data(self) -> D:

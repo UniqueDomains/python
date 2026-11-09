@@ -23,6 +23,7 @@ __all__ = [
     "AnswerShapeError",
     "ApiProblemError",
     "AuthError",
+    "CursorLoopError",
     "ListingMismatchError",
     "NotFoundError",
     "NotReadyError",
@@ -96,6 +97,15 @@ class ApiProblemError(UniqueDomainsError):
 
     def __repr__(self) -> str:
         return f"{type(self).__name__}(status={self.status}, code={self.code!r}, detail={self.detail!r})"
+
+    def __reduce__(self) -> tuple[Any, ...]:
+        # Rebuilt from the problem body, then its facts: an error crosses a process pool or a task queue whole.
+        state = {**self.__dict__, "headers": list(self.headers.multi_items())}
+        return (type(self), (self.problem,), state)
+
+    def __setstate__(self, state: dict[str, Any] | None) -> None:
+        if state:
+            self.__dict__.update({**state, "headers": httpx.Headers(state["headers"])})
 
     @classmethod
     def from_response(cls, response: httpx.Response) -> ApiProblemError:
@@ -212,9 +222,17 @@ class ListingMismatchError(UniqueDomainsError):
     def __init__(self, operation_id: str, listing: dict[str, Any], served_by: list[str]) -> None:
         where = f" It is in: {', '.join(served_by)}." if served_by else " No RapidAPI listing serves it."
         super().__init__(f"{operation_id} is not part of the {listing['title']} listing ({listing['id']}).{where}")
+        self._arguments = (operation_id, {"id": listing["id"], "title": listing["title"]}, list(served_by))
         self.operation_id = operation_id
         self.listing: str = listing["id"]
         self.served_by: list[str] = served_by
+
+    def __reduce__(self) -> tuple[Any, ...]:
+        return (type(self), self._arguments)
+
+
+class CursorLoopError(UniqueDomainsError):
+    """``iter_pages`` met a page whose next cursor is the cursor it was sent: reading on would loop forever."""
 
 
 class AnswerShapeError(UniqueDomainsError):
