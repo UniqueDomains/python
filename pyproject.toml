@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "uniquedomains"
 version = "0.1.0"
-description = "Python client for the Unique Domains API: domain names, words, TLDs, registrar prices, the domain market, trends and the agenda"
+description = "Typed Python client for domain data: is a name taken, its WHOIS record, nine registrars' prices, renewal traps, auctions and sales totals. 62 of 87 operations need no key."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

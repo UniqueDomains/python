@@ -1,8 +1,17 @@
 # Unique Domains for Python
 
-The Unique Domains API answers questions about domain names: whether a name is free, its registry record, what registrars charge for each ending, and what the domain market did. It covers names, words, endings, registrar prices, the market, trends and the industry agenda, and most of it works without a key.
+Three lines, no key, a real answer:
 
-`uniquedomains` is its Python client, generated from the API's OpenAPI document: every operation is a typed method, every answer a typed model.
+```python
+from uniquedomains import Client
+
+answer = Client().names.get_name("get.plumbing")
+print(answer.data.status)  # for_sale (2026-11-11)
+```
+
+That answer comes from a record Unique Domains reads every day: 37 million one-word names on 505 endings, nine registrars' price lists and seven auction venues. Building it yourself means a WHOIS and RDAP client for every registry and a price reader for every registrar. Here it is `pip install uniquedomains`.
+
+The client is generated from the API's OpenAPI document: every one of the 87 operations is a typed method, every answer a typed model. 62 operations answer with no key, within 60 calls an hour and 100 a day from one address.
 
 ## Install
 
