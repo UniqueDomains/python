@@ -9,7 +9,7 @@ answer = Client().names.get_name("get.plumbing")
 print(answer.data.status)  # for_sale (2026-11-11)
 ```
 
-That answer comes from a record Unique Domains reads every day: 37 million one-word names on 505 endings, nine registrars' price lists and seven auction venues. Building it yourself means a WHOIS and RDAP client for every registry and a price reader for every registrar. Here it is `pip install uniquedomains`.
+That answer comes from a record Unique Domains reads every day: 37 million one-word names on [505 endings](https://unique.domains/tld), [nine registrars' price lists](https://unique.domains/registrars) and [seven auction venues](https://unique.domains/auctions). Building it yourself means a WHOIS and RDAP client for every registry and a price reader for every registrar. Here it is `pip install uniquedomains`. To see an answer with no code at all, [check a name on unique.domains](https://unique.domains/availability).
 
 The client is generated from the API's OpenAPI document: every one of the 87 operations is a typed method, every answer a typed model. 62 operations answer with no key, within 60 calls an hour and 100 a day from one address.
 
