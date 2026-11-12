@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.11"
-authors = [{ name = "Unique Domains" }]
+authors = [{ name = "Unique.domains" }]
 keywords = ["domain names", "domains", "whois", "rdap", "tld", "registrar", "dns", "openapi", "sdk", "api client"]
 classifiers = [
     "Development Status :: 4 - Beta",

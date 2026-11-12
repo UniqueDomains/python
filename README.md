@@ -59,7 +59,7 @@ for ending in endings.data:
 A body takes a dictionary or its model (`uniquedomains.models`):
 
 ```python
-ud.names.batch_names(body={"names": ["get.plumbing", "harbor.io"]})
+ud.names.batch_names(body={"names": ["lantern.io", "get.plumbing"]})
 ```
 
 Use the client as a context manager, or call `ud.close()`, to release its connections. Redirects are followed. To share one connection pool, pass your `httpx.Client` as `http_client`: each client sends its own URL, key and headers with every request and never changes the pool, so a member client and a RapidAPI client can share it.
@@ -155,7 +155,7 @@ for row in ud.iter_rows("list_tlds", query={"publicSet": True}, max_rows=50):
 
 `uniquedomains.OPERATIONS` describes the 87 operations (method, path, tag, tier, plan, parameters).
 
-## Also from Unique Domains
+## Also from Unique.domains
 
 - [The API reference](https://unique.domains/api): every endpoint, with examples.
 - [The datasets](https://github.com/UniqueDomains): one-word domain names, expiring names, the daily editions and the new gTLD applications, as files on GitHub.
