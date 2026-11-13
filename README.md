@@ -6,7 +6,7 @@ Three lines, no key, a real answer:
 from uniquedomains import Client
 
 answer = Client().names.get_name("get.plumbing")
-print(answer.data.status)  # for_sale (2026-11-11)
+print(answer.data.status)  # for_sale
 ```
 
 That answer comes from a record Unique.domains reads every day: 34 million one-word names on [505 endings](https://unique.domains/tld), [nine registrars' price lists](https://unique.domains/registrars) and [seven auction venues](https://unique.domains/auctions). All of it is one `pip install uniquedomains` away. To see an answer with no code at all, [check a name on unique.domains](https://unique.domains/availability).
