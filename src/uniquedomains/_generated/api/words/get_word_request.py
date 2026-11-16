@@ -113,7 +113,8 @@ def sync_detailed(
     """The state of a word request: queued, ready with its catalog word, refused or failed.
 
      Reads the request by its id. `queued` while the intake has not finished; `ready` names the catalog
-    word and whether its first scan of every ending ran; `rejected` the reason code. Not metered.
+    word and whether every ending of the word has its first status yet; `rejected` the reason code. Not
+    metered.
 
     Args:
         request_id (UUID):
@@ -148,7 +149,8 @@ def sync(
     """The state of a word request: queued, ready with its catalog word, refused or failed.
 
      Reads the request by its id. `queued` while the intake has not finished; `ready` names the catalog
-    word and whether its first scan of every ending ran; `rejected` the reason code. Not metered.
+    word and whether every ending of the word has its first status yet; `rejected` the reason code. Not
+    metered.
 
     Args:
         request_id (UUID):
@@ -178,7 +180,8 @@ async def asyncio_detailed(
     """The state of a word request: queued, ready with its catalog word, refused or failed.
 
      Reads the request by its id. `queued` while the intake has not finished; `ready` names the catalog
-    word and whether its first scan of every ending ran; `rejected` the reason code. Not metered.
+    word and whether every ending of the word has its first status yet; `rejected` the reason code. Not
+    metered.
 
     Args:
         request_id (UUID):
@@ -211,7 +214,8 @@ async def asyncio(
     """The state of a word request: queued, ready with its catalog word, refused or failed.
 
      Reads the request by its id. `queued` while the intake has not finished; `ready` names the catalog
-    word and whether its first scan of every ending ran; `rejected` the reason code. Not metered.
+    word and whether every ending of the word has its first status yet; `rejected` the reason code. Not
+    metered.
 
     Args:
         request_id (UUID):

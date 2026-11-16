@@ -109,7 +109,7 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetWordMarketResponse200 | Problem]:
-    """A word's sales and auction aggregates from the nightly update.
+    """A word's sales and auction aggregates.
 
      Usable sales of the word itself over 12 months and 30 days, the median from three sales, the count
     of endings it sold on and its open auctions per ending. Aggregates only.
@@ -144,7 +144,7 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetWordMarketResponse200 | Problem | None:
-    """A word's sales and auction aggregates from the nightly update.
+    """A word's sales and auction aggregates.
 
      Usable sales of the word itself over 12 months and 30 days, the median from three sales, the count
     of endings it sold on and its open auctions per ending. Aggregates only.
@@ -174,7 +174,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetWordMarketResponse200 | Problem]:
-    """A word's sales and auction aggregates from the nightly update.
+    """A word's sales and auction aggregates.
 
      Usable sales of the word itself over 12 months and 30 days, the median from three sales, the count
     of endings it sold on and its open auctions per ending. Aggregates only.
@@ -207,7 +207,7 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetWordMarketResponse200 | Problem | None:
-    """A word's sales and auction aggregates from the nightly update.
+    """A word's sales and auction aggregates.
 
      Usable sales of the word itself over 12 months and 30 days, the median from three sales, the count
     of endings it sold on and its open auctions per ending. Aggregates only.

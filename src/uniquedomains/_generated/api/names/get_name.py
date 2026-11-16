@@ -109,13 +109,15 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameResponse200 | Problem]:
-    """The stored answer for one domain name: status, drop day, price today, registry facts, word facts and
+    """The answer for one domain name: status, drop day, price today, registry facts, word facts and
     similar sales.
 
-     Read from the stored lookup rows, never live (`POST /names/{name}/check` is the live path). Free
-    carries the website lookup's public contract: the rating as a band, no value, no checked time. Keyed
-    adds the regular price behind a promotion, the exact rating, the verdict and the value facts. A name
-    the catalog never stored answers 200 with `tracked: false` and empty facts, never 404.
+     `POST /names/{name}/check` runs a live check of the name. Free carries the website lookup's public
+    contract: the rating as a band, no value, no checked time. Keyed adds the regular price behind a
+    promotion, the exact rating, the verdict, the value facts, the word's meaning-abroad flag and what
+    the name is. A name outside the catalog answers 200 with `tracked: false` and empty facts, never
+    404. Its status is `not_checked`, which also covers a taken name the catalog does not track: it
+    never means the name is free.
 
     Args:
         name (str):
@@ -147,13 +149,15 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameResponse200 | Problem | None:
-    """The stored answer for one domain name: status, drop day, price today, registry facts, word facts and
+    """The answer for one domain name: status, drop day, price today, registry facts, word facts and
     similar sales.
 
-     Read from the stored lookup rows, never live (`POST /names/{name}/check` is the live path). Free
-    carries the website lookup's public contract: the rating as a band, no value, no checked time. Keyed
-    adds the regular price behind a promotion, the exact rating, the verdict and the value facts. A name
-    the catalog never stored answers 200 with `tracked: false` and empty facts, never 404.
+     `POST /names/{name}/check` runs a live check of the name. Free carries the website lookup's public
+    contract: the rating as a band, no value, no checked time. Keyed adds the regular price behind a
+    promotion, the exact rating, the verdict, the value facts, the word's meaning-abroad flag and what
+    the name is. A name outside the catalog answers 200 with `tracked: false` and empty facts, never
+    404. Its status is `not_checked`, which also covers a taken name the catalog does not track: it
+    never means the name is free.
 
     Args:
         name (str):
@@ -180,13 +184,15 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameResponse200 | Problem]:
-    """The stored answer for one domain name: status, drop day, price today, registry facts, word facts and
+    """The answer for one domain name: status, drop day, price today, registry facts, word facts and
     similar sales.
 
-     Read from the stored lookup rows, never live (`POST /names/{name}/check` is the live path). Free
-    carries the website lookup's public contract: the rating as a band, no value, no checked time. Keyed
-    adds the regular price behind a promotion, the exact rating, the verdict and the value facts. A name
-    the catalog never stored answers 200 with `tracked: false` and empty facts, never 404.
+     `POST /names/{name}/check` runs a live check of the name. Free carries the website lookup's public
+    contract: the rating as a band, no value, no checked time. Keyed adds the regular price behind a
+    promotion, the exact rating, the verdict, the value facts, the word's meaning-abroad flag and what
+    the name is. A name outside the catalog answers 200 with `tracked: false` and empty facts, never
+    404. Its status is `not_checked`, which also covers a taken name the catalog does not track: it
+    never means the name is free.
 
     Args:
         name (str):
@@ -216,13 +222,15 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameResponse200 | Problem | None:
-    """The stored answer for one domain name: status, drop day, price today, registry facts, word facts and
+    """The answer for one domain name: status, drop day, price today, registry facts, word facts and
     similar sales.
 
-     Read from the stored lookup rows, never live (`POST /names/{name}/check` is the live path). Free
-    carries the website lookup's public contract: the rating as a band, no value, no checked time. Keyed
-    adds the regular price behind a promotion, the exact rating, the verdict and the value facts. A name
-    the catalog never stored answers 200 with `tracked: false` and empty facts, never 404.
+     `POST /names/{name}/check` runs a live check of the name. Free carries the website lookup's public
+    contract: the rating as a band, no value, no checked time. Keyed adds the regular price behind a
+    promotion, the exact rating, the verdict, the value facts, the word's meaning-abroad flag and what
+    the name is. A name outside the catalog answers 200 with `tracked: false` and empty facts, never
+    404. Its status is `not_checked`, which also covers a taken name the catalog does not track: it
+    never means the name is free.
 
     Args:
         name (str):

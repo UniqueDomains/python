@@ -106,9 +106,9 @@ def sync_detailed(
 ) -> Response[Any | GetMarketAuctionsResponse200 | Problem]:
     """Today's domain auctions by venue, ending and length, the next seven days and the tracked counts.
 
-     The scanner's daily auction statistics in a neutral order (venues in catalog order, endings of the
-    public set in seed order, lengths ascending) and the counts of the names we track. Figures are null
-    and lists empty before the first read of the day.
+     The day's auction statistics in a neutral order (venues in catalog order, endings of the public set
+    in seed order, lengths ascending) and the counts of the names we track. Figures are null and lists
+    empty until the first figures are ready.
 
     Args:
         fields (str | Unset):
@@ -139,9 +139,9 @@ def sync(
 ) -> Any | GetMarketAuctionsResponse200 | Problem | None:
     """Today's domain auctions by venue, ending and length, the next seven days and the tracked counts.
 
-     The scanner's daily auction statistics in a neutral order (venues in catalog order, endings of the
-    public set in seed order, lengths ascending) and the counts of the names we track. Figures are null
-    and lists empty before the first read of the day.
+     The day's auction statistics in a neutral order (venues in catalog order, endings of the public set
+    in seed order, lengths ascending) and the counts of the names we track. Figures are null and lists
+    empty until the first figures are ready.
 
     Args:
         fields (str | Unset):
@@ -167,9 +167,9 @@ async def asyncio_detailed(
 ) -> Response[Any | GetMarketAuctionsResponse200 | Problem]:
     """Today's domain auctions by venue, ending and length, the next seven days and the tracked counts.
 
-     The scanner's daily auction statistics in a neutral order (venues in catalog order, endings of the
-    public set in seed order, lengths ascending) and the counts of the names we track. Figures are null
-    and lists empty before the first read of the day.
+     The day's auction statistics in a neutral order (venues in catalog order, endings of the public set
+    in seed order, lengths ascending) and the counts of the names we track. Figures are null and lists
+    empty until the first figures are ready.
 
     Args:
         fields (str | Unset):
@@ -198,9 +198,9 @@ async def asyncio(
 ) -> Any | GetMarketAuctionsResponse200 | Problem | None:
     """Today's domain auctions by venue, ending and length, the next seven days and the tracked counts.
 
-     The scanner's daily auction statistics in a neutral order (venues in catalog order, endings of the
-    public set in seed order, lengths ascending) and the counts of the names we track. Figures are null
-    and lists empty before the first read of the day.
+     The day's auction statistics in a neutral order (venues in catalog order, endings of the public set
+    in seed order, lengths ascending) and the counts of the names we track. Figures are null and lists
+    empty until the first figures are ready.
 
     Args:
         fields (str | Unset):

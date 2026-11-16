@@ -109,9 +109,9 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameValueResponse200 | Problem]:
-    """The stored value estimate of one name and its last 20 estimates.
+    """The value estimate of one name and its last 20 estimates.
 
-     `current` is null when no estimate of the current model is stored. Never runs the appraisal: `POST
+     `current` is null when the name has no current estimate. Never runs the appraisal: `POST
     /names/{name}/appraise` does.
 
     Args:
@@ -144,9 +144,9 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameValueResponse200 | Problem | None:
-    """The stored value estimate of one name and its last 20 estimates.
+    """The value estimate of one name and its last 20 estimates.
 
-     `current` is null when no estimate of the current model is stored. Never runs the appraisal: `POST
+     `current` is null when the name has no current estimate. Never runs the appraisal: `POST
     /names/{name}/appraise` does.
 
     Args:
@@ -174,9 +174,9 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameValueResponse200 | Problem]:
-    """The stored value estimate of one name and its last 20 estimates.
+    """The value estimate of one name and its last 20 estimates.
 
-     `current` is null when no estimate of the current model is stored. Never runs the appraisal: `POST
+     `current` is null when the name has no current estimate. Never runs the appraisal: `POST
     /names/{name}/appraise` does.
 
     Args:
@@ -207,9 +207,9 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameValueResponse200 | Problem | None:
-    """The stored value estimate of one name and its last 20 estimates.
+    """The value estimate of one name and its last 20 estimates.
 
-     `current` is null when no estimate of the current model is stored. Never runs the appraisal: `POST
+     `current` is null when the name has no current estimate. Never runs the appraisal: `POST
     /names/{name}/appraise` does.
 
     Args:

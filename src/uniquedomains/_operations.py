@@ -17,7 +17,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "free",
         "plan": None,
-        "summary": "The stored answer for one domain name: status, drop day, price today, registry facts, word facts and similar sales.",
+        "summary": "The answer for one domain name: status, drop day, price today, registry facts, word facts and similar sales.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -48,7 +48,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "keyed",
         "plan": None,
-        "summary": "Reads one name live from its registry and a registrar, stores the answer and returns the keyed name resource.",
+        "summary": "Runs a live check of one name and returns the keyed name resource.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -65,7 +65,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "keyed",
         "plan": None,
-        "summary": "Every stored registrar quote for one name, and the renewal-trap flag.",
+        "summary": "Every registrar quote for one name, and the renewal-trap flag.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -82,7 +82,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "free",
         "plan": None,
-        "summary": "The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.",
+        "summary": "The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -99,7 +99,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "keyed",
         "plan": "investor",
-        "summary": "The stored registry record versions of one name and what moved between them.",
+        "summary": "The past versions of one name's registry record and what moved between them.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -116,7 +116,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "free",
         "plan": None,
-        "summary": "The latest stored DNS reading of one name, with its parking venue.",
+        "summary": "The DNS records of one name, with its parking venue.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -170,7 +170,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "keyed",
         "plan": None,
-        "summary": "The stored value estimate of one name and its last 20 estimates.",
+        "summary": "The value estimate of one name and its last 20 estimates.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -187,7 +187,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "keyed",
         "plan": "investor",
-        "summary": "Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.",
+        "summary": "Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -204,7 +204,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "names",
         "tier": "free",
         "plan": None,
-        "summary": "The similar-sales aggregate of one name and the endings its word sold on.",
+        "summary": "The similar-sales aggregate of one name and how many endings its word sold on.",
         "parameters": [
             {"name": "name", "in": "path", "required": True, "arg": "name"},
             {"name": "fields", "in": "query", "required": False},
@@ -332,7 +332,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "words",
         "tier": "free",
         "plan": None,
-        "summary": "A word's endings as the nightly update holds them: counts, the key endings and open names per ending.",
+        "summary": "A word's endings: counts, the key endings, and the endings the word is available on and for sale on.",
         "parameters": [
             {"name": "word", "in": "path", "required": True, "arg": "word"},
             {"name": "fields", "in": "query", "required": False},
@@ -388,7 +388,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "words",
         "tier": "free",
         "plan": "investor",
-        "summary": "A word's Wikipedia and Wikidata facts.",
+        "summary": "A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.",
         "parameters": [
             {"name": "word", "in": "path", "required": True, "arg": "word"},
             {"name": "fields", "in": "query", "required": False},
@@ -405,7 +405,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "words",
         "tier": "free",
         "plan": "investor",
-        "summary": "A word's sales and auction aggregates from the nightly update.",
+        "summary": "A word's sales and auction aggregates.",
         "parameters": [
             {"name": "word", "in": "path", "required": True, "arg": "word"},
             {"name": "fields", "in": "query", "required": False},
@@ -522,7 +522,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "catalog",
         "tier": "free",
         "plan": None,
-        "summary": "One catalog name, by name or id.",
+        "summary": "One name the catalog lists, by name or id.",
         "parameters": [
             {"name": "nameOrId", "in": "path", "required": True, "arg": "name_or_id"},
             {"name": "fields", "in": "query", "required": False},
@@ -632,7 +632,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "catalog",
         "tier": "free",
         "plan": None,
-        "summary": "Catalog headline totals for the latest day.",
+        "summary": "Catalog headline totals.",
         "parameters": [{"name": "fields", "in": "query", "required": False}],
         "body": None,
         "csv": False,
@@ -701,7 +701,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "tlds",
         "tier": "free",
         "plan": None,
-        "summary": "The ending's latest market figures, and with history its last daily rows.",
+        "summary": "The ending's market figures, and with history its daily rows.",
         "parameters": [
             {"name": "tld", "in": "path", "required": True, "arg": "tld"},
             {"name": "history", "in": "query", "required": False},
@@ -773,7 +773,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "tlds",
         "tier": "free",
         "plan": None,
-        "summary": "The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.",
+        "summary": "ICANN's 2026 new gTLD round, A to Z, with two simple bands.",
         "parameters": [
             {"name": "q", "in": "query", "required": False},
             {"name": "type", "in": "query", "required": False},
@@ -798,7 +798,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "tlds",
         "tier": "free",
         "plan": None,
-        "summary": "Every recorded status or contention change of the round, newest first.",
+        "summary": "Every status or contention change of the round, newest first.",
         "parameters": [
             {"name": "kind", "in": "query", "required": False},
             {"name": "since", "in": "query", "required": False},
@@ -888,7 +888,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "registrars",
         "tier": "keyed",
         "plan": None,
-        "summary": "Names tracked under the registrar on the latest footprint day, rounded, with its top endings.",
+        "summary": "Names tracked under the registrar, rounded, with its top endings.",
         "parameters": [
             {"name": "registrar", "in": "path", "required": True, "arg": "registrar"},
             {"name": "fields", "in": "query", "required": False},
@@ -1030,7 +1030,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "registrars",
         "tier": "free",
         "plan": None,
-        "summary": "The IANA registrar list as the registry sync stores it, by id.",
+        "summary": "The IANA registrar list, by IANA id.",
         "parameters": [
             {"name": "status", "in": "query", "required": False},
             {"name": "limit", "in": "query", "required": False},
@@ -1239,7 +1239,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "trends",
         "tier": "free",
         "plan": None,
-        "summary": "One trend: its latest row, its head words, its figures at every edition and its latest observations.",
+        "summary": "One trend: its latest row, its head words, its figures at every edition and its observations.",
         "parameters": [
             {"name": "slug", "in": "path", "required": True, "arg": "slug"},
             {"name": "fields", "in": "query", "required": False},
@@ -1414,7 +1414,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "shared",
         "tier": "free",
         "plan": None,
-        "summary": "Every enum the payloads use, read from the code catalogs.",
+        "summary": "Every enum the payloads use.",
         "parameters": [{"name": "fields", "in": "query", "required": False}],
         "body": None,
         "csv": False,
@@ -1428,7 +1428,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "shared",
         "tier": "free",
         "plan": None,
-        "summary": "How current the scanner's passes are: the day's counts and each lane's state.",
+        "summary": "The day's counts and the state of each part of the data.",
         "parameters": [{"name": "fields", "in": "query", "required": False}],
         "body": None,
         "csv": False,
@@ -1529,7 +1529,7 @@ OPERATIONS: Final[dict[str, dict[str, Any]]] = {
         "tag": "shared",
         "tier": "free",
         "plan": None,
-        "summary": "Liveness, with no database read.",
+        "summary": "Liveness: `ok` with the server time.",
         "parameters": [{"name": "fields", "in": "query", "required": False}],
         "body": None,
         "csv": False,

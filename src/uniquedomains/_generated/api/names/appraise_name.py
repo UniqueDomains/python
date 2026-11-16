@@ -111,12 +111,13 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[AppraiseNameResponse200 | AppraiseNameResponse202 | Problem]:
-    """Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.
+    """Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.
 
      A fresh estimate answers 200 with `Appraisal=0` and no run. A run this call started answers 200 with
     `Appraisal=1`; a run another call holds answers 202 with `Retry-After: 30` and `Appraisal=0`, and a
-    run another call finished meanwhile 200 with `Appraisal=0`. The name must be stored: run `POST
-    /names/{name}/check` first. 5,000 runs a UTC day for the whole API.
+    run another call finished meanwhile 200 with `Appraisal=0`. The name must be in the catalog
+    (`tracked: true`): for a name outside it, run `POST /names/{name}/check` first. 5,000 runs a UTC day
+    for the whole API.
 
     Args:
         name (str):
@@ -148,12 +149,13 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> AppraiseNameResponse200 | AppraiseNameResponse202 | Problem | None:
-    """Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.
+    """Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.
 
      A fresh estimate answers 200 with `Appraisal=0` and no run. A run this call started answers 200 with
     `Appraisal=1`; a run another call holds answers 202 with `Retry-After: 30` and `Appraisal=0`, and a
-    run another call finished meanwhile 200 with `Appraisal=0`. The name must be stored: run `POST
-    /names/{name}/check` first. 5,000 runs a UTC day for the whole API.
+    run another call finished meanwhile 200 with `Appraisal=0`. The name must be in the catalog
+    (`tracked: true`): for a name outside it, run `POST /names/{name}/check` first. 5,000 runs a UTC day
+    for the whole API.
 
     Args:
         name (str):
@@ -180,12 +182,13 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[AppraiseNameResponse200 | AppraiseNameResponse202 | Problem]:
-    """Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.
+    """Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.
 
      A fresh estimate answers 200 with `Appraisal=0` and no run. A run this call started answers 200 with
     `Appraisal=1`; a run another call holds answers 202 with `Retry-After: 30` and `Appraisal=0`, and a
-    run another call finished meanwhile 200 with `Appraisal=0`. The name must be stored: run `POST
-    /names/{name}/check` first. 5,000 runs a UTC day for the whole API.
+    run another call finished meanwhile 200 with `Appraisal=0`. The name must be in the catalog
+    (`tracked: true`): for a name outside it, run `POST /names/{name}/check` first. 5,000 runs a UTC day
+    for the whole API.
 
     Args:
         name (str):
@@ -215,12 +218,13 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> AppraiseNameResponse200 | AppraiseNameResponse202 | Problem | None:
-    """Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.
+    """Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.
 
      A fresh estimate answers 200 with `Appraisal=0` and no run. A run this call started answers 200 with
     `Appraisal=1`; a run another call holds answers 202 with `Retry-After: 30` and `Appraisal=0`, and a
-    run another call finished meanwhile 200 with `Appraisal=0`. The name must be stored: run `POST
-    /names/{name}/check` first. 5,000 runs a UTC day for the whole API.
+    run another call finished meanwhile 200 with `Appraisal=0`. The name must be in the catalog
+    (`tracked: true`): for a name outside it, run `POST /names/{name}/check` first. 5,000 runs a UTC day
+    for the whole API.
 
     Args:
         name (str):

@@ -115,8 +115,8 @@ def sync_detailed(
     """The admitted trend candidates the editions draw from, with their observations.
 
      Each candidate's normalised phrase, definition, head and seed words, open names on the founder and
-    investor endings and its latest observations, figures only. Keyset on `canonical`; 100 rows a page
-    unless `limit` asks fewer.
+    investor endings and its observations, figures only. Keyset on `canonical`; 100 rows a page unless
+    `limit` asks fewer.
 
     Args:
         limit (int | Unset):  Default: 20.
@@ -154,8 +154,8 @@ def sync(
     """The admitted trend candidates the editions draw from, with their observations.
 
      Each candidate's normalised phrase, definition, head and seed words, open names on the founder and
-    investor endings and its latest observations, figures only. Keyset on `canonical`; 100 rows a page
-    unless `limit` asks fewer.
+    investor endings and its observations, figures only. Keyset on `canonical`; 100 rows a page unless
+    `limit` asks fewer.
 
     Args:
         limit (int | Unset):  Default: 20.
@@ -188,8 +188,8 @@ async def asyncio_detailed(
     """The admitted trend candidates the editions draw from, with their observations.
 
      Each candidate's normalised phrase, definition, head and seed words, open names on the founder and
-    investor endings and its latest observations, figures only. Keyset on `canonical`; 100 rows a page
-    unless `limit` asks fewer.
+    investor endings and its observations, figures only. Keyset on `canonical`; 100 rows a page unless
+    `limit` asks fewer.
 
     Args:
         limit (int | Unset):  Default: 20.
@@ -225,8 +225,8 @@ async def asyncio(
     """The admitted trend candidates the editions draw from, with their observations.
 
      Each candidate's normalised phrase, definition, head and seed words, open names on the founder and
-    investor endings and its latest observations, figures only. Keyset on `canonical`; 100 rows a page
-    unless `limit` asks fewer.
+    investor endings and its observations, figures only. Keyset on `canonical`; 100 rows a page unless
+    `limit` asks fewer.
 
     Args:
         limit (int | Unset):  Default: 20.

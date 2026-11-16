@@ -21,7 +21,7 @@ class ListRegistrarPricesResponse200DataItem:
         transfer_price (float | None):
         is_promo (bool | None):
         currency (None | str):
-        delisted (bool | Unset): Paid subscriptions only: the last complete list no longer carries the ending.
+        delisted (bool | Unset): Paid subscriptions only: the registrar's price list no longer carries the ending.
     """
 
     extension: str

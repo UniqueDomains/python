@@ -123,7 +123,7 @@ def sync_detailed(
 ) -> Response[Any | ListTldPriceHistoryResponse200 | Problem]:
     """Change-only price rows of one ending, newest first.
 
-     From `TldPriceHistory`, keyset on `(firstSeenAt, id)`, optionally for one registrar.
+     Keyset on `(firstSeenAt, id)`, optionally for one registrar.
 
     Args:
         tld (str):
@@ -166,7 +166,7 @@ def sync(
 ) -> Any | ListTldPriceHistoryResponse200 | Problem | None:
     """Change-only price rows of one ending, newest first.
 
-     From `TldPriceHistory`, keyset on `(firstSeenAt, id)`, optionally for one registrar.
+     Keyset on `(firstSeenAt, id)`, optionally for one registrar.
 
     Args:
         tld (str):
@@ -204,7 +204,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListTldPriceHistoryResponse200 | Problem]:
     """Change-only price rows of one ending, newest first.
 
-     From `TldPriceHistory`, keyset on `(firstSeenAt, id)`, optionally for one registrar.
+     Keyset on `(firstSeenAt, id)`, optionally for one registrar.
 
     Args:
         tld (str):
@@ -245,7 +245,7 @@ async def asyncio(
 ) -> Any | ListTldPriceHistoryResponse200 | Problem | None:
     """Change-only price rows of one ending, newest first.
 
-     From `TldPriceHistory`, keyset on `(firstSeenAt, id)`, optionally for one registrar.
+     Keyset on `(firstSeenAt, id)`, optionally for one registrar.
 
     Args:
         tld (str):

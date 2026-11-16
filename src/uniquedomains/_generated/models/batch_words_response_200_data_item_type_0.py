@@ -7,6 +7,18 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.batch_words_response_200_data_item_type_0_cross_language_flag_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType1,
+    check_batch_words_response_200_data_item_type_0_cross_language_flag_type_1,
+)
+from ..models.batch_words_response_200_data_item_type_0_cross_language_flag_type_2_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1,
+    check_batch_words_response_200_data_item_type_0_cross_language_flag_type_2_type_1,
+)
+from ..models.batch_words_response_200_data_item_type_0_cross_language_flag_type_3_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1,
+    check_batch_words_response_200_data_item_type_0_cross_language_flag_type_3_type_1,
+)
 from ..models.batch_words_response_200_data_item_type_0_deny_class_type_1 import (
     BatchWordsResponse200DataItemType0DenyClassType1,
     check_batch_words_response_200_data_item_type_0_deny_class_type_1,
@@ -73,7 +85,7 @@ class BatchWordsResponse200DataItemType0:
         slug (None | str | Unset):
         shape (BatchWordsResponse200DataItemType0ShapeType1 | BatchWordsResponse200DataItemType0ShapeType2Type1 |
             BatchWordsResponse200DataItemType0ShapeType3Type1 | None | Unset):
-        pos (None | str | Unset): Parts of speech as stored, comma-joined tags.
+        pos (None | str | Unset): Parts of speech, comma-joined tags.
         definition (None | str | Unset):
         inflected (bool | None | Unset):
         size (int | None | Unset):
@@ -85,7 +97,12 @@ class BatchWordsResponse200DataItemType0:
         deny_class (BatchWordsResponse200DataItemType0DenyClassType1 |
             BatchWordsResponse200DataItemType0DenyClassType2Type1 | BatchWordsResponse200DataItemType0DenyClassType3Type1 |
             None | Unset): Why the word stays off public lists; null when none.
-        added_at (datetime.datetime | None | Unset): When the intake added it; null means the dictionary load.
+        cross_language_flag (BatchWordsResponse200DataItemType0CrossLanguageFlagType1 |
+            BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1 |
+            BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1 | None | Unset): What the word means in other
+            languages: `caution` a meaning worth reading first, `avoid` offensive or vulgar; null when the word has no
+            reading yet. The flag alone, a fact and never a score.
+        added_at (datetime.datetime | None | Unset): When the intake added it; null for a dictionary word.
     """
 
     id: str
@@ -119,6 +136,13 @@ class BatchWordsResponse200DataItemType0:
         BatchWordsResponse200DataItemType0DenyClassType1
         | BatchWordsResponse200DataItemType0DenyClassType2Type1
         | BatchWordsResponse200DataItemType0DenyClassType3Type1
+        | None
+        | Unset
+    ) = UNSET
+    cross_language_flag: (
+        BatchWordsResponse200DataItemType0CrossLanguageFlagType1
+        | BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1
+        | BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1
         | None
         | Unset
     ) = UNSET
@@ -223,6 +247,18 @@ class BatchWordsResponse200DataItemType0:
         else:
             deny_class = self.deny_class
 
+        cross_language_flag: None | str | Unset
+        if isinstance(self.cross_language_flag, Unset):
+            cross_language_flag = UNSET
+        elif (
+            isinstance(self.cross_language_flag, str)
+            or isinstance(self.cross_language_flag, str)
+            or isinstance(self.cross_language_flag, str)
+        ):
+            cross_language_flag = self.cross_language_flag
+        else:
+            cross_language_flag = self.cross_language_flag
+
         added_at: None | str | Unset
         if isinstance(self.added_at, Unset):
             added_at = UNSET
@@ -264,6 +300,8 @@ class BatchWordsResponse200DataItemType0:
             field_dict["style"] = style
         if deny_class is not UNSET:
             field_dict["denyClass"] = deny_class
+        if cross_language_flag is not UNSET:
+            field_dict["crossLanguageFlag"] = cross_language_flag
         if added_at is not UNSET:
             field_dict["addedAt"] = added_at
 
@@ -544,6 +582,62 @@ class BatchWordsResponse200DataItemType0:
 
         deny_class = _parse_deny_class(d.pop("denyClass", UNSET))
 
+        def _parse_cross_language_flag(
+            data: object,
+        ) -> (
+            BatchWordsResponse200DataItemType0CrossLanguageFlagType1
+            | BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1
+            | BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1
+            | None
+            | Unset
+        ):
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_1 = check_batch_words_response_200_data_item_type_0_cross_language_flag_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_2_type_1 = check_batch_words_response_200_data_item_type_0_cross_language_flag_type_2_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_2_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_3_type_1 = check_batch_words_response_200_data_item_type_0_cross_language_flag_type_3_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_3_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(
+                BatchWordsResponse200DataItemType0CrossLanguageFlagType1
+                | BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1
+                | BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1
+                | None
+                | Unset,
+                data,
+            )
+
+        cross_language_flag = _parse_cross_language_flag(
+            d.pop("crossLanguageFlag", UNSET)
+        )
+
         def _parse_added_at(data: object) -> datetime.datetime | None | Unset:
             if data is None:
                 return data
@@ -578,6 +672,7 @@ class BatchWordsResponse200DataItemType0:
             brandability=brandability,
             style=style,
             deny_class=deny_class,
+            cross_language_flag=cross_language_flag,
             added_at=added_at,
         )
 

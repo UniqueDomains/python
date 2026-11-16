@@ -1,7 +1,7 @@
 from typing import Literal
 
 BatchNamesResponse200DataItemType0CompsTierType3Type1 = Literal[
-    "market", "related", "same_word", "sold_before", "synonyms"
+    "market", "related", "same_type", "same_word", "sold_before", "synonyms"
 ]
 
 BATCH_NAMES_RESPONSE_200_DATA_ITEM_TYPE_0_COMPS_TIER_TYPE_3_TYPE_1_VALUES: set[
@@ -9,6 +9,7 @@ BATCH_NAMES_RESPONSE_200_DATA_ITEM_TYPE_0_COMPS_TIER_TYPE_3_TYPE_1_VALUES: set[
 ] = {
     "market",
     "related",
+    "same_type",
     "same_word",
     "sold_before",
     "synonyms",

@@ -104,11 +104,12 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetMetaEnumsResponse200 | Problem]:
-    """Every enum the payloads use, read from the code catalogs.
+    """Every enum the payloads use.
 
      Name statuses, registry lifecycles and EPP statuses, lookup states, word shapes and origins, TLD
     kinds, agenda and event categories, edition lanes, the change types and subjects, the auction venues
-    and the parking services.
+    and the parking services. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -137,11 +138,12 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetMetaEnumsResponse200 | Problem | None:
-    """Every enum the payloads use, read from the code catalogs.
+    """Every enum the payloads use.
 
      Name statuses, registry lifecycles and EPP statuses, lookup states, word shapes and origins, TLD
     kinds, agenda and event categories, edition lanes, the change types and subjects, the auction venues
-    and the parking services.
+    and the parking services. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -165,11 +167,12 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetMetaEnumsResponse200 | Problem]:
-    """Every enum the payloads use, read from the code catalogs.
+    """Every enum the payloads use.
 
      Name statuses, registry lifecycles and EPP statuses, lookup states, word shapes and origins, TLD
     kinds, agenda and event categories, edition lanes, the change types and subjects, the auction venues
-    and the parking services.
+    and the parking services. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -196,11 +199,12 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetMetaEnumsResponse200 | Problem | None:
-    """Every enum the payloads use, read from the code catalogs.
+    """Every enum the payloads use.
 
      Name statuses, registry lifecycles and EPP statuses, lookup states, word shapes and origins, TLD
     kinds, agenda and event categories, edition lanes, the change types and subjects, the auction venues
-    and the parking services.
+    and the parking services. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):

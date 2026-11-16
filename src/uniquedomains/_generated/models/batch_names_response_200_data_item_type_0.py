@@ -6,6 +6,18 @@ from typing import TYPE_CHECKING, Any, Self, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.batch_names_response_200_data_item_type_0_cross_language_flag_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType1,
+    check_batch_names_response_200_data_item_type_0_cross_language_flag_type_1,
+)
+from ..models.batch_names_response_200_data_item_type_0_cross_language_flag_type_2_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1,
+    check_batch_names_response_200_data_item_type_0_cross_language_flag_type_2_type_1,
+)
+from ..models.batch_names_response_200_data_item_type_0_cross_language_flag_type_3_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1,
+    check_batch_names_response_200_data_item_type_0_cross_language_flag_type_3_type_1,
+)
 from ..models.batch_names_response_200_data_item_type_0_format_type_1 import (
     BatchNamesResponse200DataItemType0FormatType1,
     check_batch_names_response_200_data_item_type_0_format_type_1,
@@ -43,6 +55,9 @@ if TYPE_CHECKING:
     from ..models.batch_names_response_200_data_item_type_0_drop import (
         BatchNamesResponse200DataItemType0Drop,
     )
+    from ..models.batch_names_response_200_data_item_type_0_name_label_type_0 import (
+        BatchNamesResponse200DataItemType0NameLabelType0,
+    )
     from ..models.batch_names_response_200_data_item_type_0_price import (
         BatchNamesResponse200DataItemType0Price,
     )
@@ -73,8 +88,9 @@ class BatchNamesResponse200DataItemType0:
         id (None | str): `dom_<uuid>`; null when `tracked` is false.
         name (str):
         ending (str):
-        tracked (bool): The catalog stores the name.
-        status (BatchNamesResponse200DataItemType0Status):
+        tracked (bool): The name is in the catalog.
+        status (BatchNamesResponse200DataItemType0Status): Where the name stands for a buyer. A list row's status reads
+            here as: `resell` is `for_sale` (`at_auction` at a drop-catch venue), `premium` is `free_premium`.
         drop (BatchNamesResponse200DataItemType0Drop):
         ownable_now (bool):
         price (BatchNamesResponse200DataItemType0Price):
@@ -89,6 +105,13 @@ class BatchNamesResponse200DataItemType0:
         shape (BatchNamesResponse200DataItemType0ShapeType1 | BatchNamesResponse200DataItemType0ShapeType2Type1 |
             BatchNamesResponse200DataItemType0ShapeType3Type1 | None | Unset):
         word (BatchNamesResponse200DataItemType0WordType0 | None | Unset):
+        cross_language_flag (BatchNamesResponse200DataItemType0CrossLanguageFlagType1 |
+            BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1 |
+            BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1 | None | Unset): Keyed. What the word means in
+            other languages: `caution` a meaning worth reading first, `avoid` offensive or vulgar; null when the name has no
+            catalog word or the word has no reading yet. The flag alone, a fact and never a score.
+        name_label (BatchNamesResponse200DataItemType0NameLabelType0 | None | Unset): Keyed. What the name is; null when
+            the name has no reading yet.
         verdict (BatchNamesResponse200DataItemType0VerdictType0 | None | Unset): Keyed.
         value (BatchNamesResponse200DataItemType0ValueType0 | None | Unset): Keyed.
     """
@@ -122,11 +145,22 @@ class BatchNamesResponse200DataItemType0:
         | Unset
     ) = UNSET
     word: BatchNamesResponse200DataItemType0WordType0 | None | Unset = UNSET
+    cross_language_flag: (
+        BatchNamesResponse200DataItemType0CrossLanguageFlagType1
+        | BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1
+        | BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1
+        | None
+        | Unset
+    ) = UNSET
+    name_label: BatchNamesResponse200DataItemType0NameLabelType0 | None | Unset = UNSET
     verdict: BatchNamesResponse200DataItemType0VerdictType0 | None | Unset = UNSET
     value: BatchNamesResponse200DataItemType0ValueType0 | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.batch_names_response_200_data_item_type_0_name_label_type_0 import (
+            BatchNamesResponse200DataItemType0NameLabelType0,
+        )
         from ..models.batch_names_response_200_data_item_type_0_value_type_0 import (
             BatchNamesResponse200DataItemType0ValueType0,
         )
@@ -210,6 +244,28 @@ class BatchNamesResponse200DataItemType0:
         else:
             word = self.word
 
+        cross_language_flag: None | str | Unset
+        if isinstance(self.cross_language_flag, Unset):
+            cross_language_flag = UNSET
+        elif (
+            isinstance(self.cross_language_flag, str)
+            or isinstance(self.cross_language_flag, str)
+            or isinstance(self.cross_language_flag, str)
+        ):
+            cross_language_flag = self.cross_language_flag
+        else:
+            cross_language_flag = self.cross_language_flag
+
+        name_label: dict[str, Any] | None | Unset
+        if isinstance(self.name_label, Unset):
+            name_label = UNSET
+        elif isinstance(
+            self.name_label, BatchNamesResponse200DataItemType0NameLabelType0
+        ):
+            name_label = self.name_label.to_dict()
+        else:
+            name_label = self.name_label
+
         verdict: dict[str, Any] | None | Unset
         if isinstance(self.verdict, Unset):
             verdict = UNSET
@@ -255,6 +311,10 @@ class BatchNamesResponse200DataItemType0:
             field_dict["shape"] = shape
         if word is not UNSET:
             field_dict["word"] = word
+        if cross_language_flag is not UNSET:
+            field_dict["crossLanguageFlag"] = cross_language_flag
+        if name_label is not UNSET:
+            field_dict["nameLabel"] = name_label
         if verdict is not UNSET:
             field_dict["verdict"] = verdict
         if value is not UNSET:
@@ -269,6 +329,9 @@ class BatchNamesResponse200DataItemType0:
         )
         from ..models.batch_names_response_200_data_item_type_0_drop import (
             BatchNamesResponse200DataItemType0Drop,
+        )
+        from ..models.batch_names_response_200_data_item_type_0_name_label_type_0 import (
+            BatchNamesResponse200DataItemType0NameLabelType0,
         )
         from ..models.batch_names_response_200_data_item_type_0_price import (
             BatchNamesResponse200DataItemType0Price,
@@ -482,6 +545,85 @@ class BatchNamesResponse200DataItemType0:
 
         word = _parse_word(d.pop("word", UNSET))
 
+        def _parse_cross_language_flag(
+            data: object,
+        ) -> (
+            BatchNamesResponse200DataItemType0CrossLanguageFlagType1
+            | BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1
+            | BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1
+            | None
+            | Unset
+        ):
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_1 = check_batch_names_response_200_data_item_type_0_cross_language_flag_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_2_type_1 = check_batch_names_response_200_data_item_type_0_cross_language_flag_type_2_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_2_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                cross_language_flag_type_3_type_1 = check_batch_names_response_200_data_item_type_0_cross_language_flag_type_3_type_1(
+                    data
+                )
+
+                return cross_language_flag_type_3_type_1
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(
+                BatchNamesResponse200DataItemType0CrossLanguageFlagType1
+                | BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1
+                | BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1
+                | None
+                | Unset,
+                data,
+            )
+
+        cross_language_flag = _parse_cross_language_flag(
+            d.pop("crossLanguageFlag", UNSET)
+        )
+
+        def _parse_name_label(
+            data: object,
+        ) -> BatchNamesResponse200DataItemType0NameLabelType0 | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                name_label_type_0 = (
+                    BatchNamesResponse200DataItemType0NameLabelType0.from_dict(data)
+                )
+
+                return name_label_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(
+                BatchNamesResponse200DataItemType0NameLabelType0 | None | Unset, data
+            )
+
+        name_label = _parse_name_label(d.pop("nameLabel", UNSET))
+
         def _parse_verdict(
             data: object,
         ) -> BatchNamesResponse200DataItemType0VerdictType0 | None | Unset:
@@ -546,6 +688,8 @@ class BatchNamesResponse200DataItemType0:
             format_=format_,
             shape=shape,
             word=word,
+            cross_language_flag=cross_language_flag,
+            name_label=name_label,
             verdict=verdict,
             value=value,
         )

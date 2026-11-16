@@ -31,7 +31,7 @@ class CheckNameResponse202DataComps:
             answers only.
         count (int):
         median_usd (float | None):
-        endings_sold_on (int): Endings the word sold on in 12 months.
+        endings_sold_on (int): How many endings the word sold on in 12 months.
     """
 
     tier: (

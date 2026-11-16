@@ -8,12 +8,13 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="GetWordEndingsResponse200DataByGroup")
+T = TypeVar("T", bound="GetWordEndingsResponse200DataByGroupType0")
 
 
 @_attrs_define
-class GetWordEndingsResponse200DataByGroup:
-    """
+class GetWordEndingsResponse200DataByGroupType0:
+    """Null for a word with no count yet; zeros are real.
+
     Attributes:
         scanned (int | Unset):
         taken (int | Unset):
@@ -61,15 +62,15 @@ class GetWordEndingsResponse200DataByGroup:
 
         for_sale = d.pop("forSale", UNSET)
 
-        get_word_endings_response_200_data_by_group = cls(
+        get_word_endings_response_200_data_by_group_type_0 = cls(
             scanned=scanned,
             taken=taken,
             available=available,
             for_sale=for_sale,
         )
 
-        get_word_endings_response_200_data_by_group.additional_properties = d
-        return get_word_endings_response_200_data_by_group
+        get_word_endings_response_200_data_by_group_type_0.additional_properties = d
+        return get_word_endings_response_200_data_by_group_type_0
 
     @property
     def additional_keys(self) -> list[str]:

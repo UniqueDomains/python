@@ -106,7 +106,7 @@ def sync_detailed(
 ) -> Response[Any | ListTrendCategoriesResponse200 | Problem]:
     """The trend categories, the `category` filter of `GET /trends`.
 
-     Every category in the stored display order, served whole.
+     Every category in display order, served whole.
 
     Args:
         fields (str | Unset):
@@ -137,7 +137,7 @@ def sync(
 ) -> Any | ListTrendCategoriesResponse200 | Problem | None:
     """The trend categories, the `category` filter of `GET /trends`.
 
-     Every category in the stored display order, served whole.
+     Every category in display order, served whole.
 
     Args:
         fields (str | Unset):
@@ -163,7 +163,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListTrendCategoriesResponse200 | Problem]:
     """The trend categories, the `category` filter of `GET /trends`.
 
-     Every category in the stored display order, served whole.
+     Every category in display order, served whole.
 
     Args:
         fields (str | Unset):
@@ -192,7 +192,7 @@ async def asyncio(
 ) -> Any | ListTrendCategoriesResponse200 | Problem | None:
     """The trend categories, the `category` filter of `GET /trends`.
 
-     Every category in the stored display order, served whole.
+     Every category in display order, served whole.
 
     Args:
         fields (str | Unset):

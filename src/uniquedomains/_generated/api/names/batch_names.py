@@ -112,9 +112,8 @@ def sync_detailed(
     """The keyed name resource for up to 100 names in one call.
 
      One entry per name, in the request's order: the keyed `GET /names/{name}` resource, `{ name,
-    tracked: false }` for a name the catalog never stored, or `{ name, error: "validation_failed" }` for
-    an entry that is not a name. No live read. Billed one request per name sent, refused entries
-    included.
+    tracked: false }` for a name outside the catalog, or `{ name, error: "validation_failed" }` for an
+    entry that is not a name. Billed one request per name sent, refused entries included.
 
     Args:
         fields (str | Unset):
@@ -149,9 +148,8 @@ def sync(
     """The keyed name resource for up to 100 names in one call.
 
      One entry per name, in the request's order: the keyed `GET /names/{name}` resource, `{ name,
-    tracked: false }` for a name the catalog never stored, or `{ name, error: "validation_failed" }` for
-    an entry that is not a name. No live read. Billed one request per name sent, refused entries
-    included.
+    tracked: false }` for a name outside the catalog, or `{ name, error: "validation_failed" }` for an
+    entry that is not a name. Billed one request per name sent, refused entries included.
 
     Args:
         fields (str | Unset):
@@ -181,9 +179,8 @@ async def asyncio_detailed(
     """The keyed name resource for up to 100 names in one call.
 
      One entry per name, in the request's order: the keyed `GET /names/{name}` resource, `{ name,
-    tracked: false }` for a name the catalog never stored, or `{ name, error: "validation_failed" }` for
-    an entry that is not a name. No live read. Billed one request per name sent, refused entries
-    included.
+    tracked: false }` for a name outside the catalog, or `{ name, error: "validation_failed" }` for an
+    entry that is not a name. Billed one request per name sent, refused entries included.
 
     Args:
         fields (str | Unset):
@@ -216,9 +213,8 @@ async def asyncio(
     """The keyed name resource for up to 100 names in one call.
 
      One entry per name, in the request's order: the keyed `GET /names/{name}` resource, `{ name,
-    tracked: false }` for a name the catalog never stored, or `{ name, error: "validation_failed" }` for
-    an entry that is not a name. No live read. Billed one request per name sent, refused entries
-    included.
+    tracked: false }` for a name outside the catalog, or `{ name, error: "validation_failed" }` for an
+    entry that is not a name. Billed one request per name sent, refused entries included.
 
     Args:
         fields (str | Unset):

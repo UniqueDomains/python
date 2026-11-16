@@ -119,8 +119,7 @@ def sync_detailed(
 ) -> Response[Any | ListTldChangesResponse200 | Problem]:
     """The ending's public registry changes, newest first.
 
-     Delegations, removals, contract terminations and phase changes from `TldChange`, keyset on `(seenAt,
-    id)`.
+     Delegations, removals, contract terminations and phase changes, keyset on `(seenAt, id)`.
 
     Args:
         tld (str):
@@ -160,8 +159,7 @@ def sync(
 ) -> Any | ListTldChangesResponse200 | Problem | None:
     """The ending's public registry changes, newest first.
 
-     Delegations, removals, contract terminations and phase changes from `TldChange`, keyset on `(seenAt,
-    id)`.
+     Delegations, removals, contract terminations and phase changes, keyset on `(seenAt, id)`.
 
     Args:
         tld (str):
@@ -196,8 +194,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListTldChangesResponse200 | Problem]:
     """The ending's public registry changes, newest first.
 
-     Delegations, removals, contract terminations and phase changes from `TldChange`, keyset on `(seenAt,
-    id)`.
+     Delegations, removals, contract terminations and phase changes, keyset on `(seenAt, id)`.
 
     Args:
         tld (str):
@@ -235,8 +232,7 @@ async def asyncio(
 ) -> Any | ListTldChangesResponse200 | Problem | None:
     """The ending's public registry changes, newest first.
 
-     Delegations, removals, contract terminations and phase changes from `TldChange`, keyset on `(seenAt,
-    id)`.
+     Delegations, removals, contract terminations and phase changes, keyset on `(seenAt, id)`.
 
     Args:
         tld (str):

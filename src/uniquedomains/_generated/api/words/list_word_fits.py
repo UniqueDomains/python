@@ -119,7 +119,7 @@ def sync_detailed(
 ) -> Response[Any | ListWordFitsResponse200 | Problem]:
     """How well the word fits each ending whose keywords list it.
 
-     The stored pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
+     The pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
     keyword's rank on the ending. `tld` asks one ending.
 
     Args:
@@ -160,7 +160,7 @@ def sync(
 ) -> Any | ListWordFitsResponse200 | Problem | None:
     """How well the word fits each ending whose keywords list it.
 
-     The stored pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
+     The pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
     keyword's rank on the ending. `tld` asks one ending.
 
     Args:
@@ -196,7 +196,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListWordFitsResponse200 | Problem]:
     """How well the word fits each ending whose keywords list it.
 
-     The stored pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
+     The pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
     keyword's rank on the ending. `tld` asks one ending.
 
     Args:
@@ -235,7 +235,7 @@ async def asyncio(
 ) -> Any | ListWordFitsResponse200 | Problem | None:
     """How well the word fits each ending whose keywords list it.
 
-     The stored pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
+     The pair fit of the word on each ending (`basis: rated`), else 50 (`basis: default`), in the
     keyword's rank on the ending. `tld` asks one ending.
 
     Args:

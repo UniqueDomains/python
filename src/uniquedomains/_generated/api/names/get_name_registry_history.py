@@ -111,10 +111,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameRegistryHistoryResponse200 | Problem]:
-    """The stored registry record versions of one name and what moved between them.
+    """The past versions of one name's registry record and what moved between them.
 
      Versions and registrar moves oldest first, the distinct transfers the records name, and the lock
-    removals of the last 90 days. A name the catalog never stored answers empty lists.
+    removals of the last 90 days. A name outside the catalog answers empty lists.
 
     Args:
         name (str):
@@ -146,10 +146,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameRegistryHistoryResponse200 | Problem | None:
-    """The stored registry record versions of one name and what moved between them.
+    """The past versions of one name's registry record and what moved between them.
 
      Versions and registrar moves oldest first, the distinct transfers the records name, and the lock
-    removals of the last 90 days. A name the catalog never stored answers empty lists.
+    removals of the last 90 days. A name outside the catalog answers empty lists.
 
     Args:
         name (str):
@@ -176,10 +176,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameRegistryHistoryResponse200 | Problem]:
-    """The stored registry record versions of one name and what moved between them.
+    """The past versions of one name's registry record and what moved between them.
 
      Versions and registrar moves oldest first, the distinct transfers the records name, and the lock
-    removals of the last 90 days. A name the catalog never stored answers empty lists.
+    removals of the last 90 days. A name outside the catalog answers empty lists.
 
     Args:
         name (str):
@@ -209,10 +209,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameRegistryHistoryResponse200 | Problem | None:
-    """The stored registry record versions of one name and what moved between them.
+    """The past versions of one name's registry record and what moved between them.
 
      Versions and registrar moves oldest first, the distinct transfers the records name, and the lock
-    removals of the last 90 days. A name the catalog never stored answers empty lists.
+    removals of the last 90 days. A name outside the catalog answers empty lists.
 
     Args:
         name (str):

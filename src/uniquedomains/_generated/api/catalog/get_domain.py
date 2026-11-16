@@ -109,10 +109,11 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetDomainResponse200 | Problem]:
-    """One catalog name, by name or id.
+    """One name the catalog lists, by name or id.
 
-     The stored name read of `GET /names/{name}` for a name the catalog tracks; a name outside the
-    catalog, a hidden word or, on the free tier, a proper noun answers 404.
+     The name answer of `GET /names/{name}` for a name the catalog lists, whatever its status: a taken
+    name answers 200. A name the catalog does not list, even one `GET /names/{name}` answers with
+    `tracked: true`, a hidden word or, on the free tier, a proper noun answers 404.
 
     Args:
         name_or_id (str):
@@ -144,10 +145,11 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetDomainResponse200 | Problem | None:
-    """One catalog name, by name or id.
+    """One name the catalog lists, by name or id.
 
-     The stored name read of `GET /names/{name}` for a name the catalog tracks; a name outside the
-    catalog, a hidden word or, on the free tier, a proper noun answers 404.
+     The name answer of `GET /names/{name}` for a name the catalog lists, whatever its status: a taken
+    name answers 200. A name the catalog does not list, even one `GET /names/{name}` answers with
+    `tracked: true`, a hidden word or, on the free tier, a proper noun answers 404.
 
     Args:
         name_or_id (str):
@@ -174,10 +176,11 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetDomainResponse200 | Problem]:
-    """One catalog name, by name or id.
+    """One name the catalog lists, by name or id.
 
-     The stored name read of `GET /names/{name}` for a name the catalog tracks; a name outside the
-    catalog, a hidden word or, on the free tier, a proper noun answers 404.
+     The name answer of `GET /names/{name}` for a name the catalog lists, whatever its status: a taken
+    name answers 200. A name the catalog does not list, even one `GET /names/{name}` answers with
+    `tracked: true`, a hidden word or, on the free tier, a proper noun answers 404.
 
     Args:
         name_or_id (str):
@@ -207,10 +210,11 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetDomainResponse200 | Problem | None:
-    """One catalog name, by name or id.
+    """One name the catalog lists, by name or id.
 
-     The stored name read of `GET /names/{name}` for a name the catalog tracks; a name outside the
-    catalog, a hidden word or, on the free tier, a proper noun answers 404.
+     The name answer of `GET /names/{name}` for a name the catalog lists, whatever its status: a taken
+    name answers 200. A name the catalog does not list, even one `GET /names/{name}` answers with
+    `tracked: true`, a hidden word or, on the free tier, a proper noun answers 404.
 
     Args:
         name_or_id (str):

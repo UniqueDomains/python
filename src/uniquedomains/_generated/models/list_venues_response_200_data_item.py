@@ -23,7 +23,7 @@ class ListVenuesResponse200DataItem:
         name (str): Display name.
         kind (str): `registrar`, or a venue's kind (`marketplace`, `parking`, `dropcatch`).
         iana_id (int | None):
-        accredited (bool): The IANA record says accredited.
+        accredited (bool): Listed as accredited on IANA's registrar list.
         homepage_url (None | str):
         site_url (None | str):
         logo_url (None | str):

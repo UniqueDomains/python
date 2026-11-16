@@ -263,7 +263,7 @@ class NamesApi:
         self._client = client
 
     def get_name(self, name: str) -> Answer[GetNameResponse200, GetNameResponse200Data]:
-        """The stored answer for one domain name: status, drop day, price today, registry facts, word facts and similar sales.
+        """The answer for one domain name: status, drop day, price today, registry facts, word facts and similar sales.
 
         `GET /names/{name}`, free. Reference: https://unique.domains/api/get-name
         """
@@ -292,7 +292,7 @@ class NamesApi:
     def check_name(
         self, name: str, *, body: CheckNameBody | Mapping[str, Any]
     ) -> Answer[CheckNameResponse200 | CheckNameResponse202, CheckNameResponse200Data | CheckNameResponse202Data]:
-        """Reads one name live from its registry and a registrar, stores the answer and returns the keyed name resource.
+        """Runs a live check of one name and returns the keyed name resource.
 
         `POST /names/{name}/check`, keyed. Reference: https://unique.domains/api/check-name
         """
@@ -303,7 +303,7 @@ class NamesApi:
         )
 
     def get_name_prices(self, name: str) -> Answer[GetNamePricesResponse200, GetNamePricesResponse200Data]:
-        """Every stored registrar quote for one name, and the renewal-trap flag.
+        """Every registrar quote for one name, and the renewal-trap flag.
 
         `GET /names/{name}/prices`, keyed. Reference: https://unique.domains/api/get-name-prices
         """
@@ -313,7 +313,7 @@ class NamesApi:
         )
 
     def get_name_registry(self, name: str) -> Answer[GetNameRegistryResponse200, GetNameRegistryResponse200Data]:
-        """The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
+        """The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
 
         `GET /names/{name}/registry`, free. Reference: https://unique.domains/api/get-name-registry
         """
@@ -325,7 +325,7 @@ class NamesApi:
     def get_name_registry_history(
         self, name: str
     ) -> Answer[GetNameRegistryHistoryResponse200, GetNameRegistryHistoryResponse200Data]:
-        """The stored registry record versions of one name and what moved between them.
+        """The past versions of one name's registry record and what moved between them.
 
         `GET /names/{name}/registry/history`, keyed, Investor plan. Reference: https://unique.domains/api/get-name-registry-history
         """
@@ -335,7 +335,7 @@ class NamesApi:
         )
 
     def get_name_dns(self, name: str) -> Answer[GetNameDnsResponse200, GetNameDnsResponse200Data]:
-        """The latest stored DNS reading of one name, with its parking venue.
+        """The DNS records of one name, with its parking venue.
 
         `GET /names/{name}/dns`, free. Reference: https://unique.domains/api/get-name-dns
         """
@@ -367,7 +367,7 @@ class NamesApi:
         )
 
     def get_name_value(self, name: str) -> Answer[GetNameValueResponse200, GetNameValueResponse200Data]:
-        """The stored value estimate of one name and its last 20 estimates.
+        """The value estimate of one name and its last 20 estimates.
 
         `GET /names/{name}/value`, keyed. Reference: https://unique.domains/api/get-name-value
         """
@@ -381,7 +381,7 @@ class NamesApi:
     ) -> Answer[
         AppraiseNameResponse200 | AppraiseNameResponse202, AppraiseNameResponse200Data | AppraiseNameResponse202Data
     ]:
-        """Runs the appraisal of one stored name when its estimate is missing, and returns the value resource.
+        """Runs the appraisal of one catalog name when its estimate is missing, and returns the value resource.
 
         `POST /names/{name}/appraise`, keyed, Investor plan. Reference: https://unique.domains/api/appraise-name
         """
@@ -391,7 +391,7 @@ class NamesApi:
         )
 
     def get_name_comps(self, name: str) -> Answer[GetNameCompsResponse200, GetNameCompsResponse200Data]:
-        """The similar-sales aggregate of one name and the endings its word sold on.
+        """The similar-sales aggregate of one name and how many endings its word sold on.
 
         `GET /names/{name}/comps`, free. Reference: https://unique.domains/api/get-name-comps
         """
@@ -514,7 +514,7 @@ class WordsApi:
     def get_word_endings(
         self, word: str, *, include: str | Sequence[str] | Unset = UNSET
     ) -> Answer[GetWordEndingsResponse200, GetWordEndingsResponse200Data]:
-        """A word's endings as the nightly update holds them: counts, the key endings and open names per ending.
+        """A word's endings: counts, the key endings, and the endings the word is available on and for sale on.
 
         `GET /words/{word}/endings`, free. Reference: https://unique.domains/api/get-word-endings
         """
@@ -553,7 +553,7 @@ class WordsApi:
         )
 
     def get_word_notability(self, word: str) -> Answer[GetWordNotabilityResponse200, GetWordNotabilityResponse200Data]:
-        """A word's Wikipedia and Wikidata facts.
+        """A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.
 
         `GET /words/{word}/notability`, free. Reference: https://unique.domains/api/get-word-notability
         """
@@ -563,7 +563,7 @@ class WordsApi:
         )
 
     def get_word_market(self, word: str) -> Answer[GetWordMarketResponse200, GetWordMarketResponse200Data]:
-        """A word's sales and auction aggregates from the nightly update.
+        """A word's sales and auction aggregates.
 
         `GET /words/{word}/market`, free. Reference: https://unique.domains/api/get-word-market
         """
@@ -679,7 +679,7 @@ class CatalogApi:
         )
 
     def get_domain(self, name_or_id: str) -> Answer[GetDomainResponse200, GetDomainResponse200Data]:
-        """One catalog name, by name or id.
+        """One name the catalog lists, by name or id.
 
         `GET /domains/{nameOrId}`, free. Reference: https://unique.domains/api/get-domain
         """
@@ -797,7 +797,7 @@ class CatalogApi:
         )
 
     def get_catalog_stats(self) -> Answer[GetCatalogStatsResponse200, GetCatalogStatsResponse200Data]:
-        """Catalog headline totals for the latest day.
+        """Catalog headline totals.
 
         `GET /catalog/stats`, free. Reference: https://unique.domains/api/get-catalog-stats
         """
@@ -856,7 +856,7 @@ class TldsApi:
     def get_tld_stats(
         self, tld: str, *, history: int | Unset = UNSET
     ) -> Answer[GetTldStatsResponse200, GetTldStatsResponse200Data]:
-        """The ending's latest market figures, and with history its last daily rows.
+        """The ending's market figures, and with history its daily rows.
 
         `GET /tlds/{tld}/stats`, free. Reference: https://unique.domains/api/get-tld-stats
         """
@@ -912,7 +912,7 @@ class TldsApi:
         limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTldApplicationsResponse200, list[ListTldApplicationsResponse200DataItem]]:
-        """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
+        """ICANN's 2026 new gTLD round, A to Z, with two simple bands.
 
         `GET /tld-applications`, free. Reference: https://unique.domains/api/list-tld-applications
         """
@@ -942,7 +942,7 @@ class TldsApi:
         limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListTldApplicationChangesResponse200, list[ListTldApplicationChangesResponse200DataItem]]:
-        """Every recorded status or contention change of the round, newest first.
+        """Every status or contention change of the round, newest first.
 
         `GET /tld-applications/changes`, free. Reference: https://unique.domains/api/list-tld-application-changes
         """
@@ -1004,7 +1004,7 @@ class SharedApi:
         )
 
     def get_meta_enums(self) -> Answer[GetMetaEnumsResponse200, GetMetaEnumsResponse200Data]:
-        """Every enum the payloads use, read from the code catalogs.
+        """Every enum the payloads use.
 
         `GET /meta/enums`, free. Reference: https://unique.domains/api/get-meta-enums
         """
@@ -1013,7 +1013,7 @@ class SharedApi:
         )
 
     def get_meta_freshness(self) -> Answer[GetMetaFreshnessResponse200, GetMetaFreshnessResponse200Data]:
-        """How current the scanner's passes are: the day's counts and each lane's state.
+        """The day's counts and the state of each part of the data.
 
         `GET /meta/freshness`, free. Reference: https://unique.domains/api/get-meta-freshness
         """
@@ -1078,7 +1078,7 @@ class SharedApi:
         return cast("TextAnswer", self._client._call("get_llms_txt", {}))
 
     def get_health(self) -> Answer[GetHealthResponse200, GetHealthResponse200Data]:
-        """Liveness, with no database read.
+        """Liveness: `ok` with the server time.
 
         `GET /meta/health`, free. Reference: https://unique.domains/api/get-health
         """
@@ -1136,7 +1136,7 @@ class RegistrarsApi:
     def get_registrar_footprint(
         self, registrar: GetRegistrarFootprintRegistrar
     ) -> Answer[GetRegistrarFootprintResponse200, GetRegistrarFootprintResponse200Data]:
-        """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
+        """Names tracked under the registrar, rounded, with its top endings.
 
         `GET /registrars/{registrar}/footprint`, keyed. Reference: https://unique.domains/api/get-registrar-footprint
         """
@@ -1245,7 +1245,7 @@ class RegistrarsApi:
         limit: int | Unset = UNSET,
         cursor: str | Unset = UNSET,
     ) -> Answer[ListIanaRegistrarsResponse200, list[ListIanaRegistrarsResponse200DataItem]]:
-        """The IANA registrar list as the registry sync stores it, by id.
+        """The IANA registrar list, by IANA id.
 
         `GET /iana/registrars`, free. Reference: https://unique.domains/api/list-iana-registrars
         """
@@ -1421,7 +1421,7 @@ class TrendsApi:
         )
 
     def get_trend(self, slug: str) -> Answer[GetTrendResponse200, GetTrendResponse200Data]:
-        """One trend: its latest row, its head words, its figures at every edition and its latest observations.
+        """One trend: its latest row, its head words, its figures at every edition and its observations.
 
         `GET /trends/{slug}`, free. Reference: https://unique.domains/api/get-trend
         """

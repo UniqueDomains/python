@@ -35,7 +35,8 @@ class GetMarketAuctionsResponse200Data:
         day (datetime.date | None):
         closing (int | None):
         with_bid (int | None):
-        counts (GetMarketAuctionsResponse200DataCounts):
+        counts (GetMarketAuctionsResponse200DataCounts): The names we track at auction: one-word catalog names on the
+            endings the catalog covers.
         by_venue (list[GetMarketAuctionsResponse200DataByVenueItem]):
         by_ending (list[GetMarketAuctionsResponse200DataByEndingItem]):
         by_length (list[GetMarketAuctionsResponse200DataByLengthItem]):

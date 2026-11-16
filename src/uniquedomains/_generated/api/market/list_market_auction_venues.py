@@ -109,7 +109,7 @@ def sync_detailed(
     """The seven auction venues with their verified rules and today's counts.
 
      Each venue's currency, listing kinds, close, payment and bidder rules and first-year rule per kind,
-    each with the day it was verified, plus the venue's line of today's pulse. Catalog order.
+    plus the venue's line of today's pulse. Catalog order.
 
     Args:
         fields (str | Unset):
@@ -141,7 +141,7 @@ def sync(
     """The seven auction venues with their verified rules and today's counts.
 
      Each venue's currency, listing kinds, close, payment and bidder rules and first-year rule per kind,
-    each with the day it was verified, plus the venue's line of today's pulse. Catalog order.
+    plus the venue's line of today's pulse. Catalog order.
 
     Args:
         fields (str | Unset):
@@ -168,7 +168,7 @@ async def asyncio_detailed(
     """The seven auction venues with their verified rules and today's counts.
 
      Each venue's currency, listing kinds, close, payment and bidder rules and first-year rule per kind,
-    each with the day it was verified, plus the venue's line of today's pulse. Catalog order.
+    plus the venue's line of today's pulse. Catalog order.
 
     Args:
         fields (str | Unset):
@@ -198,7 +198,7 @@ async def asyncio(
     """The seven auction venues with their verified rules and today's counts.
 
      Each venue's currency, listing kinds, close, payment and bidder rules and first-year rule per kind,
-    each with the day it was verified, plus the venue's line of today's pulse. Catalog order.
+    plus the venue's line of today's pulse. Catalog order.
 
     Args:
         fields (str | Unset):

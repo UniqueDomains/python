@@ -27,7 +27,7 @@ class ListTldChangesResponse200DataItem:
     Attributes:
         kind (ListTldChangesResponse200DataItemKind):
         after (ListTldChangesResponse200DataItemAfterType0 | None):
-        seen_on (datetime.date): UTC day the scanner saw the change.
+        seen_on (datetime.date): UTC day the change was seen.
     """
 
     kind: ListTldChangesResponse200DataItemKind

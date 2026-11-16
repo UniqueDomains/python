@@ -111,7 +111,7 @@ def sync_detailed(
 ) -> Response[Any | ListTldPhasesResponse200 | Problem]:
     """Every dated launch phase of the ending, chronological.
 
-     From `TldLaunchPhase`, ordered by first day then phase. A known ending with no phase answers `[]`.
+     Ordered by first day then phase. A known ending with no phase answers `[]`.
 
     Args:
         tld (str):
@@ -145,7 +145,7 @@ def sync(
 ) -> Any | ListTldPhasesResponse200 | Problem | None:
     """Every dated launch phase of the ending, chronological.
 
-     From `TldLaunchPhase`, ordered by first day then phase. A known ending with no phase answers `[]`.
+     Ordered by first day then phase. A known ending with no phase answers `[]`.
 
     Args:
         tld (str):
@@ -174,7 +174,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListTldPhasesResponse200 | Problem]:
     """Every dated launch phase of the ending, chronological.
 
-     From `TldLaunchPhase`, ordered by first day then phase. A known ending with no phase answers `[]`.
+     Ordered by first day then phase. A known ending with no phase answers `[]`.
 
     Args:
         tld (str):
@@ -206,7 +206,7 @@ async def asyncio(
 ) -> Any | ListTldPhasesResponse200 | Problem | None:
     """Every dated launch phase of the ending, chronological.
 
-     From `TldLaunchPhase`, ordered by first day then phase. A known ending with no phase answers `[]`.
+     Ordered by first day then phase. A known ending with no phase answers `[]`.
 
     Args:
         tld (str):

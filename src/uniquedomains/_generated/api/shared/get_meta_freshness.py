@@ -104,10 +104,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetMetaFreshnessResponse200 | Problem]:
-    """How current the scanner's passes are: the day's counts and each lane's state.
+    """The day's counts and the state of each part of the data.
 
-     Names scanned today and checked in the last 24 hours, and per scanner lane the names its current or
-    last pass covered and whether it is running.
+     Counts for today and for the last 24 hours, and for each part of the data the names covered and
+    whether it is running.
 
     Args:
         fields (str | Unset):
@@ -136,10 +136,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetMetaFreshnessResponse200 | Problem | None:
-    """How current the scanner's passes are: the day's counts and each lane's state.
+    """The day's counts and the state of each part of the data.
 
-     Names scanned today and checked in the last 24 hours, and per scanner lane the names its current or
-    last pass covered and whether it is running.
+     Counts for today and for the last 24 hours, and for each part of the data the names covered and
+    whether it is running.
 
     Args:
         fields (str | Unset):
@@ -163,10 +163,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetMetaFreshnessResponse200 | Problem]:
-    """How current the scanner's passes are: the day's counts and each lane's state.
+    """The day's counts and the state of each part of the data.
 
-     Names scanned today and checked in the last 24 hours, and per scanner lane the names its current or
-    last pass covered and whether it is running.
+     Counts for today and for the last 24 hours, and for each part of the data the names covered and
+    whether it is running.
 
     Args:
         fields (str | Unset):
@@ -193,10 +193,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetMetaFreshnessResponse200 | Problem | None:
-    """How current the scanner's passes are: the day's counts and each lane's state.
+    """The day's counts and the state of each part of the data.
 
-     Names scanned today and checked in the last 24 hours, and per scanner lane the names its current or
-    last pass covered and whether it is running.
+     Counts for today and for the last 24 hours, and for each part of the data the names covered and
+    whether it is running.
 
     Args:
         fields (str | Unset):

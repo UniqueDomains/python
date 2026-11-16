@@ -124,8 +124,8 @@ def sync_detailed(
     """The change events of one name, newest first.
 
      Price, status, expiry, lifecycle, registrar, transfer, lock, renewal, nameserver, parking and
-    auction events, kept 90 days. `before` and `after` carry the allowlisted values of each type only. A
-    name the catalog never stored answers an empty list.
+    auction events of the last 90 days. `before` and `after` carry the allowlisted values of each type
+    only. A name outside the catalog answers an empty list.
 
     Args:
         name (str):
@@ -169,8 +169,8 @@ def sync(
     """The change events of one name, newest first.
 
      Price, status, expiry, lifecycle, registrar, transfer, lock, renewal, nameserver, parking and
-    auction events, kept 90 days. `before` and `after` carry the allowlisted values of each type only. A
-    name the catalog never stored answers an empty list.
+    auction events of the last 90 days. `before` and `after` carry the allowlisted values of each type
+    only. A name outside the catalog answers an empty list.
 
     Args:
         name (str):
@@ -209,8 +209,8 @@ async def asyncio_detailed(
     """The change events of one name, newest first.
 
      Price, status, expiry, lifecycle, registrar, transfer, lock, renewal, nameserver, parking and
-    auction events, kept 90 days. `before` and `after` carry the allowlisted values of each type only. A
-    name the catalog never stored answers an empty list.
+    auction events of the last 90 days. `before` and `after` carry the allowlisted values of each type
+    only. A name outside the catalog answers an empty list.
 
     Args:
         name (str):
@@ -252,8 +252,8 @@ async def asyncio(
     """The change events of one name, newest first.
 
      Price, status, expiry, lifecycle, registrar, transfer, lock, renewal, nameserver, parking and
-    auction events, kept 90 days. `before` and `after` carry the allowlisted values of each type only. A
-    name the catalog never stored answers an empty list.
+    auction events of the last 90 days. `before` and `after` carry the allowlisted values of each type
+    only. A name outside the catalog answers an empty list.
 
     Args:
         name (str):

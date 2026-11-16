@@ -129,9 +129,9 @@ def sync_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListTldApplicationChangesResponse200 | Problem]:
-    """Every recorded status or contention change of the round, newest first.
+    """Every status or contention change of the round, newest first.
 
-     From `TldApplicationChange`, keyset on `(seenAt, id)`.
+     Keyset on `(seenAt, id)`.
 
     Args:
         kind (ListTldApplicationChangesKind | Unset):
@@ -172,9 +172,9 @@ def sync(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListTldApplicationChangesResponse200 | Problem | None:
-    """Every recorded status or contention change of the round, newest first.
+    """Every status or contention change of the round, newest first.
 
-     From `TldApplicationChange`, keyset on `(seenAt, id)`.
+     Keyset on `(seenAt, id)`.
 
     Args:
         kind (ListTldApplicationChangesKind | Unset):
@@ -210,9 +210,9 @@ async def asyncio_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListTldApplicationChangesResponse200 | Problem]:
-    """Every recorded status or contention change of the round, newest first.
+    """Every status or contention change of the round, newest first.
 
-     From `TldApplicationChange`, keyset on `(seenAt, id)`.
+     Keyset on `(seenAt, id)`.
 
     Args:
         kind (ListTldApplicationChangesKind | Unset):
@@ -251,9 +251,9 @@ async def asyncio(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListTldApplicationChangesResponse200 | Problem | None:
-    """Every recorded status or contention change of the round, newest first.
+    """Every status or contention change of the round, newest first.
 
-     From `TldApplicationChange`, keyset on `(seenAt, id)`.
+     Keyset on `(seenAt, id)`.
 
     Args:
         kind (ListTldApplicationChangesKind | Unset):

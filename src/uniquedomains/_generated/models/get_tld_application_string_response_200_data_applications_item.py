@@ -34,7 +34,7 @@ class GetTldApplicationStringResponse200DataApplicationsItem:
         application_id (str): ICANN application id, the row key.
         string (str): Applied-for string, ASCII (A-label for IDNs), lowercased.
         u_label (None | str):
-        applicant (str): Applicant as ICANN names it.
+        applicant (str): The applicant, in ICANN's wording.
         applicant_country_code (None | str):
         type_ (None | str):
         status (None | str):

@@ -6,12 +6,12 @@ from typing import Any, Self, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="GetWordEndingsResponse200DataOpenByEnding")
+T = TypeVar("T", bound="GetWordEndingsResponse200DataOpenByEndingType0")
 
 
 @_attrs_define
-class GetWordEndingsResponse200DataOpenByEnding:
-    """`{ ending: count }`."""
+class GetWordEndingsResponse200DataOpenByEndingType0:
+    """`{ ending: count }`; null for a word with no count yet; zeros are real."""
 
     additional_properties: dict[str, int] = _attrs_field(init=False, factory=dict)
 
@@ -25,10 +25,10 @@ class GetWordEndingsResponse200DataOpenByEnding:
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
         d = dict(src_dict)
-        get_word_endings_response_200_data_open_by_ending = cls()
+        get_word_endings_response_200_data_open_by_ending_type_0 = cls()
 
-        get_word_endings_response_200_data_open_by_ending.additional_properties = d
-        return get_word_endings_response_200_data_open_by_ending
+        get_word_endings_response_200_data_open_by_ending_type_0.additional_properties = d
+        return get_word_endings_response_200_data_open_by_ending_type_0
 
     @property
     def additional_keys(self) -> list[str]:

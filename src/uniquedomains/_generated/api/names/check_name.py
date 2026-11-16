@@ -120,14 +120,13 @@ def sync_detailed(
     body: CheckNameBody,
     fields: str | Unset = UNSET,
 ) -> Response[CheckNameResponse200 | CheckNameResponse202 | Problem]:
-    """Reads one name live from its registry and a registrar, stores the answer and returns the keyed name
-    resource.
+    """Runs a live check of one name and returns the keyed name resource.
 
-     Billed `Live=1` when the live read answered (200, `checked: true`) or when the registry was asked
-    and did not conclude (202); `Live=0` when the answer came from storage (200, `checked: false`).
-    Asking `value` or `history` answers 202 with the stored resource so far, `Retry-After: 30` and
-    `Location`; the check never runs the appraisal (`POST /names/{name}/appraise` does). 2,000 live
-    checks a UTC day for the whole API, 200 per consumer.
+     Billed `Live=1` when the live check answered (200, `checked: true`) or ran and did not conclude
+    (202); `Live=0` when no live check ran (200, `checked: false`). Asking `value` or `history` answers
+    202 with the resource so far, `Retry-After: 30` and `Location`; the check never runs the appraisal
+    (`POST /names/{name}/appraise` does). 2,000 live checks a UTC day for the whole API, 200 per
+    consumer.
 
     Args:
         name (str):
@@ -162,14 +161,13 @@ def sync(
     body: CheckNameBody,
     fields: str | Unset = UNSET,
 ) -> CheckNameResponse200 | CheckNameResponse202 | Problem | None:
-    """Reads one name live from its registry and a registrar, stores the answer and returns the keyed name
-    resource.
+    """Runs a live check of one name and returns the keyed name resource.
 
-     Billed `Live=1` when the live read answered (200, `checked: true`) or when the registry was asked
-    and did not conclude (202); `Live=0` when the answer came from storage (200, `checked: false`).
-    Asking `value` or `history` answers 202 with the stored resource so far, `Retry-After: 30` and
-    `Location`; the check never runs the appraisal (`POST /names/{name}/appraise` does). 2,000 live
-    checks a UTC day for the whole API, 200 per consumer.
+     Billed `Live=1` when the live check answered (200, `checked: true`) or ran and did not conclude
+    (202); `Live=0` when no live check ran (200, `checked: false`). Asking `value` or `history` answers
+    202 with the resource so far, `Retry-After: 30` and `Location`; the check never runs the appraisal
+    (`POST /names/{name}/appraise` does). 2,000 live checks a UTC day for the whole API, 200 per
+    consumer.
 
     Args:
         name (str):
@@ -199,14 +197,13 @@ async def asyncio_detailed(
     body: CheckNameBody,
     fields: str | Unset = UNSET,
 ) -> Response[CheckNameResponse200 | CheckNameResponse202 | Problem]:
-    """Reads one name live from its registry and a registrar, stores the answer and returns the keyed name
-    resource.
+    """Runs a live check of one name and returns the keyed name resource.
 
-     Billed `Live=1` when the live read answered (200, `checked: true`) or when the registry was asked
-    and did not conclude (202); `Live=0` when the answer came from storage (200, `checked: false`).
-    Asking `value` or `history` answers 202 with the stored resource so far, `Retry-After: 30` and
-    `Location`; the check never runs the appraisal (`POST /names/{name}/appraise` does). 2,000 live
-    checks a UTC day for the whole API, 200 per consumer.
+     Billed `Live=1` when the live check answered (200, `checked: true`) or ran and did not conclude
+    (202); `Live=0` when no live check ran (200, `checked: false`). Asking `value` or `history` answers
+    202 with the resource so far, `Retry-After: 30` and `Location`; the check never runs the appraisal
+    (`POST /names/{name}/appraise` does). 2,000 live checks a UTC day for the whole API, 200 per
+    consumer.
 
     Args:
         name (str):
@@ -239,14 +236,13 @@ async def asyncio(
     body: CheckNameBody,
     fields: str | Unset = UNSET,
 ) -> CheckNameResponse200 | CheckNameResponse202 | Problem | None:
-    """Reads one name live from its registry and a registrar, stores the answer and returns the keyed name
-    resource.
+    """Runs a live check of one name and returns the keyed name resource.
 
-     Billed `Live=1` when the live read answered (200, `checked: true`) or when the registry was asked
-    and did not conclude (202); `Live=0` when the answer came from storage (200, `checked: false`).
-    Asking `value` or `history` answers 202 with the stored resource so far, `Retry-After: 30` and
-    `Location`; the check never runs the appraisal (`POST /names/{name}/appraise` does). 2,000 live
-    checks a UTC day for the whole API, 200 per consumer.
+     Billed `Live=1` when the live check answered (200, `checked: true`) or ran and did not conclude
+    (202); `Live=0` when no live check ran (200, `checked: false`). Asking `value` or `history` answers
+    202 with the resource so far, `Retry-After: 30` and `Location`; the check never runs the appraisal
+    (`POST /names/{name}/appraise` does). 2,000 live checks a UTC day for the whole API, 200 per
+    consumer.
 
     Args:
         name (str):

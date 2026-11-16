@@ -41,8 +41,8 @@ class GetWordRequestResponse200Data:
         resolved_at (datetime.datetime | None): Null while queued.
         word (GetWordRequestResponse200DataWordType0 | None | Unset): On `ready`; null when the catalog no longer serves
             the word.
-        scan (GetWordRequestResponse200DataScan | Unset): On `ready` with a word: whether the first scan of every ending
-            ran.
+        scan (GetWordRequestResponse200DataScan | Unset): On `ready` with a word: whether every ending of the word has
+            its first status yet.
         reason (GetWordRequestResponse200DataReason | Unset): On `rejected`.
     """
 

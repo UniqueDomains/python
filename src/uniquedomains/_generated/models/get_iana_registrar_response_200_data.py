@@ -19,7 +19,7 @@ class GetIanaRegistrarResponse200Data:
     """
     Attributes:
         id (int): IANA registrar id.
-        name (str): Name as IANA publishes it.
+        name (str): The registrar's name on IANA's list.
         status (GetIanaRegistrarResponse200DataStatus):
         rdap_base_url (None | str):
     """

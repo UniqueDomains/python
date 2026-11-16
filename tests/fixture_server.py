@@ -335,6 +335,35 @@ def synthetic() -> list[dict[str, Any]]:
             "delay": 1.0,
             "response": answer(200, get_name_body("slow-answer.io")),
         },
+        # A word's endings: one rolled up with its two lists, one with no count yet (every list and count null).
+        {
+            "name": "endings-split",
+            "request": {"method": "GET", "path": "/words/lantern/endings"},
+            "response": answer(
+                200,
+                envelope(
+                    {
+                        "byGroup": {"scanned": 3, "taken": 0, "available": 2, "forSale": 1},
+                        "keyEndings": [{"ending": "io", "status": "available", "price": 32.98}],
+                        "openByEnding": {"co": 1, "io": 1, "studio": 1},
+                        "availableOn": ["co", "io"],
+                        "forSaleOn": ["studio"],
+                    },
+                    "/words/lantern/endings",
+                ),
+            ),
+        },
+        {
+            "name": "endings-not-counted",
+            "request": {"method": "GET", "path": "/words/zorbly/endings"},
+            "response": answer(
+                200,
+                envelope(
+                    {"byGroup": None, "keyEndings": [], "openByEnding": None, "availableOn": None, "forSaleOn": None},
+                    "/words/zorbly/endings",
+                ),
+            ),
+        },
     ]
 
 

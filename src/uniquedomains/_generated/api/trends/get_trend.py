@@ -109,11 +109,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetTrendResponse200 | Problem]:
-    """One trend: its latest row, its head words, its figures at every edition and its latest observations.
+    """One trend: its latest row, its head words, its figures at every edition and its observations.
 
      The editions are one row per published edition that carried the trend, oldest first. The
-    observations are the latest reading of each measurement, figures only; `TrendObservation` keeps no
-    day series.
+    observations are the figures of each measurement, with no day series.
 
     Args:
         slug (str):
@@ -145,11 +144,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetTrendResponse200 | Problem | None:
-    """One trend: its latest row, its head words, its figures at every edition and its latest observations.
+    """One trend: its latest row, its head words, its figures at every edition and its observations.
 
      The editions are one row per published edition that carried the trend, oldest first. The
-    observations are the latest reading of each measurement, figures only; `TrendObservation` keeps no
-    day series.
+    observations are the figures of each measurement, with no day series.
 
     Args:
         slug (str):
@@ -176,11 +174,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetTrendResponse200 | Problem]:
-    """One trend: its latest row, its head words, its figures at every edition and its latest observations.
+    """One trend: its latest row, its head words, its figures at every edition and its observations.
 
      The editions are one row per published edition that carried the trend, oldest first. The
-    observations are the latest reading of each measurement, figures only; `TrendObservation` keeps no
-    day series.
+    observations are the figures of each measurement, with no day series.
 
     Args:
         slug (str):
@@ -210,11 +207,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetTrendResponse200 | Problem | None:
-    """One trend: its latest row, its head words, its figures at every edition and its latest observations.
+    """One trend: its latest row, its head words, its figures at every edition and its observations.
 
      The editions are one row per published edition that carried the trend, oldest first. The
-    observations are the latest reading of each measurement, figures only; `TrendObservation` keeps no
-    day series.
+    observations are the figures of each measurement, with no day series.
 
     Args:
         slug (str):

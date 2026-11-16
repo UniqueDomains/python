@@ -22,7 +22,7 @@ T = TypeVar("T", bound="GetCatalogStatsResponse200Data")
 class GetCatalogStatsResponse200Data:
     """
     Attributes:
-        day (datetime.date | Unset):
+        day (datetime.date | Unset): UTC day of the figures.
         domains (GetCatalogStatsResponse200DataDomains | Unset):
         words (int | None | Unset):
         tlds (int | Unset):

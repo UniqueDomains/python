@@ -109,12 +109,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameRegistryResponse200 | Problem]:
-    """The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC
-    and holder.
+    """The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
 
-     The record's observation time is its UTC day on free (`observedOn`) and its exact time on keyed
-    (`observedAt`). `transport` says whether RDAP or WHOIS answered. A name the catalog never stored
-    answers 200 with `tracked: false` and empty facts, never 404.
+     `transport` names the record's format, `rdap` or `whois`. A name outside the catalog answers 200
+    with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -146,12 +144,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameRegistryResponse200 | Problem | None:
-    """The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC
-    and holder.
+    """The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
 
-     The record's observation time is its UTC day on free (`observedOn`) and its exact time on keyed
-    (`observedAt`). `transport` says whether RDAP or WHOIS answered. A name the catalog never stored
-    answers 200 with `tracked: false` and empty facts, never 404.
+     `transport` names the record's format, `rdap` or `whois`. A name outside the catalog answers 200
+    with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -178,12 +174,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameRegistryResponse200 | Problem]:
-    """The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC
-    and holder.
+    """The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
 
-     The record's observation time is its UTC day on free (`observedOn`) and its exact time on keyed
-    (`observedAt`). `transport` says whether RDAP or WHOIS answered. A name the catalog never stored
-    answers 200 with `tracked: false` and empty facts, never 404.
+     `transport` names the record's format, `rdap` or `whois`. A name outside the catalog answers 200
+    with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -213,12 +207,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameRegistryResponse200 | Problem | None:
-    """The latest stored registry record of one name: dates, registrar, status codes, nameservers, DNSSEC
-    and holder.
+    """The registry record of one name: dates, registrar, status codes, nameservers, DNSSEC and holder.
 
-     The record's observation time is its UTC day on free (`observedOn`) and its exact time on keyed
-    (`observedAt`). `transport` says whether RDAP or WHOIS answered. A name the catalog never stored
-    answers 200 with `tracked: false` and empty facts, never 404.
+     `transport` names the record's format, `rdap` or `whois`. A name outside the catalog answers 200
+    with `read: false` and empty facts, never 404.
 
     Args:
         name (str):

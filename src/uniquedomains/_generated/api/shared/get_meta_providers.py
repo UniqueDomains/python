@@ -106,8 +106,9 @@ def sync_detailed(
 ) -> Response[Any | GetMetaProvidersResponse200 | Problem]:
     """Registrar identities and the auction venue and parking service catalogs.
 
-     Registrars in catalog order with their IANA id and homepage, the seven auction venues and the
-    parking services the scanner recognises.
+     Registrars in catalog order with their IANA id and homepage, the auction venues and the parking
+    services the catalog knows. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -138,8 +139,9 @@ def sync(
 ) -> Any | GetMetaProvidersResponse200 | Problem | None:
     """Registrar identities and the auction venue and parking service catalogs.
 
-     Registrars in catalog order with their IANA id and homepage, the seven auction venues and the
-    parking services the scanner recognises.
+     Registrars in catalog order with their IANA id and homepage, the auction venues and the parking
+    services the catalog knows. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -165,8 +167,9 @@ async def asyncio_detailed(
 ) -> Response[Any | GetMetaProvidersResponse200 | Problem]:
     """Registrar identities and the auction venue and parking service catalogs.
 
-     Registrars in catalog order with their IANA id and homepage, the seven auction venues and the
-    parking services the scanner recognises.
+     Registrars in catalog order with their IANA id and homepage, the auction venues and the parking
+    services the catalog knows. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):
@@ -195,8 +198,9 @@ async def asyncio(
 ) -> Any | GetMetaProvidersResponse200 | Problem | None:
     """Registrar identities and the auction venue and parking service catalogs.
 
-     Registrars in catalog order with their IANA id and homepage, the seven auction venues and the
-    parking services the scanner recognises.
+     Registrars in catalog order with their IANA id and homepage, the auction venues and the parking
+    services the catalog knows. An auction answer carries its own venue id and label on each row, which
+    may name a venue this list leaves out.
 
     Args:
         fields (str | Unset):

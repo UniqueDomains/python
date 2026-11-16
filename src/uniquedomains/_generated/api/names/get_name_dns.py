@@ -109,11 +109,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameDnsResponse200 | Problem]:
-    """The latest stored DNS reading of one name, with its parking venue.
+    """The DNS records of one name, with its parking venue.
 
-     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the reading
-    points at. A name the catalog never stored answers 200 with `tracked: false` and empty facts, never
-    404.
+     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the records
+    point at. A name outside the catalog answers 200 with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -145,11 +144,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameDnsResponse200 | Problem | None:
-    """The latest stored DNS reading of one name, with its parking venue.
+    """The DNS records of one name, with its parking venue.
 
-     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the reading
-    points at. A name the catalog never stored answers 200 with `tracked: false` and empty facts, never
-    404.
+     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the records
+    point at. A name outside the catalog answers 200 with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -176,11 +174,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameDnsResponse200 | Problem]:
-    """The latest stored DNS reading of one name, with its parking venue.
+    """The DNS records of one name, with its parking venue.
 
-     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the reading
-    points at. A name the catalog never stored answers 200 with `tracked: false` and empty facts, never
-    404.
+     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the records
+    point at. A name outside the catalog answers 200 with `read: false` and empty facts, never 404.
 
     Args:
         name (str):
@@ -210,11 +207,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameDnsResponse200 | Problem | None:
-    """The latest stored DNS reading of one name, with its parking venue.
+    """The DNS records of one name, with its parking venue.
 
-     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the reading
-    points at. A name the catalog never stored answers 200 with `tracked: false` and empty facts, never
-    404.
+     NS, A, AAAA, CNAME and MX records, whether a website answers, and the parking venue the records
+    point at. A name outside the catalog answers 200 with `read: false` and empty facts, never 404.
 
     Args:
         name (str):

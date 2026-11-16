@@ -109,10 +109,11 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetWordNotabilityResponse200 | Problem]:
-    """A word's Wikipedia and Wikidata facts.
+    """A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.
 
      The article title after redirects, its backlinks (capped at 500), its languages, the Wikidata id and
-    description. 404 when no read exists yet.
+    description. A word with no Wikipedia page answers 200 with null fields; 404 when the word has no
+    notability facts yet.
 
     Args:
         word (str):
@@ -144,10 +145,11 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetWordNotabilityResponse200 | Problem | None:
-    """A word's Wikipedia and Wikidata facts.
+    """A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.
 
      The article title after redirects, its backlinks (capped at 500), its languages, the Wikidata id and
-    description. 404 when no read exists yet.
+    description. A word with no Wikipedia page answers 200 with null fields; 404 when the word has no
+    notability facts yet.
 
     Args:
         word (str):
@@ -174,10 +176,11 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetWordNotabilityResponse200 | Problem]:
-    """A word's Wikipedia and Wikidata facts.
+    """A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.
 
      The article title after redirects, its backlinks (capped at 500), its languages, the Wikidata id and
-    description. 404 when no read exists yet.
+    description. A word with no Wikipedia page answers 200 with null fields; 404 when the word has no
+    notability facts yet.
 
     Args:
         word (str):
@@ -207,10 +210,11 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetWordNotabilityResponse200 | Problem | None:
-    """A word's Wikipedia and Wikidata facts.
+    """A word's Wikipedia page and Wikidata entry: title, backlinks, languages and description.
 
      The article title after redirects, its backlinks (capped at 500), its languages, the Wikidata id and
-    description. 404 when no read exists yet.
+    description. A word with no Wikipedia page answers 200 with null fields; 404 when the word has no
+    notability facts yet.
 
     Args:
         word (str):

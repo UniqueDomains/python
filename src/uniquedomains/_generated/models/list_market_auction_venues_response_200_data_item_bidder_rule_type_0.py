@@ -17,7 +17,7 @@ class ListMarketAuctionVenuesResponse200DataItemBidderRuleType0:
     """
     Attributes:
         value (str | Unset):
-        verified_on (datetime.date | Unset):
+        verified_on (datetime.date | Unset): UTC day the rule was verified.
     """
 
     value: str | Unset = UNSET

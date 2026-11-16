@@ -38,7 +38,7 @@ class GetTldResponse200Data:
         registry (GetTldResponse200DataRegistry):
         phases (list[GetTldResponse200DataPhasesItem]):
         market (GetTldResponse200DataMarketType0 | None):
-        quality (GetTldResponse200DataQuality | Unset): Simple band of the nightly public score; public-set TLDs only.
+        quality (GetTldResponse200DataQuality | Unset): Simple band of the public score; public-set TLDs only.
         registrars (list[GetTldResponse200DataRegistrarsItem] | Unset):
         github_repo_url (None | str | Unset):
     """

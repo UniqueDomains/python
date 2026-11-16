@@ -298,3 +298,21 @@ def test_a_repeated_cursor_is_not_an_api_problem(ud: Client) -> None:
     with pytest.raises(CursorLoopError) as caught:
         list(ud.iter_rows("list_expiring_domains", query={"ending": "ai"}))
     assert not isinstance(caught.value, ApiProblemError)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# The endings split (connector answer fixes, lane 3): the two lists, and null for a word with no count yet
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+def test_the_endings_answer_names_the_endings_by_group(ud: Client) -> None:
+    data = ud.words.get_word_endings("lantern").data
+    assert data.available_on == ["co", "io"]
+    assert data.for_sale_on == ["studio"]
+
+
+def test_a_word_with_no_count_yet_reads_its_lists_and_counts_as_none(ud: Client) -> None:
+    data = ud.words.get_word_endings("zorbly").data
+    assert data.available_on is None and data.for_sale_on is None
+    assert data.by_group is None and data.open_by_ending is None
+    assert data.key_endings == []

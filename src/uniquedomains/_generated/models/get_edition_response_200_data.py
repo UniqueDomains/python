@@ -26,11 +26,14 @@ T = TypeVar("T", bound="GetEditionResponse200Data")
 class GetEditionResponse200Data:
     """
     Attributes:
-        persona (GetEditionResponse200DataPersona | Unset):
+        persona (GetEditionResponse200DataPersona | Unset): The page the edition was written for. A day before
+            2026-11-10 with no founder edition of its own answers the investor edition, read with the founder verdicts:
+            `persona` is then `investor`.
         date (datetime.date | Unset):
         publish_at (datetime.datetime | Unset):
-        trend_count (int | Unset):
-        name_count (int | Unset):
+        trend_count (int | Unset): Trends in the whole edition. `trends` lists at most 20, the ones the public page
+            shows, so this count can be larger.
+        name_count (int | Unset): Names in the whole edition; `openCount` of them are open here.
         open_count (int | Unset):
         previous_date (datetime.date | None | Unset):
         next_date (datetime.date | None | Unset):

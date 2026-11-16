@@ -119,8 +119,8 @@ def sync_detailed(
 ) -> Response[Any | ListWordNamesResponse200 | Problem]:
     """A word's catalog names on the endings that sell, by name.
 
-     Catalog rows only (never a name a live check created), on the endings with a market, name order,
-    keyset-paged by `(name, id)`.
+     Every name of the word the catalog lists on the endings with a market, taken names included, in name
+    order, keyset-paged by `(name, id)`.
 
     Args:
         word (str):
@@ -160,8 +160,8 @@ def sync(
 ) -> Any | ListWordNamesResponse200 | Problem | None:
     """A word's catalog names on the endings that sell, by name.
 
-     Catalog rows only (never a name a live check created), on the endings with a market, name order,
-    keyset-paged by `(name, id)`.
+     Every name of the word the catalog lists on the endings with a market, taken names included, in name
+    order, keyset-paged by `(name, id)`.
 
     Args:
         word (str):
@@ -196,8 +196,8 @@ async def asyncio_detailed(
 ) -> Response[Any | ListWordNamesResponse200 | Problem]:
     """A word's catalog names on the endings that sell, by name.
 
-     Catalog rows only (never a name a live check created), on the endings with a market, name order,
-    keyset-paged by `(name, id)`.
+     Every name of the word the catalog lists on the endings with a market, taken names included, in name
+    order, keyset-paged by `(name, id)`.
 
     Args:
         word (str):
@@ -235,8 +235,8 @@ async def asyncio(
 ) -> Any | ListWordNamesResponse200 | Problem | None:
     """A word's catalog names on the endings that sell, by name.
 
-     Catalog rows only (never a name a live check created), on the endings with a market, name order,
-    keyset-paged by `(name, id)`.
+     Every name of the word the catalog lists on the endings with a market, taken names included, in name
+    order, keyset-paged by `(name, id)`.
 
     Args:
         word (str):

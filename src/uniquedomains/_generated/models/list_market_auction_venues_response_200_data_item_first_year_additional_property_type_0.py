@@ -26,7 +26,7 @@ class ListMarketAuctionVenuesResponse200DataItemFirstYearAdditionalPropertyType0
     """
     Attributes:
         value (ListMarketAuctionVenuesResponse200DataItemFirstYearAdditionalPropertyType0Value | Unset):
-        verified_on (datetime.date | Unset):
+        verified_on (datetime.date | Unset): UTC day the rule was verified.
     """
 
     value: (

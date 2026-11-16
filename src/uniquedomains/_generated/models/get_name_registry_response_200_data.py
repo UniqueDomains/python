@@ -41,14 +41,14 @@ class GetNameRegistryResponse200Data:
     """
     Attributes:
         read (bool):
-        observed_on (datetime.date | None):
+        observed_on (datetime.date | None): UTC day of the record; null with `read: false`.
         registrar (GetNameRegistryResponse200DataRegistrarType0 | None):
         epp_statuses (list[GetNameRegistryResponse200DataEppStatusesItem]):
         nameservers (list[str]):
         holder (GetNameRegistryResponse200DataHolder):
         transport (GetNameRegistryResponse200DataTransportType1 | GetNameRegistryResponse200DataTransportType2Type1 |
             GetNameRegistryResponse200DataTransportType3Type1 | None):
-        observed_at (datetime.datetime | None | Unset): Keyed.
+        observed_at (datetime.datetime | None | Unset): Keyed. The record's exact time.
         created_at (datetime.datetime | None | Unset):
         updated_at (datetime.datetime | None | Unset):
         expires_at (datetime.datetime | None | Unset):

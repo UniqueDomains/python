@@ -13,7 +13,7 @@ T = TypeVar("T", bound="ListVenuesResponse200DataItemFootprintType0")
 class ListVenuesResponse200DataItemFootprintType0:
     """
     Attributes:
-        names (int): Scanned names parked at the venue, rounded (to 100, to 10 under 1,000).
+        names (int): Tracked names parked at the venue, rounded (to 100, to 10 under 1,000).
         listed (int | None):
         parked (int | None):
         arrivals_week (int): Names that arrived over the last seven days.

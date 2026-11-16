@@ -179,9 +179,9 @@ def sync_detailed(
 ) -> Response[Any | ListDomainsResponse200 | Problem]:
     """One-word catalog names under filters.
 
-     Free: at most 20 rows in the engine's neutral order (the cached public list, or the daily shuffle
-    under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`, else in
-    the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
+     Free: at most 20 rows in the engine's neutral order (the website's `/domains` list, or the daily
+    shuffle under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`,
+    else in the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
 
     Args:
         ending (str | Unset):
@@ -260,9 +260,9 @@ def sync(
 ) -> Any | ListDomainsResponse200 | Problem | None:
     """One-word catalog names under filters.
 
-     Free: at most 20 rows in the engine's neutral order (the cached public list, or the daily shuffle
-    under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`, else in
-    the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
+     Free: at most 20 rows in the engine's neutral order (the website's `/domains` list, or the daily
+    shuffle under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`,
+    else in the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
 
     Args:
         ending (str | Unset):
@@ -336,9 +336,9 @@ async def asyncio_detailed(
 ) -> Response[Any | ListDomainsResponse200 | Problem]:
     """One-word catalog names under filters.
 
-     Free: at most 20 rows in the engine's neutral order (the cached public list, or the daily shuffle
-    under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`, else in
-    the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
+     Free: at most 20 rows in the engine's neutral order (the website's `/domains` list, or the daily
+    shuffle under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`,
+    else in the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
 
     Args:
         ending (str | Unset):
@@ -415,9 +415,9 @@ async def asyncio(
 ) -> Any | ListDomainsResponse200 | Problem | None:
     """One-word catalog names under filters.
 
-     Free: at most 20 rows in the engine's neutral order (the cached public list, or the daily shuffle
-    under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`, else in
-    the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
+     Free: at most 20 rows in the engine's neutral order (the website's `/domains` list, or the daily
+    shuffle under filters), one page. Keyed: pages of up to 100 in a neutral column order with `sort`,
+    else in the engine's own order, with the estimate, Est. profit, liquidity and verdict on each row.
 
     Args:
         ending (str | Unset):

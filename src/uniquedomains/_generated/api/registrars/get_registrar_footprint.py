@@ -114,10 +114,9 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetRegistrarFootprintResponse200 | Problem]:
-    """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
+    """Names tracked under the registrar, rounded, with its top endings.
 
-     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
-    row.
+     Keyed by IANA id; 404 for a registrar with no IANA id or no figures yet.
 
     Args:
         registrar (GetRegistrarFootprintRegistrar):
@@ -149,10 +148,9 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetRegistrarFootprintResponse200 | Problem | None:
-    """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
+    """Names tracked under the registrar, rounded, with its top endings.
 
-     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
-    row.
+     Keyed by IANA id; 404 for a registrar with no IANA id or no figures yet.
 
     Args:
         registrar (GetRegistrarFootprintRegistrar):
@@ -179,10 +177,9 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetRegistrarFootprintResponse200 | Problem]:
-    """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
+    """Names tracked under the registrar, rounded, with its top endings.
 
-     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
-    row.
+     Keyed by IANA id; 404 for a registrar with no IANA id or no figures yet.
 
     Args:
         registrar (GetRegistrarFootprintRegistrar):
@@ -212,10 +209,9 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetRegistrarFootprintResponse200 | Problem | None:
-    """Names tracked under the registrar on the latest footprint day, rounded, with its top endings.
+    """Names tracked under the registrar, rounded, with its top endings.
 
-     From the scanner's footprint figures, keyed by IANA id; 404 for a registrar with no IANA id or no
-    row.
+     Keyed by IANA id; 404 for a registrar with no IANA id or no figures yet.
 
     Args:
         registrar (GetRegistrarFootprintRegistrar):

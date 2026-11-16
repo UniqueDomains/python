@@ -111,7 +111,7 @@ def sync_detailed(
 ) -> Response[Any | GetNameHistoryResponse200 | Problem]:
     """The web history of one name as our bands: archive captures, authority band and language.
 
-     Every field is null when the name has no history row.
+     Every field is null when the name has no history record yet.
 
     Args:
         name (str):
@@ -145,7 +145,7 @@ def sync(
 ) -> Any | GetNameHistoryResponse200 | Problem | None:
     """The web history of one name as our bands: archive captures, authority band and language.
 
-     Every field is null when the name has no history row.
+     Every field is null when the name has no history record yet.
 
     Args:
         name (str):
@@ -174,7 +174,7 @@ async def asyncio_detailed(
 ) -> Response[Any | GetNameHistoryResponse200 | Problem]:
     """The web history of one name as our bands: archive captures, authority band and language.
 
-     Every field is null when the name has no history row.
+     Every field is null when the name has no history record yet.
 
     Args:
         name (str):
@@ -206,7 +206,7 @@ async def asyncio(
 ) -> Any | GetNameHistoryResponse200 | Problem | None:
     """The web history of one name as our bands: archive captures, authority band and language.
 
-     Every field is null when the name has no history row.
+     Every field is null when the name has no history record yet.
 
     Args:
         name (str):

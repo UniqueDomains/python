@@ -94,7 +94,8 @@ class ListDomainsResponse200DataItem:
         id (str): `dom_<uuid>`.
         name (str):
         ending (str):
-        status (ListDomainsResponse200DataItemStatus):
+        status (ListDomainsResponse200DataItemStatus): The status of the row. One name's own answer groups it for a
+            buyer: `resell` reads `for_sale` there (`at_auction` at a drop-catch venue), `premium` reads `free_premium`.
         price (float | None): Price today, USD.
         price_kind (ListDomainsResponse200DataItemPriceKindType1 | ListDomainsResponse200DataItemPriceKindType2Type1 |
             ListDomainsResponse200DataItemPriceKindType3Type1 | None):

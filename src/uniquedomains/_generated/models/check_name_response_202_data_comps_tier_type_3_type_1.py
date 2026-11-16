@@ -1,7 +1,7 @@
 from typing import Literal
 
 CheckNameResponse202DataCompsTierType3Type1 = Literal[
-    "market", "related", "same_word", "sold_before", "synonyms"
+    "market", "related", "same_type", "same_word", "sold_before", "synonyms"
 ]
 
 CHECK_NAME_RESPONSE_202_DATA_COMPS_TIER_TYPE_3_TYPE_1_VALUES: set[
@@ -9,6 +9,7 @@ CHECK_NAME_RESPONSE_202_DATA_COMPS_TIER_TYPE_3_TYPE_1_VALUES: set[
 ] = {
     "market",
     "related",
+    "same_type",
     "same_word",
     "sold_before",
     "synonyms",

@@ -186,7 +186,7 @@ def sync_detailed(
     """Searches the catalog's words by text and facets, alphabetically.
 
      Enabled words only, every word with a deny class left out. Alphabetical order only, keyset-paged by
-    `(word, id)`. Popularity and sentiment are numeric ranges on the stored 0 to 100 scale.
+    `(word, id)`. Popularity and sentiment are numeric ranges on the 0 to 100 scale.
 
     Args:
         q (str | Unset):
@@ -266,7 +266,7 @@ def sync(
     """Searches the catalog's words by text and facets, alphabetically.
 
      Enabled words only, every word with a deny class left out. Alphabetical order only, keyset-paged by
-    `(word, id)`. Popularity and sentiment are numeric ranges on the stored 0 to 100 scale.
+    `(word, id)`. Popularity and sentiment are numeric ranges on the 0 to 100 scale.
 
     Args:
         q (str | Unset):
@@ -341,7 +341,7 @@ async def asyncio_detailed(
     """Searches the catalog's words by text and facets, alphabetically.
 
      Enabled words only, every word with a deny class left out. Alphabetical order only, keyset-paged by
-    `(word, id)`. Popularity and sentiment are numeric ranges on the stored 0 to 100 scale.
+    `(word, id)`. Popularity and sentiment are numeric ranges on the 0 to 100 scale.
 
     Args:
         q (str | Unset):
@@ -419,7 +419,7 @@ async def asyncio(
     """Searches the catalog's words by text and facets, alphabetically.
 
      Enabled words only, every word with a deny class left out. Alphabetical order only, keyset-paged by
-    `(word, id)`. Popularity and sentiment are numeric ranges on the stored 0 to 100 scale.
+    `(word, id)`. Popularity and sentiment are numeric ranges on the 0 to 100 scale.
 
     Args:
         q (str | Unset):

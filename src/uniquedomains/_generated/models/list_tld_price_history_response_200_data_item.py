@@ -23,7 +23,7 @@ class ListTldPriceHistoryResponse200DataItem:
         is_promo (bool | None):
         first_seen_at (datetime.datetime): First observation of this price set.
         last_seen_at (datetime.datetime): Last observation.
-        observations (int): Reads that saw it.
+        observations (int): How many times this price set was observed.
     """
 
     registrar: str

@@ -1,7 +1,7 @@
 from typing import Literal
 
 GetNameCompsResponse200DataTierType1 = Literal[
-    "market", "related", "same_word", "sold_before", "synonyms"
+    "market", "related", "same_type", "same_word", "sold_before", "synonyms"
 ]
 
 GET_NAME_COMPS_RESPONSE_200_DATA_TIER_TYPE_1_VALUES: set[
@@ -9,6 +9,7 @@ GET_NAME_COMPS_RESPONSE_200_DATA_TIER_TYPE_1_VALUES: set[
 ] = {
     "market",
     "related",
+    "same_type",
     "same_word",
     "sold_before",
     "synonyms",

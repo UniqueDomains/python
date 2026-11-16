@@ -19,7 +19,7 @@ T = TypeVar("T", bound="ListRegistrarChangesResponse200DataItem")
 class ListRegistrarChangesResponse200DataItem:
     """
     Attributes:
-        id (str): `TldPriceChange.id` as a string.
+        id (str): The change's id, as a string.
         extension (str): Bare ending.
         registrar (str): Registrar slug.
         registrar_name (str): Display name.

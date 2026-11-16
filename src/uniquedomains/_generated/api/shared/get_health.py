@@ -104,7 +104,7 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetHealthResponse200 | Problem]:
-    """Liveness, with no database read.
+    """Liveness: `ok` with the server time.
 
      Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
@@ -135,7 +135,7 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetHealthResponse200 | Problem | None:
-    """Liveness, with no database read.
+    """Liveness: `ok` with the server time.
 
      Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
@@ -161,7 +161,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetHealthResponse200 | Problem]:
-    """Liveness, with no database read.
+    """Liveness: `ok` with the server time.
 
      Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 
@@ -190,7 +190,7 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetHealthResponse200 | Problem | None:
-    """Liveness, with no database read.
+    """Liveness: `ok` with the server time.
 
      Answers `ok` with the server time. Not counted against the free tier's per-address limits.
 

@@ -11,11 +11,12 @@ T = TypeVar("T", bound="GetMarketAuctionsResponse200DataCounts")
 
 @_attrs_define
 class GetMarketAuctionsResponse200DataCounts:
-    """
+    """The names we track at auction: one-word catalog names on the endings the catalog covers.
+
     Attributes:
-        today (int):
-        results (int):
-        all_ (int):
+        today (int): Tracked names that close within 24 hours and have a bid.
+        results (int): Tracked names that closed yesterday (UTC) with a recorded result.
+        all_ (int): Tracked names whose auction is open.
     """
 
     today: int

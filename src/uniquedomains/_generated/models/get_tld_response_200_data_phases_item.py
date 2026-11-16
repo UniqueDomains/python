@@ -19,7 +19,7 @@ T = TypeVar("T", bound="GetTldResponse200DataPhasesItem")
 class GetTldResponse200DataPhasesItem:
     """
     Attributes:
-        id (str): `TldLaunchPhase.id`.
+        id (str): The phase's id.
         phase (GetTldResponse200DataPhasesItemPhase):
         starts_on (datetime.date): First day.
         ends_on (datetime.date | None):

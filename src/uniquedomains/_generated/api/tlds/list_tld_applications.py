@@ -175,7 +175,7 @@ def sync_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListTldApplicationsResponse200 | Problem]:
-    """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
+    """ICANN's 2026 new gTLD round, A to Z, with two simple bands.
 
      Keyset on `(string, applicationId)`. `sort`, `dir`, `page` and `view` are refused.
 
@@ -233,7 +233,7 @@ def sync(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListTldApplicationsResponse200 | Problem | None:
-    """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
+    """ICANN's 2026 new gTLD round, A to Z, with two simple bands.
 
      Keyset on `(string, applicationId)`. `sort`, `dir`, `page` and `view` are refused.
 
@@ -286,7 +286,7 @@ async def asyncio_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListTldApplicationsResponse200 | Problem]:
-    """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
+    """ICANN's 2026 new gTLD round, A to Z, with two simple bands.
 
      Keyset on `(string, applicationId)`. `sort`, `dir`, `page` and `view` are refused.
 
@@ -342,7 +342,7 @@ async def asyncio(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListTldApplicationsResponse200 | Problem | None:
-    """The 2026 new gTLD round as ICANN publishes it, A to Z, with two simple bands.
+    """ICANN's 2026 new gTLD round, A to Z, with two simple bands.
 
      Keyset on `(string, applicationId)`. `sort`, `dir`, `page` and `view` are refused.
 

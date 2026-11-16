@@ -123,7 +123,7 @@ def sync_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListIanaRegistrarsResponse200 | Problem]:
-    """The IANA registrar list as the registry sync stores it, by id.
+    """The IANA registrar list, by IANA id.
 
      Ascending IANA id, keyset on the id.
 
@@ -163,7 +163,7 @@ def sync(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListIanaRegistrarsResponse200 | Problem | None:
-    """The IANA registrar list as the registry sync stores it, by id.
+    """The IANA registrar list, by IANA id.
 
      Ascending IANA id, keyset on the id.
 
@@ -198,7 +198,7 @@ async def asyncio_detailed(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Response[Any | ListIanaRegistrarsResponse200 | Problem]:
-    """The IANA registrar list as the registry sync stores it, by id.
+    """The IANA registrar list, by IANA id.
 
      Ascending IANA id, keyset on the id.
 
@@ -236,7 +236,7 @@ async def asyncio(
     cursor: str | Unset = UNSET,
     fields: str | Unset = UNSET,
 ) -> Any | ListIanaRegistrarsResponse200 | Problem | None:
-    """The IANA registrar list as the registry sync stores it, by id.
+    """The IANA registrar list, by IANA id.
 
      Ascending IANA id, keyset on the id.
 

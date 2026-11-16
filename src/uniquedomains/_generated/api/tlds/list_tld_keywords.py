@@ -122,8 +122,7 @@ def sync_detailed(
 ) -> Response[Any | ListTldKeywordsResponse200 | Problem]:
     """The keywords the catalog attaches to the ending, by type.
 
-     From `TldKeyword`, ordered by type then the catalog's position; a word with a deny class is left
-    out.
+     Ordered by type then the catalog's position; a word with a deny class is left out.
 
     Args:
         tld (str):
@@ -160,8 +159,7 @@ def sync(
 ) -> Any | ListTldKeywordsResponse200 | Problem | None:
     """The keywords the catalog attaches to the ending, by type.
 
-     From `TldKeyword`, ordered by type then the catalog's position; a word with a deny class is left
-    out.
+     Ordered by type then the catalog's position; a word with a deny class is left out.
 
     Args:
         tld (str):
@@ -193,8 +191,7 @@ async def asyncio_detailed(
 ) -> Response[Any | ListTldKeywordsResponse200 | Problem]:
     """The keywords the catalog attaches to the ending, by type.
 
-     From `TldKeyword`, ordered by type then the catalog's position; a word with a deny class is left
-    out.
+     Ordered by type then the catalog's position; a word with a deny class is left out.
 
     Args:
         tld (str):
@@ -229,8 +226,7 @@ async def asyncio(
 ) -> Any | ListTldKeywordsResponse200 | Problem | None:
     """The keywords the catalog attaches to the ending, by type.
 
-     From `TldKeyword`, ordered by type then the catalog's position; a word with a deny class is left
-    out.
+     Ordered by type then the catalog's position; a word with a deny class is left out.
 
     Args:
         tld (str):

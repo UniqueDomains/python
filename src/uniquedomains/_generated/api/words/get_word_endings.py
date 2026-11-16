@@ -113,10 +113,12 @@ def sync_detailed(
     fields: str | Unset = UNSET,
     include: str | Unset = UNSET,
 ) -> Response[Any | GetWordEndingsResponse200 | Problem]:
-    """A word's endings as the nightly update holds them: counts, the key endings and open names per
-    ending.
+    """A word's endings: counts, the key endings, and the endings the word is available on and for sale on.
 
-     Reads the `WordEndings` row. A word with no row yet answers zero counts. The cheapest ending is a
+     A word with no count yet answers `byGroup`, `openByEnding`, `availableOn` and `forSaleOn` null;
+    zeros and empty lists are real. `availableOn` names the endings where the word is unregistered at
+    the standard price. `forSaleOn` names the endings where it can be bought another way: at a premium
+    price, from a resale listing, or as a name that is expiring or expired. The cheapest ending is a
     keyed include only: a name chosen by price never reaches the free tier.
 
     Args:
@@ -152,10 +154,12 @@ def sync(
     fields: str | Unset = UNSET,
     include: str | Unset = UNSET,
 ) -> Any | GetWordEndingsResponse200 | Problem | None:
-    """A word's endings as the nightly update holds them: counts, the key endings and open names per
-    ending.
+    """A word's endings: counts, the key endings, and the endings the word is available on and for sale on.
 
-     Reads the `WordEndings` row. A word with no row yet answers zero counts. The cheapest ending is a
+     A word with no count yet answers `byGroup`, `openByEnding`, `availableOn` and `forSaleOn` null;
+    zeros and empty lists are real. `availableOn` names the endings where the word is unregistered at
+    the standard price. `forSaleOn` names the endings where it can be bought another way: at a premium
+    price, from a resale listing, or as a name that is expiring or expired. The cheapest ending is a
     keyed include only: a name chosen by price never reaches the free tier.
 
     Args:
@@ -186,10 +190,12 @@ async def asyncio_detailed(
     fields: str | Unset = UNSET,
     include: str | Unset = UNSET,
 ) -> Response[Any | GetWordEndingsResponse200 | Problem]:
-    """A word's endings as the nightly update holds them: counts, the key endings and open names per
-    ending.
+    """A word's endings: counts, the key endings, and the endings the word is available on and for sale on.
 
-     Reads the `WordEndings` row. A word with no row yet answers zero counts. The cheapest ending is a
+     A word with no count yet answers `byGroup`, `openByEnding`, `availableOn` and `forSaleOn` null;
+    zeros and empty lists are real. `availableOn` names the endings where the word is unregistered at
+    the standard price. `forSaleOn` names the endings where it can be bought another way: at a premium
+    price, from a resale listing, or as a name that is expiring or expired. The cheapest ending is a
     keyed include only: a name chosen by price never reaches the free tier.
 
     Args:
@@ -223,10 +229,12 @@ async def asyncio(
     fields: str | Unset = UNSET,
     include: str | Unset = UNSET,
 ) -> Any | GetWordEndingsResponse200 | Problem | None:
-    """A word's endings as the nightly update holds them: counts, the key endings and open names per
-    ending.
+    """A word's endings: counts, the key endings, and the endings the word is available on and for sale on.
 
-     Reads the `WordEndings` row. A word with no row yet answers zero counts. The cheapest ending is a
+     A word with no count yet answers `byGroup`, `openByEnding`, `availableOn` and `forSaleOn` null;
+    zeros and empty lists are real. `availableOn` names the endings where the word is unregistered at
+    the standard price. `forSaleOn` names the endings where it can be bought another way: at a premium
+    price, from a resale listing, or as a name that is expiring or expired. The cheapest ending is a
     keyed include only: a name chosen by price never reaches the free tier.
 
     Args:

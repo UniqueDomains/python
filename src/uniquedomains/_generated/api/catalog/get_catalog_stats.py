@@ -104,9 +104,9 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetCatalogStatsResponse200 | Problem]:
-    """Catalog headline totals for the latest day.
+    """Catalog headline totals.
 
-     The tracked names by status, the words and the endings covered, from the nightly update.
+     The tracked names by status, the words and the endings covered.
 
     Args:
         fields (str | Unset):
@@ -135,9 +135,9 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetCatalogStatsResponse200 | Problem | None:
-    """Catalog headline totals for the latest day.
+    """Catalog headline totals.
 
-     The tracked names by status, the words and the endings covered, from the nightly update.
+     The tracked names by status, the words and the endings covered.
 
     Args:
         fields (str | Unset):
@@ -161,9 +161,9 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetCatalogStatsResponse200 | Problem]:
-    """Catalog headline totals for the latest day.
+    """Catalog headline totals.
 
-     The tracked names by status, the words and the endings covered, from the nightly update.
+     The tracked names by status, the words and the endings covered.
 
     Args:
         fields (str | Unset):
@@ -190,9 +190,9 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetCatalogStatsResponse200 | Problem | None:
-    """Catalog headline totals for the latest day.
+    """Catalog headline totals.
 
-     The tracked names by status, the words and the endings covered, from the nightly update.
+     The tracked names by status, the words and the endings covered.
 
     Args:
         fields (str | Unset):

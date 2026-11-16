@@ -107,8 +107,8 @@ def sync_detailed(
     """The domain sales pulse as headline aggregates: windows, price bands and the sold-before count.
 
      Usable sales over 7 days, 30 days and 12 months with their medians (from three sales) and the
-    previous window of the same length, the price-band mix, and the size of the sold-before list. From
-    the nightly sales update; 503 `not_ready` before the first one.
+    previous window of the same length, the price-band mix, and the size of the sold-before list.
+    Updated daily; 503 `not_ready` until the first day's figures are ready.
 
     Args:
         fields (str | Unset):
@@ -140,8 +140,8 @@ def sync(
     """The domain sales pulse as headline aggregates: windows, price bands and the sold-before count.
 
      Usable sales over 7 days, 30 days and 12 months with their medians (from three sales) and the
-    previous window of the same length, the price-band mix, and the size of the sold-before list. From
-    the nightly sales update; 503 `not_ready` before the first one.
+    previous window of the same length, the price-band mix, and the size of the sold-before list.
+    Updated daily; 503 `not_ready` until the first day's figures are ready.
 
     Args:
         fields (str | Unset):
@@ -168,8 +168,8 @@ async def asyncio_detailed(
     """The domain sales pulse as headline aggregates: windows, price bands and the sold-before count.
 
      Usable sales over 7 days, 30 days and 12 months with their medians (from three sales) and the
-    previous window of the same length, the price-band mix, and the size of the sold-before list. From
-    the nightly sales update; 503 `not_ready` before the first one.
+    previous window of the same length, the price-band mix, and the size of the sold-before list.
+    Updated daily; 503 `not_ready` until the first day's figures are ready.
 
     Args:
         fields (str | Unset):
@@ -199,8 +199,8 @@ async def asyncio(
     """The domain sales pulse as headline aggregates: windows, price bands and the sold-before count.
 
      Usable sales over 7 days, 30 days and 12 months with their medians (from three sales) and the
-    previous window of the same length, the price-band mix, and the size of the sold-before list. From
-    the nightly sales update; 503 `not_ready` before the first one.
+    previous window of the same length, the price-band mix, and the size of the sold-before list.
+    Updated daily; 503 `not_ready` until the first day's figures are ready.
 
     Args:
         fields (str | Unset):

@@ -109,11 +109,11 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameCompsResponse200 | Problem]:
-    """The similar-sales aggregate of one name and the endings its word sold on.
+    """The similar-sales aggregate of one name and how many endings its word sold on.
 
-     Aggregates only: the tier of the sales behind the figure, their count and median, and the endings
-    the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold before);
-    free never does. A name the catalog never stored answers 200 with `tracked: false` and empty facts,
+     Aggregates only: the tier of the sales behind the figure, their count and median, and how many
+    endings the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold
+    before); free never does. A name outside the catalog answers 200 with `tier: null` and a count of 0,
     never 404.
 
     Args:
@@ -146,11 +146,11 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameCompsResponse200 | Problem | None:
-    """The similar-sales aggregate of one name and the endings its word sold on.
+    """The similar-sales aggregate of one name and how many endings its word sold on.
 
-     Aggregates only: the tier of the sales behind the figure, their count and median, and the endings
-    the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold before);
-    free never does. A name the catalog never stored answers 200 with `tracked: false` and empty facts,
+     Aggregates only: the tier of the sales behind the figure, their count and median, and how many
+    endings the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold
+    before); free never does. A name outside the catalog answers 200 with `tier: null` and a count of 0,
     never 404.
 
     Args:
@@ -178,11 +178,11 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNameCompsResponse200 | Problem]:
-    """The similar-sales aggregate of one name and the endings its word sold on.
+    """The similar-sales aggregate of one name and how many endings its word sold on.
 
-     Aggregates only: the tier of the sales behind the figure, their count and median, and the endings
-    the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold before);
-    free never does. A name the catalog never stored answers 200 with `tracked: false` and empty facts,
+     Aggregates only: the tier of the sales behind the figure, their count and median, and how many
+    endings the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold
+    before); free never does. A name outside the catalog answers 200 with `tier: null` and a count of 0,
     never 404.
 
     Args:
@@ -213,11 +213,11 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNameCompsResponse200 | Problem | None:
-    """The similar-sales aggregate of one name and the endings its word sold on.
+    """The similar-sales aggregate of one name and how many endings its word sold on.
 
-     Aggregates only: the tier of the sales behind the figure, their count and median, and the endings
-    the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold before);
-    free never does. A name the catalog never stored answers 200 with `tracked: false` and empty facts,
+     Aggregates only: the tier of the sales behind the figure, their count and median, and how many
+    endings the word sold on in 12 months. Keyed may read the `sold_before` tier (this exact name sold
+    before); free never does. A name outside the catalog answers 200 with `tier: null` and a count of 0,
     never 404.
 
     Args:

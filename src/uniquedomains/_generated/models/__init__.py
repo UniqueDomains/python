@@ -33,6 +33,15 @@ from .batch_names_response_200_data_item_type_0_comps_tier_type_2_type_1 import 
 from .batch_names_response_200_data_item_type_0_comps_tier_type_3_type_1 import (
     BatchNamesResponse200DataItemType0CompsTierType3Type1,
 )
+from .batch_names_response_200_data_item_type_0_cross_language_flag_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType1,
+)
+from .batch_names_response_200_data_item_type_0_cross_language_flag_type_2_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1,
+)
+from .batch_names_response_200_data_item_type_0_cross_language_flag_type_3_type_1 import (
+    BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1,
+)
 from .batch_names_response_200_data_item_type_0_drop import (
     BatchNamesResponse200DataItemType0Drop,
 )
@@ -47,6 +56,12 @@ from .batch_names_response_200_data_item_type_0_format_type_2_type_1 import (
 )
 from .batch_names_response_200_data_item_type_0_format_type_3_type_1 import (
     BatchNamesResponse200DataItemType0FormatType3Type1,
+)
+from .batch_names_response_200_data_item_type_0_name_label_type_0 import (
+    BatchNamesResponse200DataItemType0NameLabelType0,
+)
+from .batch_names_response_200_data_item_type_0_name_label_type_0_type import (
+    BatchNamesResponse200DataItemType0NameLabelType0Type,
 )
 from .batch_names_response_200_data_item_type_0_price import (
     BatchNamesResponse200DataItemType0Price,
@@ -136,6 +151,15 @@ from .batch_words_response_200_data_item_type_0 import (
 )
 from .batch_words_response_200_data_item_type_0_categories_item import (
     BatchWordsResponse200DataItemType0CategoriesItem,
+)
+from .batch_words_response_200_data_item_type_0_cross_language_flag_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType1,
+)
+from .batch_words_response_200_data_item_type_0_cross_language_flag_type_2_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1,
+)
+from .batch_words_response_200_data_item_type_0_cross_language_flag_type_3_type_1 import (
+    BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1,
 )
 from .batch_words_response_200_data_item_type_0_deny_class_type_1 import (
     BatchWordsResponse200DataItemType0DenyClassType1,
@@ -232,6 +256,15 @@ from .check_name_response_200_data_comps_tier_type_2_type_1 import (
 from .check_name_response_200_data_comps_tier_type_3_type_1 import (
     CheckNameResponse200DataCompsTierType3Type1,
 )
+from .check_name_response_200_data_cross_language_flag_type_1 import (
+    CheckNameResponse200DataCrossLanguageFlagType1,
+)
+from .check_name_response_200_data_cross_language_flag_type_2_type_1 import (
+    CheckNameResponse200DataCrossLanguageFlagType2Type1,
+)
+from .check_name_response_200_data_cross_language_flag_type_3_type_1 import (
+    CheckNameResponse200DataCrossLanguageFlagType3Type1,
+)
 from .check_name_response_200_data_drop import CheckNameResponse200DataDrop
 from .check_name_response_200_data_drop_kind import CheckNameResponse200DataDropKind
 from .check_name_response_200_data_format_type_1 import (
@@ -242,6 +275,12 @@ from .check_name_response_200_data_format_type_2_type_1 import (
 )
 from .check_name_response_200_data_format_type_3_type_1 import (
     CheckNameResponse200DataFormatType3Type1,
+)
+from .check_name_response_200_data_name_label_type_0 import (
+    CheckNameResponse200DataNameLabelType0,
+)
+from .check_name_response_200_data_name_label_type_0_type import (
+    CheckNameResponse200DataNameLabelType0Type,
 )
 from .check_name_response_200_data_price import CheckNameResponse200DataPrice
 from .check_name_response_200_data_price_kind_type_1 import (
@@ -317,6 +356,15 @@ from .check_name_response_202_data_comps_tier_type_2_type_1 import (
 from .check_name_response_202_data_comps_tier_type_3_type_1 import (
     CheckNameResponse202DataCompsTierType3Type1,
 )
+from .check_name_response_202_data_cross_language_flag_type_1 import (
+    CheckNameResponse202DataCrossLanguageFlagType1,
+)
+from .check_name_response_202_data_cross_language_flag_type_2_type_1 import (
+    CheckNameResponse202DataCrossLanguageFlagType2Type1,
+)
+from .check_name_response_202_data_cross_language_flag_type_3_type_1 import (
+    CheckNameResponse202DataCrossLanguageFlagType3Type1,
+)
 from .check_name_response_202_data_drop import CheckNameResponse202DataDrop
 from .check_name_response_202_data_drop_kind import CheckNameResponse202DataDropKind
 from .check_name_response_202_data_format_type_1 import (
@@ -327,6 +375,12 @@ from .check_name_response_202_data_format_type_2_type_1 import (
 )
 from .check_name_response_202_data_format_type_3_type_1 import (
     CheckNameResponse202DataFormatType3Type1,
+)
+from .check_name_response_202_data_name_label_type_0 import (
+    CheckNameResponse202DataNameLabelType0,
+)
+from .check_name_response_202_data_name_label_type_0_type import (
+    CheckNameResponse202DataNameLabelType0Type,
 )
 from .check_name_response_202_data_price import CheckNameResponse202DataPrice
 from .check_name_response_202_data_price_kind_type_1 import (
@@ -473,6 +527,15 @@ from .get_domain_response_200_data_comps_tier_type_2_type_1 import (
 from .get_domain_response_200_data_comps_tier_type_3_type_1 import (
     GetDomainResponse200DataCompsTierType3Type1,
 )
+from .get_domain_response_200_data_cross_language_flag_type_1 import (
+    GetDomainResponse200DataCrossLanguageFlagType1,
+)
+from .get_domain_response_200_data_cross_language_flag_type_2_type_1 import (
+    GetDomainResponse200DataCrossLanguageFlagType2Type1,
+)
+from .get_domain_response_200_data_cross_language_flag_type_3_type_1 import (
+    GetDomainResponse200DataCrossLanguageFlagType3Type1,
+)
 from .get_domain_response_200_data_drop import GetDomainResponse200DataDrop
 from .get_domain_response_200_data_drop_kind import GetDomainResponse200DataDropKind
 from .get_domain_response_200_data_format_type_1 import (
@@ -483,6 +546,12 @@ from .get_domain_response_200_data_format_type_2_type_1 import (
 )
 from .get_domain_response_200_data_format_type_3_type_1 import (
     GetDomainResponse200DataFormatType3Type1,
+)
+from .get_domain_response_200_data_name_label_type_0 import (
+    GetDomainResponse200DataNameLabelType0,
+)
+from .get_domain_response_200_data_name_label_type_0_type import (
+    GetDomainResponse200DataNameLabelType0Type,
 )
 from .get_domain_response_200_data_price import GetDomainResponse200DataPrice
 from .get_domain_response_200_data_price_kind_type_1 import (
@@ -932,6 +1001,15 @@ from .get_name_response_200_data_comps_tier_type_2_type_1 import (
 from .get_name_response_200_data_comps_tier_type_3_type_1 import (
     GetNameResponse200DataCompsTierType3Type1,
 )
+from .get_name_response_200_data_cross_language_flag_type_1 import (
+    GetNameResponse200DataCrossLanguageFlagType1,
+)
+from .get_name_response_200_data_cross_language_flag_type_2_type_1 import (
+    GetNameResponse200DataCrossLanguageFlagType2Type1,
+)
+from .get_name_response_200_data_cross_language_flag_type_3_type_1 import (
+    GetNameResponse200DataCrossLanguageFlagType3Type1,
+)
 from .get_name_response_200_data_drop import GetNameResponse200DataDrop
 from .get_name_response_200_data_drop_kind import GetNameResponse200DataDropKind
 from .get_name_response_200_data_format_type_1 import GetNameResponse200DataFormatType1
@@ -940,6 +1018,12 @@ from .get_name_response_200_data_format_type_2_type_1 import (
 )
 from .get_name_response_200_data_format_type_3_type_1 import (
     GetNameResponse200DataFormatType3Type1,
+)
+from .get_name_response_200_data_name_label_type_0 import (
+    GetNameResponse200DataNameLabelType0,
+)
+from .get_name_response_200_data_name_label_type_0_type import (
+    GetNameResponse200DataNameLabelType0Type,
 )
 from .get_name_response_200_data_price import GetNameResponse200DataPrice
 from .get_name_response_200_data_price_kind_type_1 import (
@@ -1126,8 +1210,8 @@ from .get_venue_response_200_data_listing_terms_type_0 import (
 )
 from .get_word_endings_response_200 import GetWordEndingsResponse200
 from .get_word_endings_response_200_data import GetWordEndingsResponse200Data
-from .get_word_endings_response_200_data_by_group import (
-    GetWordEndingsResponse200DataByGroup,
+from .get_word_endings_response_200_data_by_group_type_0 import (
+    GetWordEndingsResponse200DataByGroupType0,
 )
 from .get_word_endings_response_200_data_cheapest import (
     GetWordEndingsResponse200DataCheapest,
@@ -1135,8 +1219,8 @@ from .get_word_endings_response_200_data_cheapest import (
 from .get_word_endings_response_200_data_key_endings_item import (
     GetWordEndingsResponse200DataKeyEndingsItem,
 )
-from .get_word_endings_response_200_data_open_by_ending import (
-    GetWordEndingsResponse200DataOpenByEnding,
+from .get_word_endings_response_200_data_open_by_ending_type_0 import (
+    GetWordEndingsResponse200DataOpenByEndingType0,
 )
 from .get_word_market_response_200 import GetWordMarketResponse200
 from .get_word_market_response_200_data import GetWordMarketResponse200Data
@@ -1161,6 +1245,15 @@ from .get_word_response_200 import GetWordResponse200
 from .get_word_response_200_data import GetWordResponse200Data
 from .get_word_response_200_data_categories_item import (
     GetWordResponse200DataCategoriesItem,
+)
+from .get_word_response_200_data_cross_language_flag_type_1 import (
+    GetWordResponse200DataCrossLanguageFlagType1,
+)
+from .get_word_response_200_data_cross_language_flag_type_2_type_1 import (
+    GetWordResponse200DataCrossLanguageFlagType2Type1,
+)
+from .get_word_response_200_data_cross_language_flag_type_3_type_1 import (
+    GetWordResponse200DataCrossLanguageFlagType3Type1,
 )
 from .get_word_response_200_data_deny_class_type_1 import (
     GetWordResponse200DataDenyClassType1,
@@ -1818,11 +1911,16 @@ __all__ = (
     "BatchNamesResponse200DataItemType0CompsTierType1",
     "BatchNamesResponse200DataItemType0CompsTierType2Type1",
     "BatchNamesResponse200DataItemType0CompsTierType3Type1",
+    "BatchNamesResponse200DataItemType0CrossLanguageFlagType1",
+    "BatchNamesResponse200DataItemType0CrossLanguageFlagType2Type1",
+    "BatchNamesResponse200DataItemType0CrossLanguageFlagType3Type1",
     "BatchNamesResponse200DataItemType0Drop",
     "BatchNamesResponse200DataItemType0DropKind",
     "BatchNamesResponse200DataItemType0FormatType1",
     "BatchNamesResponse200DataItemType0FormatType2Type1",
     "BatchNamesResponse200DataItemType0FormatType3Type1",
+    "BatchNamesResponse200DataItemType0NameLabelType0",
+    "BatchNamesResponse200DataItemType0NameLabelType0Type",
     "BatchNamesResponse200DataItemType0Price",
     "BatchNamesResponse200DataItemType0PriceKindType1",
     "BatchNamesResponse200DataItemType0PriceKindType2Type1",
@@ -1854,6 +1952,9 @@ __all__ = (
     "BatchWordsResponse200",
     "BatchWordsResponse200DataItemType0",
     "BatchWordsResponse200DataItemType0CategoriesItem",
+    "BatchWordsResponse200DataItemType0CrossLanguageFlagType1",
+    "BatchWordsResponse200DataItemType0CrossLanguageFlagType2Type1",
+    "BatchWordsResponse200DataItemType0CrossLanguageFlagType3Type1",
     "BatchWordsResponse200DataItemType0DenyClassType1",
     "BatchWordsResponse200DataItemType0DenyClassType2Type1",
     "BatchWordsResponse200DataItemType0DenyClassType3Type1",
@@ -1889,11 +1990,16 @@ __all__ = (
     "CheckNameResponse200DataCompsTierType1",
     "CheckNameResponse200DataCompsTierType2Type1",
     "CheckNameResponse200DataCompsTierType3Type1",
+    "CheckNameResponse200DataCrossLanguageFlagType1",
+    "CheckNameResponse200DataCrossLanguageFlagType2Type1",
+    "CheckNameResponse200DataCrossLanguageFlagType3Type1",
     "CheckNameResponse200DataDrop",
     "CheckNameResponse200DataDropKind",
     "CheckNameResponse200DataFormatType1",
     "CheckNameResponse200DataFormatType2Type1",
     "CheckNameResponse200DataFormatType3Type1",
+    "CheckNameResponse200DataNameLabelType0",
+    "CheckNameResponse200DataNameLabelType0Type",
     "CheckNameResponse200DataPrice",
     "CheckNameResponse200DataPriceKindType1",
     "CheckNameResponse200DataPriceKindType2Type1",
@@ -1924,11 +2030,16 @@ __all__ = (
     "CheckNameResponse202DataCompsTierType1",
     "CheckNameResponse202DataCompsTierType2Type1",
     "CheckNameResponse202DataCompsTierType3Type1",
+    "CheckNameResponse202DataCrossLanguageFlagType1",
+    "CheckNameResponse202DataCrossLanguageFlagType2Type1",
+    "CheckNameResponse202DataCrossLanguageFlagType3Type1",
     "CheckNameResponse202DataDrop",
     "CheckNameResponse202DataDropKind",
     "CheckNameResponse202DataFormatType1",
     "CheckNameResponse202DataFormatType2Type1",
     "CheckNameResponse202DataFormatType3Type1",
+    "CheckNameResponse202DataNameLabelType0",
+    "CheckNameResponse202DataNameLabelType0Type",
     "CheckNameResponse202DataPrice",
     "CheckNameResponse202DataPriceKindType1",
     "CheckNameResponse202DataPriceKindType2Type1",
@@ -1988,11 +2099,16 @@ __all__ = (
     "GetDomainResponse200DataCompsTierType1",
     "GetDomainResponse200DataCompsTierType2Type1",
     "GetDomainResponse200DataCompsTierType3Type1",
+    "GetDomainResponse200DataCrossLanguageFlagType1",
+    "GetDomainResponse200DataCrossLanguageFlagType2Type1",
+    "GetDomainResponse200DataCrossLanguageFlagType3Type1",
     "GetDomainResponse200DataDrop",
     "GetDomainResponse200DataDropKind",
     "GetDomainResponse200DataFormatType1",
     "GetDomainResponse200DataFormatType2Type1",
     "GetDomainResponse200DataFormatType3Type1",
+    "GetDomainResponse200DataNameLabelType0",
+    "GetDomainResponse200DataNameLabelType0Type",
     "GetDomainResponse200DataPrice",
     "GetDomainResponse200DataPriceKindType1",
     "GetDomainResponse200DataPriceKindType2Type1",
@@ -2183,11 +2299,16 @@ __all__ = (
     "GetNameResponse200DataCompsTierType1",
     "GetNameResponse200DataCompsTierType2Type1",
     "GetNameResponse200DataCompsTierType3Type1",
+    "GetNameResponse200DataCrossLanguageFlagType1",
+    "GetNameResponse200DataCrossLanguageFlagType2Type1",
+    "GetNameResponse200DataCrossLanguageFlagType3Type1",
     "GetNameResponse200DataDrop",
     "GetNameResponse200DataDropKind",
     "GetNameResponse200DataFormatType1",
     "GetNameResponse200DataFormatType2Type1",
     "GetNameResponse200DataFormatType3Type1",
+    "GetNameResponse200DataNameLabelType0",
+    "GetNameResponse200DataNameLabelType0Type",
     "GetNameResponse200DataPrice",
     "GetNameResponse200DataPriceKindType1",
     "GetNameResponse200DataPriceKindType2Type1",
@@ -2271,10 +2392,10 @@ __all__ = (
     "GetVenueResponse200DataListingTermsType0",
     "GetWordEndingsResponse200",
     "GetWordEndingsResponse200Data",
-    "GetWordEndingsResponse200DataByGroup",
+    "GetWordEndingsResponse200DataByGroupType0",
     "GetWordEndingsResponse200DataCheapest",
     "GetWordEndingsResponse200DataKeyEndingsItem",
-    "GetWordEndingsResponse200DataOpenByEnding",
+    "GetWordEndingsResponse200DataOpenByEndingType0",
     "GetWordMarketResponse200",
     "GetWordMarketResponse200Data",
     "GetWordMarketResponse200DataOpenAuctionsByEnding",
@@ -2289,6 +2410,9 @@ __all__ = (
     "GetWordResponse200",
     "GetWordResponse200Data",
     "GetWordResponse200DataCategoriesItem",
+    "GetWordResponse200DataCrossLanguageFlagType1",
+    "GetWordResponse200DataCrossLanguageFlagType2Type1",
+    "GetWordResponse200DataCrossLanguageFlagType3Type1",
     "GetWordResponse200DataDenyClassType1",
     "GetWordResponse200DataDenyClassType2Type1",
     "GetWordResponse200DataDenyClassType3Type1",

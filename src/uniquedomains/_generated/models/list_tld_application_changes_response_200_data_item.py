@@ -24,7 +24,7 @@ class ListTldApplicationChangesResponse200DataItem:
         kind (ListTldApplicationChangesResponse200DataItemKind):
         before (None | str):
         after (None | str):
-        seen_at (datetime.datetime): Timestamp the import saw it.
+        seen_at (datetime.datetime): When the change was seen.
     """
 
     application_id: str

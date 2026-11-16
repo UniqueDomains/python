@@ -111,8 +111,8 @@ def sync_detailed(
 ) -> Response[Any | GetWordResponse200 | Problem]:
     """A word's profile: definition, facets, categories, origin and linguistics.
 
-     Reads the catalog `Word` row and its categories. A word unknown, disabled, offensive or not a word
-    answers 404 with up to five candidates.
+     The word's profile and its categories. A word unknown, disabled, offensive or not a word answers 404
+    with up to five candidates.
 
     Args:
         word (str):
@@ -146,8 +146,8 @@ def sync(
 ) -> Any | GetWordResponse200 | Problem | None:
     """A word's profile: definition, facets, categories, origin and linguistics.
 
-     Reads the catalog `Word` row and its categories. A word unknown, disabled, offensive or not a word
-    answers 404 with up to five candidates.
+     The word's profile and its categories. A word unknown, disabled, offensive or not a word answers 404
+    with up to five candidates.
 
     Args:
         word (str):
@@ -176,8 +176,8 @@ async def asyncio_detailed(
 ) -> Response[Any | GetWordResponse200 | Problem]:
     """A word's profile: definition, facets, categories, origin and linguistics.
 
-     Reads the catalog `Word` row and its categories. A word unknown, disabled, offensive or not a word
-    answers 404 with up to five candidates.
+     The word's profile and its categories. A word unknown, disabled, offensive or not a word answers 404
+    with up to five candidates.
 
     Args:
         word (str):
@@ -209,8 +209,8 @@ async def asyncio(
 ) -> Any | GetWordResponse200 | Problem | None:
     """A word's profile: definition, facets, categories, origin and linguistics.
 
-     Reads the catalog `Word` row and its categories. A word unknown, disabled, offensive or not a word
-    answers 404 with up to five candidates.
+     The word's profile and its categories. A word unknown, disabled, offensive or not a word answers 404
+    with up to five candidates.
 
     Args:
         word (str):

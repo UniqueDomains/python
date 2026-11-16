@@ -109,10 +109,10 @@ def sync_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNamePricesResponse200 | Problem]:
-    """Every stored registrar quote for one name, and the renewal-trap flag.
+    """Every registrar quote for one name, and the renewal-trap flag.
 
      Cheapest first year first. The quote list stays out of the free tier; the free price facts are the
-    `price` block of `GET /names/{name}`. A name the catalog never stored answers `quotes: []`.
+    `price` block of `GET /names/{name}`. A name outside the catalog answers `quotes: []`.
 
     Args:
         name (str):
@@ -144,10 +144,10 @@ def sync(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNamePricesResponse200 | Problem | None:
-    """Every stored registrar quote for one name, and the renewal-trap flag.
+    """Every registrar quote for one name, and the renewal-trap flag.
 
      Cheapest first year first. The quote list stays out of the free tier; the free price facts are the
-    `price` block of `GET /names/{name}`. A name the catalog never stored answers `quotes: []`.
+    `price` block of `GET /names/{name}`. A name outside the catalog answers `quotes: []`.
 
     Args:
         name (str):
@@ -174,10 +174,10 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Response[Any | GetNamePricesResponse200 | Problem]:
-    """Every stored registrar quote for one name, and the renewal-trap flag.
+    """Every registrar quote for one name, and the renewal-trap flag.
 
      Cheapest first year first. The quote list stays out of the free tier; the free price facts are the
-    `price` block of `GET /names/{name}`. A name the catalog never stored answers `quotes: []`.
+    `price` block of `GET /names/{name}`. A name outside the catalog answers `quotes: []`.
 
     Args:
         name (str):
@@ -207,10 +207,10 @@ async def asyncio(
     client: AuthenticatedClient,
     fields: str | Unset = UNSET,
 ) -> Any | GetNamePricesResponse200 | Problem | None:
-    """Every stored registrar quote for one name, and the renewal-trap flag.
+    """Every registrar quote for one name, and the renewal-trap flag.
 
      Cheapest first year first. The quote list stays out of the free tier; the free price facts are the
-    `price` block of `GET /names/{name}`. A name the catalog never stored answers `quotes: []`.
+    `price` block of `GET /names/{name}`. A name outside the catalog answers `quotes: []`.
 
     Args:
         name (str):
