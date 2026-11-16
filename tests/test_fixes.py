@@ -309,6 +309,15 @@ def test_the_endings_answer_names_the_endings_by_group(ud: Client) -> None:
     data = ud.words.get_word_endings("lantern").data
     assert data.available_on == ["co", "io"]
     assert data.for_sale_on == ["studio"]
+    assert type(data.by_group).__name__ == "GetWordEndingsResponse200DataByGroupType0" and data.by_group.scanned == 3
+    assert type(data.open_by_ending).__name__ == "GetWordEndingsResponse200DataOpenByEndingType0"
+
+
+def test_a_counted_word_not_split_yet_reads_its_lists_as_none(ud: Client) -> None:
+    data = ud.words.get_word_endings("harbor").data
+    assert data.available_on is None and data.for_sale_on is None
+    assert data.by_group is not None and data.by_group.scanned == 2
+    assert data.open_by_ending is not None and data.open_by_ending.additional_properties == {"co": 1, "io": 1}
 
 
 def test_a_word_with_no_count_yet_reads_its_lists_and_counts_as_none(ud: Client) -> None:

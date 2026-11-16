@@ -354,6 +354,23 @@ def synthetic() -> list[dict[str, Any]]:
             ),
         },
         {
+            "name": "endings-not-split-yet",
+            "request": {"method": "GET", "path": "/words/harbor/endings"},
+            "response": answer(
+                200,
+                envelope(
+                    {
+                        "byGroup": {"scanned": 2, "taken": 0, "available": 1, "forSale": 1},
+                        "keyEndings": [],
+                        "openByEnding": {"co": 1, "io": 1},
+                        "availableOn": None,
+                        "forSaleOn": None,
+                    },
+                    "/words/harbor/endings",
+                ),
+            ),
+        },
+        {
             "name": "endings-not-counted",
             "request": {"method": "GET", "path": "/words/zorbly/endings"},
             "response": answer(
