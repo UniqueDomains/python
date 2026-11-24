@@ -159,7 +159,7 @@ for row in ud.iter_rows("list_tlds", query={"publicSet": True}, max_rows=50):
 
 - [The API reference](https://unique.domains/api): every endpoint, with examples.
 - [The datasets](https://github.com/UniqueDomains): one-word domain names, expiring names, the daily editions and the new gTLD applications, as files on GitHub.
-- [`@uniquedomains/sdk`](https://www.npmjs.com/package/@uniquedomains/sdk): the Node client, with the `ud` command in [`@uniquedomains/cli`](https://www.npmjs.com/package/@uniquedomains/cli) ([UniqueDomains/nodejs](https://github.com/UniqueDomains/nodejs)).
+- [`domain-name-api`](https://www.npmjs.com/package/domain-name-api): the Node client, with the `ud` command in [`@uniquedomains/cli`](https://www.npmjs.com/package/@uniquedomains/cli) ([UniqueDomains/nodejs](https://github.com/UniqueDomains/nodejs)).
 - [`@uniquedomains/mcp-server`](https://www.npmjs.com/package/@uniquedomains/mcp-server): the API as tools for AI assistants, through the Model Context Protocol, also hosted at `https://mcp.unique.domains/mcp` ([UniqueDomains/mcp-server](https://github.com/UniqueDomains/mcp-server)).
 
 ## Working on this repository
